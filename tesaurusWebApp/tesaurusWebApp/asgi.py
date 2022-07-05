@@ -1,5 +1,5 @@
 """
-ASGI config for IphesKeywords project.
+ASGI config for tesaurusWebApp project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'IphesKeywords.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tesaurusWebApp.settings')
 
 application = get_asgi_application()
