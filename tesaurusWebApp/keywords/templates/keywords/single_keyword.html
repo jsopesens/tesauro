@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>{{keyword}}</h1>
+    <hr>
+    <h2>hasTopConcept</h2>
+    {% for data in keyword_data %}
+        {% if data.1 == 'hasTopConcept' %}
+            <p>{{data.0}}</p>
+        {% endif %}
+    {% endfor %}
+    <hr>
+    <h2>broader</h2>
+    {% for data in keyword_data %}
+        {% if data.1 == 'broader' %}
+            <p>{{data.0}}</p>
+        {% endif %}
+    {% endfor %}
+    <hr>
+</body>
+
+</html>

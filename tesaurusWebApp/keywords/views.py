@@ -1,21 +1,27 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
-from django.template.loader import render_to_string
+from django.urls import reverse
 
-from rdflib import SKOS, Graph
-from rdflib.namespace import RDF
+from .tesaurus import Tesaurus
+
+Tesaurus = Tesaurus()
 
 
 def index(request):
-    g = Graph()
-    g.parse("3.owl")
-    keywords = []
-    for object in g.objects(None, SKOS.prefLabel):
-        keywords.append(object)
-    return render(request, "keywords/index.html",{
+    keywords = Tesaurus.get_all_prefLabel()
+    return render(request, "keywords/index.html", {
         "keywords": keywords
     })
 
 
-def keywords(request, keyword):
-    return HttpResponse(keyword)
+def keywords(request, keyword: str):
+    # check keyword exists
+    if not Tesaurus.keyword_exists(keyword):
+        return HttpResponseNotFound("keyword doesn't exist")
+
+    # return every piece of information associated
+    keyword_data = Tesaurus.get_data(keyword)
+    return render(request, 'keywords/single_keyword.html', {
+        "keyword": keyword,
+        "keyword_data": keyword_data
+    })
