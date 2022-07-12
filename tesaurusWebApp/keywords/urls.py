@@ -6,5 +6,5 @@ from . import views
 # instead of redirecting one by one
 urlpatterns = [
     path("", views.index),
-    path("<str:keyword>", views.keywords, name="singular_keyword")
+    path("<str:keyword>", views.keyword, name="singular_keyword")
 ]

@@ -14,14 +14,14 @@ def index(request):
     })
 
 
-def keywords(request, keyword: str):
+def keyword(request, keyword: str):
     # check keyword exists
-    if not Tesaurus.keyword_exists(keyword):
+    if not Tesaurus.keywordExists(keyword):
         return HttpResponseNotFound("keyword doesn't exist")
 
     # return every piece of information associated
-    keyword_data= Tesaurus.get_data(keyword)
-    return render(request, 'keywords/single_keyword.html', {
+    keywordData = Tesaurus.getKeywordData(keyword)
+    return render(request, 'keywords/single_keyword copy.html', {
         "keyword": keyword,
-        "keyword_data": keyword_data,
+        "keywordData": keywordData,
     })

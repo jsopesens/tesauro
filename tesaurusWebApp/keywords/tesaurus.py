@@ -1,3 +1,5 @@
+from typing import Literal
+from django.forms import URLField
 from rdflib import SKOS, Graph, RDF, OWL, URIRef
 
 
@@ -5,7 +7,7 @@ class Tesaurus():
     def __init__(self):
         self.g = Graph()
         self.g.parse('3.owl')
-        self.uri = URIRef('http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeyWords')
+        self.uri = URIRef('http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeyWords#')
 
     def getAllKeywords(self) -> list['str']:
         keywords = []
@@ -24,13 +26,12 @@ class Tesaurus():
             keywords.append(str(object))
         return keywords
 
-    def keyword_exists(self, keyword: str) -> bool:
+    def keywordExists(self, keyword: str) -> bool:
         keywords = self.getAllKeywords()
         return (str(keyword) in keywords)
 
-    def get_data(self, keyword: str) -> list:
+    def getKeywordData(self, keyword: str) -> list:
         data = []
-        subject_predicates = self.g.subject_predicates(self.uri + "#" + keyword)
-        for subject, predicate in subject_predicates:
-            data.append([subject.split('#')[1], predicate.split('#')[1]])
+        for predicate, object in self.g.predicate_objects(URIRef(self.uri+keyword)):
+            data.append([predicate, object])
         return data
