@@ -21,7 +21,7 @@ def keyword(request, keyword: str):
 
     # return every piece of information associated
     keywordData = Tesaurus.getKeywordData(keyword)
-    return render(request, 'keywords/single_keyword copy.html', {
+    return render(request, 'keywords/single_keyword.html', {
         "keyword": keyword,
         "keywordData": keywordData,
     })

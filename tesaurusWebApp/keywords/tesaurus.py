@@ -1,5 +1,3 @@
-from typing import Literal
-from django.forms import URLField
 from rdflib import SKOS, Graph, RDF, OWL, URIRef
 
 
@@ -16,10 +14,6 @@ class Tesaurus():
                 keywords.append(subject.lower().split('#')[1])
         return keywords
 
-    # esta funcion no se usa de forma adecuada.
-    # actualmente, se esta usando para sacar todos los terminos, 
-    # pero si hubiera terminos en ingles, catalan o castellano, 
-    # generaria mas terminos de los que hay en realidad
     def get_all_prefLabel(self) -> list['str']:
         keywords = []
         for object in self.g.objects(None, SKOS.prefLabel):
@@ -33,5 +27,17 @@ class Tesaurus():
     def getKeywordData(self, keyword: str) -> list:
         data = []
         for predicate, object in self.g.predicate_objects(URIRef(self.uri+keyword)):
+            predicate = predicate.split('#')[1]
+            if object == URIRef(object):
+                object = object.split('#')[1]
+            else:
+                object = object.toPython()
             data.append([predicate, object])
-        return data
+
+        myDict = {}
+        for predicate, object in data:
+            if not predicate in myDict:
+                myDict[predicate] = [object]
+            else:
+                myDict[predicate].append(object)
+        return myDict
