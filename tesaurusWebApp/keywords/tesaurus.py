@@ -1,4 +1,4 @@
-from rdflib import SKOS, Graph, RDF, OWL, URIRef
+from rdflib import SKOS, Graph, RDF, OWL, URIRef, Literal
 
 
 class Tesaurus():
@@ -30,8 +30,8 @@ class Tesaurus():
             predicate = predicate.split('#')[1]
             if object == URIRef(object):
                 object = object.split('#')[1]
-            else:
-                object = object.toPython()
+            if object == Literal(object):
+                object = Literal(object).normalize()
             data.append([predicate, object])
 
         myDict = {}
