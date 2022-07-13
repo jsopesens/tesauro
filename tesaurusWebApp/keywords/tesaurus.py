@@ -19,22 +19,17 @@ class Tesaurus():
         return (str(keyword) in keywords)
 
     def getKeywordData(self, keyword: str) -> list:
-        data = []
+        keywordData = {}
+        # parse keyword data
         for predicate, object in self.g.predicate_objects(URIRef(self.uri+keyword)):
             predicate = predicate.split('#')[1]
             if object == URIRef(object):
                 object = object.split('#')[1]
             if object == Literal(object):
                 object = object.value, object.language
-
-            data.append([predicate, object])
-
-        myDict = {}
-        for predicate, object in data:
-            if not predicate in myDict:
-                myDict[predicate] = [object]
+            # insert in dictionary
+            if not predicate in keywordData:
+                keywordData[predicate] = [object]
             else:
-                myDict[predicate].append(object)
-        return myDict
-        # TODO it's possible to join the two for loops in one.
-        # Instead of data[] and myDict{}, use directly the dictionary way
+                keywordData[predicate].append(object)
+        return keywordData
