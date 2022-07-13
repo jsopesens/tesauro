@@ -7,10 +7,42 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>{{keyword|title}}</h1>
+    <hr>
+    <h2>
+        InScheme: <a href="/keywords/{{keywordData.inScheme.0}}">{{keywordData.inScheme.0|title}}</a>
+    </h2>
+    <hr>
+    <h2>hasTopConcept:</h2>
     <ul>
-        {% for key, value in keywordData.items %} 
-          <li>{{key}} - {{value}}</li>
+        {% for term in keywordData.hasTopConcept %}
+            <li><a href="/keywords/{{term}}">{{term|title}}</a></li>
         {% endfor %}
     </ul>
+    <hr> 
+    <h2>
+        Narrower:
+    </h2>
+    <ul>
+        {% for term in keywordData.narrower %}
+            <li><a href="/keywords/{{term}}">{{ term|title }}</a></li>
+        {% endfor %}
+    </ul>
+    <hr>
+    <h2>
+        Broader: <a href="/keywords/{{keywordData.broader.0}}">{{keywordData.broader.0|title}}</a>
+    </h2>
+    <hr>
+    <h2>
+        topConceptOf: <a href="/keywords/{{term}}"> {{keywordData.topConceptOf.0|title}}</a>
+    </h2>
+    <hr>
+    <h2>
+        prefLabel = {{keywordData.prefLabel}}
+    </h2>
+    <hr>
+    <hr>
+    <h5>Developement Mode</h5>
+    {{keywordData}}
 </body>
 </html>
