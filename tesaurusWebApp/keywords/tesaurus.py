@@ -14,12 +14,6 @@ class Tesaurus():
                 keywords.append(subject.lower().split('#')[1])
         return keywords
 
-    def get_all_prefLabel(self) -> list['str']:
-        keywords = []
-        for object in self.g.objects(None, SKOS.prefLabel):
-            keywords.append(str(object))
-        return keywords
-
     def keywordExists(self, keyword: str) -> bool:
         keywords = self.getAllKeywords()
         return (str(keyword) in keywords)
@@ -42,3 +36,5 @@ class Tesaurus():
             else:
                 myDict[predicate].append(object)
         return myDict
+        # TODO it's possible to join the two for loops in one.
+        # Instead of data[] and myDict{}, use directly the dictionary way
