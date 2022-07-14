@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import Http404, HttpResponseNotFound
 from django.urls import reverse
 
 from .tesaurus import Tesaurus
@@ -17,6 +17,7 @@ def index(request):
 def keyword(request, keyword: str):
     # check keyword exists
     if not Tesaurus.keywordExists(keyword):
+        # raise Http404()
         return HttpResponseNotFound("keyword doesn't exist")
 
     # return every piece of information associated

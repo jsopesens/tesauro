@@ -7,6 +7,11 @@
     <title>{% block page_title %}IPHES Thesaurus{% endblock %}</title>
 </head>
 <body>
+    <header>
+        <nav>
+            <a href="{% url 'index' %}">Index</a>
+        </nav>
+    </header>
     {% block content %}
     {% endblock %}
 </body>
