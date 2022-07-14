@@ -5,6 +5,6 @@ from . import views
 # every keyword page
 # instead of redirecting one by one
 urlpatterns = [
-    path("", views.index),
+    path("", views.index, name="index"),
     path("<str:keyword>", views.keyword, name="singular_keyword")
 ]
