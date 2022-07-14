@@ -7,42 +7,54 @@
     <title>Document</title>
 </head>
 <body>
+    <a href="/keywords/">Index</a>
     <h1>{{keyword|title}}</h1>
     <hr>
     <h2>
         InScheme: <a href="/keywords/{{keywordData.inScheme.0}}">{{keywordData.inScheme.0|title}}</a>
     </h2>
     <hr>
-    <h2>hasTopConcept:</h2>
-    <ul>
-        {% for term in keywordData.hasTopConcept %}
-            <li><a href="/keywords/{{term}}">{{term|title}}</a></li>
-        {% endfor %}
-    </ul>
-    <hr> 
-    <h2>
-        Narrower:
-    </h2>
-    <ul>
-        {% for term in keywordData.narrower %}
-            <li><a href="/keywords/{{term}}">{{ term|title }}</a></li>
-        {% endfor %}
-    </ul>
-    <hr>
+    {% if 'hasTopConcept' in keywordData %}
+        <h2>hasTopConcept:</h2>
+        <ul>
+            {% for term in keywordData.hasTopConcept %}
+                <li><a href="/keywords/{{term}}">{{term|title}}</a></li>
+            {% endfor %}
+        </ul>
+        <hr> 
+    {% endif %}
+    {% if 'narrower' in keywordData %}
+        <h2>
+            Narrower:
+        </h2>
+        <ul>
+            {% for term in keywordData.narrower %}
+                <li><a href="/keywords/{{term}}">{{ term|title }}</a></li>
+            {% endfor %}
+        </ul>
+        <hr>
+    {% endif %}
+    {% if 'broader' in keywordData %}
     <h2>
         Broader: <a href="/keywords/{{keywordData.broader.0}}">{{keywordData.broader.0|title}}</a>
     </h2>
     <hr>
+    {% endif %}
+    {% if 'topConceptOf' in keywordData %}
     <h2>
         topConceptOf: <a href="/keywords/{{term}}"> {{keywordData.topConceptOf.0|title}}</a>
     </h2>
     <hr>
+    {% endif %}
     <h2>
         prefLabel = {{keywordData.prefLabel}}
     </h2>
     <hr>
     <hr>
     <h5>Developement Mode</h5>
-    {{keywordData}}
+    {% for data in keywordData.items %}
+        {{data}}
+        <br>
+    {% endfor %}
 </body>
 </html>
