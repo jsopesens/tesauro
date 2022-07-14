@@ -1,4 +1,4 @@
-from urllib.parse import urldefrag
+from urllib.parse import urldegraf
 from rdflib import SKOS, RDF, OWL, Graph, URIRef, Literal
 
 
@@ -16,7 +16,7 @@ class Tesaurus():
         """
         keywords = []
         for subject in self.g.subjects(RDF.type, OWL.NamedIndividual):
-            keywords.append(urldefrag(subject)[1])
+            keywords.append(urldegraf(subject))
         return keywords
 
     def keywordExists(self, keyword: str) -> bool:
