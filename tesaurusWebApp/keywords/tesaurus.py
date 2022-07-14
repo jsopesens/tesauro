@@ -1,4 +1,4 @@
-from rdflib import SKOS, RDF, Graph, URIRef, Literal
+from rdflib import SKOS, RDF, OWL, Graph, URIRef, Literal
 
 
 class Tesaurus():
@@ -9,9 +9,8 @@ class Tesaurus():
 
     def getAllKeywords(self) -> list['str']:
         keywords = []
-        for subject, object in self.g.subject_objects(RDF.type):
-            if(object.split('#')[1] == 'NamedIndividual'):
-                keywords.append(subject.lower().split('#')[1])
+        for subject in self.g.subjects(RDF.type, OWL.NamedIndividual):
+            keywords.append(subject.lower().split('#')[1])
         return keywords
 
     def keywordExists(self, keyword: str) -> bool:
