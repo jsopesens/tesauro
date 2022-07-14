@@ -1,3 +1,4 @@
+from urllib.parse import urldefrag
 from rdflib import SKOS, RDF, OWL, Graph, URIRef, Literal
 
 
@@ -8,9 +9,14 @@ class Tesaurus():
         self.uri = URIRef('http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeyWords#')
 
     def getAllKeywords(self) -> list['str']:
+        """
+        generate a list of keyword names using RDFLib function: 
+        "where type is NamedIndividual, catch subject name"
+        :return: A list of strings.
+        """
         keywords = []
         for subject in self.g.subjects(RDF.type, OWL.NamedIndividual):
-            keywords.append(subject.lower().split('#')[1])
+            keywords.append(urldefrag(subject)[1])
         return keywords
 
     def keywordExists(self, keyword: str) -> bool:
