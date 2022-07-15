@@ -1,7 +1,13 @@
 {% extends "layout.html" %}
 
+{% load static %}
+
 {% block page_title %}
     IPHES Thesaurus | {{keyword}}
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'keywords/single_keyword.css' %}">
 {% endblock %}
 
 {% block content %}
