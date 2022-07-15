@@ -1,3 +1,40 @@
-body{
+body {
     background-color: aliceblue;
 }
+
+h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+h2{
+    /* text-align: center; */
+    padding: 0 2rem;
+}
+
+hr{
+    margin: 0 1rem;
+}
+
+ul{
+    list-style: none;
+    /* font-size: 1.2rem; */
+}
+
+li{
+    margin: 0.5rem 0;
+    font-size: 1.15rem;
+    padding: 0 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(2, 74, 18);
+}
+
+a:hover, a:active{
+    color:rgb(162, 188, 42);
+}
+
+
