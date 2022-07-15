@@ -15,6 +15,15 @@
     <header>
         <nav>
             <a href="{% url 'index' %}">Index</a>
+            <div class="searchBar">
+                <input 
+                    id="searchQueryInput" 
+                    type="text" 
+                    name="searchQueryInput" 
+                    placeholder="Search" 
+                    value="" 
+                />
+            </div>
         </nav>
     </header>
     {% block content %}
