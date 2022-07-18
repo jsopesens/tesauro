@@ -17,8 +17,7 @@
     <header>
         <nav>
             <a href="{% url 'index' %}">Index</a>
-            <form class="searchBar" method="POST">
-                {% csrf_token %}
+            <form class="searchBar">
                 <input id="searchQueryInput" type="text" name="searchQueryInput" placeholder="Search" value=""/>
             </form>
         </nav>
