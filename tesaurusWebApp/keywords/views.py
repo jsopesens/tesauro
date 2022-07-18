@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import Http404, HttpResponse, HttpResponseNotFound
+from django.http import Http404, HttpResponse, HttpResponseNotFound, JsonResponse
 from django.urls import reverse
 
 from .tesaurus import Tesaurus
@@ -28,4 +28,6 @@ def keyword(request, keyword: str):
     })
 
 def getMatchKeywords(request, search:str):
-    return HttpResponse('hola')
+    # get search parameter and search every NamedIndividual that contains that string
+    keywords = Tesaurus.getKeywordsMatching(search)
+    return JsonResponse({'keywords': keywords})

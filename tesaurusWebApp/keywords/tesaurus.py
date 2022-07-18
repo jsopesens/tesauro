@@ -1,6 +1,5 @@
 from rdflib import SKOS, RDF, OWL, Graph, URIRef, Literal
 
-
 class Tesaurus():
     def __init__(self):
         self.g = Graph()
@@ -37,3 +36,16 @@ class Tesaurus():
             else:
                 keywordData[predicate].append(object)
         return keywordData
+
+    def getKeywordsMatching(self, search: str) -> list['str']:
+        """
+        It takes a text from searchbar 
+        and search all keywords with that substring
+        
+        :param search: str - The search string from the searchbar
+        :return: A list of keywords
+        """
+        allKeywords = self.getAllKeywords()
+
+        matchs = [keyword for keyword in allKeywords if search.lower() in keyword.lower()]
+        return matchs
