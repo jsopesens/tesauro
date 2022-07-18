@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,22 +12,19 @@
     {% block css_files %}
     {% endblock %}
 </head>
+
 <body>
     <header>
         <nav>
             <a href="{% url 'index' %}">Index</a>
-            <div class="searchBar">
-                <input 
-                    id="searchQueryInput" 
-                    type="text" 
-                    name="searchQueryInput" 
-                    placeholder="Search" 
-                    value="" 
-                />
-            </div>
+            <form class="searchBar" method="POST">
+                {% csrf_token %}
+                <input id="searchQueryInput" type="text" name="searchQueryInput" placeholder="Search" value=""/>
+            </form>
         </nav>
     </header>
     {% block content %}
     {% endblock %}
+    <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

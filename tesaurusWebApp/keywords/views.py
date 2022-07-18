@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import Http404, HttpResponseNotFound
+from django.http import Http404, HttpResponse, HttpResponseNotFound
 from django.urls import reverse
 
 from .tesaurus import Tesaurus
@@ -26,3 +26,6 @@ def keyword(request, keyword: str):
         "keyword": keyword,
         "keywordData": keywordData,
     })
+
+def getMatchKeywords(request, search:str):
+    return HttpResponse('hola')
