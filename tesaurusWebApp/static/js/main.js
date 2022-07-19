@@ -1,10 +1,12 @@
 var searchInput = document.getElementById('searchQueryInput')
 var endpoint = '/keywords/getMatchKeywords/'
-searchInput.addEventListener('input', getMatchKeywords)
 
-function getMatchKeywords(){
+searchInput.addEventListener('input', function(){
+    getMatchKeywords(searchInput.value)})
+
+function getMatchKeywords(searchInput){
     // GET MODE
-    fetch(endpoint+this.value)
+    fetch(endpoint+searchInput)
     .then(response => response.json())
     .then(data=>{
         var allLinks
@@ -15,11 +17,7 @@ function getMatchKeywords(){
     })
 
     keywordsDOM = document.getElementById('keywords')
-    if(this.value == '' || keywordsDOM.childElementCount==0){
-        keywordsDOM.style.display = 'none'
-    }else{
-        keywordsDOM.style.display = 'block'
-    }
+    keywordsDOM.style.display = !searchInput ? 'none': 'block'
 
     // POST MODE
     // input = this.value,
