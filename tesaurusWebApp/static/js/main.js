@@ -1,8 +1,35 @@
 var searchInput = document.getElementById('searchQueryInput')
-var endpoint = '/keywords/getMatchKeywords/'
+var endpoint    = '/keywords/getMatchKeywords/'
+
 
 searchInput.addEventListener('input', function () {
     showMatchKeywords(searchInput.value);
+})
+
+// SEARCHBAR -> CLICK ON LI ELEMENT MAKE REDIRECT TO KEYWORD PAGE
+var keyword_list = document.getElementById('keywords_list')
+keyword_list.addEventListener('click', e =>
+    e.target.children[0].click()
+)
+// SEARCHBAR -> ON CLICK OUT, HIDE SUGGESTION LIST
+searchInput.addEventListener('focusout', () => {
+    // Make it wait in order to redirect instead of simply hide element
+    setTimeout(()=>{
+        keyword_list.style.display = 'none';
+    }, 100)
+})
+searchInput.addEventListener('focusin', () => 
+    keyword_list.style.display = 'block'
+)
+
+
+
+
+
+// LANDING PAGE -> CLICK ON LI MAKE REDIRECT TO KEYWORD PAGE
+var fullKeywordList = document.getElementById('fullListKeywords')
+fullKeywordList.addEventListener('click', function(e){
+    e.target.children[0].click()
 })
 
 function showMatchKeywords(searchText) {
