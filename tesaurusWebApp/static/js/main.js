@@ -16,7 +16,7 @@ searchInput.addEventListener('focusout', () => {
     // Make it wait in order to redirect instead of simply hide element
     setTimeout(()=>{
         keyword_list.style.display = 'none';
-    }, 100)
+    }, 200)
 })
 searchInput.addEventListener('focusin', () => 
     keyword_list.style.display = 'block'
