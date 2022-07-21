@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block css_files %}
-    <link rel="stylesheet" href="{% static 'keywords/keywords.css' %}">
+    <link rel="stylesheet" href="{% static 'keywords/landing_body.css' %}">
 {% endblock %}
 
 {% block  page_title %}
@@ -11,9 +11,9 @@
 {% endblock %}
 
 {% block content %}
-<ul>
+<ul id="fullListKeywords">
     {% for keyword in keywords %}
-        <li>
+        <li class="keyword">
             <a href="/keywords/{{keyword}}">{{keyword|title}}</a>
         </li>
     {% endfor %}

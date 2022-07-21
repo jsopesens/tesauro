@@ -1,31 +1,32 @@
-ul{
+#fullListKeywords{
     list-style: none;
     margin: 2rem auto;
     width: 90%;
-    max-width: 20rem;
+    max-width: 30rem;
     box-shadow: 0 2px 8px rgba(0,0,0,0.26);
     padding: 1rem;
     border-radius: 12px;
-    background-color: rgb(235, 235, 235);
+    background-color: #ebebeb;
 }
 
-li{
+#fullListKeywords .keyword{
     margin: 1rem 0;
     font-size: 1.2rem;
     border-bottom: 1px solid #ccc;
     padding-bottom: 1rem;
 }
 
-li:last-of-type{
+.keyword:last-of-type{
     border-bottom: none;
 }
 
-li a{
+.keyword a{
     text-decoration: none;
     color: #0c301a;
 }
 
-li a:hover,
-li a:active{
-    color:rgb(162, 188, 42)
+.keyword :hover,
+.keyword :active{
+    color:#a2bc2a;
+    background-color:#0c301a
 }
