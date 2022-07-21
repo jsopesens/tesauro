@@ -6,11 +6,24 @@ class Tesaurus():
         self.g.parse('3.owl')
         self.uri = URIRef('http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeyWords#')
 
+    def getTopConcepts(self) -> list['str']:
+        allKeywords = self.getAllKeywords()
+        return filter(self.checkKeywordTopConcept, allKeywords)
+
+
+    def checkKeywordTopConcept(self, keyword: str) -> bool:
+        return self.checkKeywordPredicate(keyword, SKOS.hasTopConcept)
+
+
+    def checkKeywordPredicate(self, keyword:str, predicate) -> bool:
+        return (self.uri+keyword, predicate, None) in self.g
+
+
     def getAllKeywords(self) -> list['str']:
         """
         generate a list of keyword names using RDFLib function: 
         "where type is NamedIndividual, catch subject name"
-        :return: A list of strings.
+        :return: A list of keywords.
         """
         keywords = []
         for subject in self.g.subjects(RDF.type, OWL.NamedIndividual):

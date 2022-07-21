@@ -23,7 +23,7 @@
 }
 
 .keyword:last-of-type{
-    border-bottom: none;
+    border: 0 !important;
 }
 
 .keyword a{

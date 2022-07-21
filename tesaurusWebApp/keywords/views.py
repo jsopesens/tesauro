@@ -6,9 +6,14 @@ from .tesaurus import Tesaurus
 
 Tesaurus = Tesaurus()
 
-
+# aquesta funció ha de canviar per a millorar la ordenació dels elements en format arbre... ademés pot allegerir la carrega en temps
+# def index(request):
+#     keywords = Tesaurus.getAllKeywords()
+#     return render(request, "keywords/index.html", {
+#         "keywords": keywords
+#     })
 def index(request):
-    keywords = Tesaurus.getAllKeywords()
+    keywords = Tesaurus.getTopConcepts()
     return render(request, "keywords/index.html", {
         "keywords": keywords
     })
@@ -27,7 +32,8 @@ def keyword(request, keyword: str):
         "keywordData": keywordData,
     })
 
-def getMatchKeywords(request, search:str):
+
+def getMatchKeywords(request, search: str):
     # get search parameter and search every NamedIndividual that contains that string
     keywords = Tesaurus.getKeywordsMatching(search)
     return JsonResponse({'keywords': keywords})
