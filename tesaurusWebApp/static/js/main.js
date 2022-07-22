@@ -5,7 +5,6 @@ var endpoint    = '/keywords/getMatchKeywords/'
 searchInput.addEventListener('input', function () {
     showMatchKeywords(searchInput.value);
 })
-
 // SEARCHBAR -> CLICK ON LI ELEMENT MAKE REDIRECT TO KEYWORD PAGE
 var keyword_list = document.getElementById('keywords_list')
 keyword_list.addEventListener('click', e =>
@@ -18,19 +17,11 @@ searchInput.addEventListener('focusout', () => {
         keyword_list.style.display = 'none';
     }, 200)
 })
+
 searchInput.addEventListener('focusin', () => 
     keyword_list.style.display = 'block'
 )
 
-
-
-
-
-// LANDING PAGE -> CLICK ON LI MAKE REDIRECT TO KEYWORD PAGE
-var fullKeywordList = document.getElementById('fullListKeywords')
-fullKeywordList.addEventListener('click', function(e){
-    e.target.children[0].click()
-})
 
 function showMatchKeywords(searchText) {
     let keywordsList = document.getElementById('keywords_list')
