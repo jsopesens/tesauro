@@ -7,5 +7,6 @@ from . import views
 urlpatterns = [
     path("", views.index, name="index"),
     path("getMatchKeywords/<str:search>", views.getMatchKeywords, name="getMatchKeywords"),
+    path("getSonsOf/<str:keyword>", views.getSonsOf, name="getSonsOf"),
     path("<str:keyword>", views.keyword, name="singular_keyword"),
 ]

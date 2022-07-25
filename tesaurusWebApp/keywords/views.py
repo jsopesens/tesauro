@@ -37,3 +37,8 @@ def getMatchKeywords(request, search: str):
     # get search parameter and search every NamedIndividual that contains that string
     keywords = Tesaurus.getKeywordsMatching(search)
     return JsonResponse({'keywords': keywords})
+
+
+def getSonsOf(request, keyword: str) -> JsonResponse:
+    keywordData = Tesaurus.getKeywordData(keyword)
+    return JsonResponse({'topConcepts': keywordData['hasTopConcept']})
