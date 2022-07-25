@@ -31,8 +31,12 @@
     color: #0c301a;
 }
 
-.keyword:hover,
-.keyword:hover a{
+.keyword:hover, 
+.keyword:hover>a{
     background-color: #3d3d3d;
     color:#a2bc2a;
+}
+.keyword:hover>ul{
+    background-color: #ebebeb;
+    color: initial;
 }

@@ -3,22 +3,24 @@
 {% load static %}
 
 {% block css_files %}
-    <link rel="stylesheet" href="{% static 'keywords/landing_body.css' %}">
+<link rel="stylesheet" href="{% static 'keywords/landing_body.css' %}">
 {% endblock %}
 
-{% block  page_title %}
-    Keywords List
+{% block page_title %}
+Keywords List
 {% endblock %}
 
 {% block content %}
 <ul id="fullListKeywords">
     {% for keyword in keywords %}
-        <li class="keyword">
-            <a href="/keywords/{{keyword}}">{{keyword|title}}</a>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="showMore" viewBox="0 0 16 16">
-                <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
-              </svg>
-        </li>
+    <li class="keyword" id="{{keyword}}">
+        <a href="/keywords/{{keyword}}">{{keyword|title}}</a>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="showMore"
+            viewBox="0 0 16 16">
+            <path
+                d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z" />
+        </svg>
+    </li>
     {% endfor %}
 </ul>
 <hr>
@@ -32,5 +34,5 @@
 {% endblock %}
 
 {% block js %}
-    <script src="{% static 'keywords/js/landing.js' %}"></script>
+<script src="{% static 'keywords/js/landing.js' %}"></script>
 {% endblock %}
