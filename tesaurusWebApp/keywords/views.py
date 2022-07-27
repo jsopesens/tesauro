@@ -12,6 +12,8 @@ Tesaurus = Tesaurus()
 #     return render(request, "keywords/index.html", {
 #         "keywords": keywords
 #     })
+
+
 def index(request):
     keywords = Tesaurus.getTopConcepts()
     return render(request, "keywords/index.html", {
@@ -22,8 +24,8 @@ def index(request):
 def keyword(request, keyword: str):
     # check keyword exists
     if not Tesaurus.keywordExists(keyword):
-        # raise Http404()
         return HttpResponseNotFound("keyword doesn't exist")
+        # raise Http404()
 
     # return every piece of information associated
     keywordData = Tesaurus.getKeywordData(keyword)
@@ -39,6 +41,18 @@ def getMatchKeywords(request, search: str):
     return JsonResponse({'keywords': keywords})
 
 
-def getSonsOf(request, keyword: str) -> JsonResponse:
+def getChildrenOf(request, keyword: str) -> JsonResponse:
     keywordData = Tesaurus.getKeywordData(keyword)
-    return JsonResponse({'topConcepts': keywordData['hasTopConcept']})
+    # coger hasTopConcept y narrower
+    # si este narrower tiene mas narrower, marcarlo
+    sons = []
+    if 'hasTopConcept' in keywordData:
+        sons.extend(keywordData['hasTopConcept'])
+    if 'narrower' in keywordData:
+        sons.extend(keywordData['narrower'])
+
+    result = {}
+    for son in sons:
+        result[son] = 1 if (Tesaurus.checkKeywordNarrower(son) or Tesaurus.checkKeywordTopConcept(son)) else 0
+
+    return JsonResponse({'sons': result})

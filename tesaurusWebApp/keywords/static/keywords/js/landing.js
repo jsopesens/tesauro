@@ -14,16 +14,19 @@ fullKeywordList.addEventListener('click', e => {
         let fatherKeyword = e.path[1]
         let svg = e.path[0]
         let innerList = fatherKeyword.querySelector('ul')
-        let endpoint = '/keywords/getSonsOf/'
         let keywordName = e.path[1].id
         
         rotateSVG(svg)
 
         if (!innerList) {
             // generate content and show it
-            fetch(endpoint + keywordName)
+            fetch('/keywords/getChildrenOf/' + keywordName)
                 .then(response => response.json())
-                .then(data => showSons(fatherKeyword, data))
+                // .then(data => showSons(fatherKeyword, data))
+                .then(function(data){
+                    console.log(data)
+                    // showSons(fatherKeyword, data)
+                })
         }
         if(innerList){
             // only need to hide or show it
@@ -46,13 +49,34 @@ function showSons(fatherKeyword, data) {
     const lu = document.createElement('ul')
     lu.style.display = 'block'
     fatherKeyword.appendChild(lu)
-    data['topConcepts'].forEach(element => {
+
+    Object.entries(data['sons']).forEach(([key, value]) => {
         const li = document.createElement('li')
         const a = document.createElement('a')
         li.classList = 'keyword'
-        a.href = element
-        a.innerHTML = element
+        li.id = key
+        a.href = key
+        a.innerHTML = key
         li.appendChild(a)
+        if (value == 1){
+            addTriangleSVG(li)
+        }
         lu.appendChild(li)
-    });
+    })
+}
+
+function addTriangleSVG(li){
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    const path = document. createElementNS("http://www.w3.org/2000/svg", "path")
+
+    svg.setAttribute('width', 20)
+    svg.setAttribute('height', 20)
+    svg.setAttribute('fill', 'currentColor')
+    svg.setAttribute('viewBox', '0 0 15 15')
+    svg.setAttribute('transform', 'rotate(0)')
+    svg.classList = 'showMore'
+    path.setAttributeNS(null, "d", "M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z")
+    
+    svg.appendChild(path)
+    li.appendChild(svg)
 }
