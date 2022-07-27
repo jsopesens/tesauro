@@ -15,6 +15,10 @@ class Tesaurus():
         return self.checkKeywordPredicate(keyword, SKOS.hasTopConcept)
 
 
+    def checkKeywordNarrower(self, keyword:str)->bool:
+        return self.checkKeywordPredicate(keyword, SKOS.narrower)
+
+
     def checkKeywordPredicate(self, keyword:str, predicate) -> bool:
         return (self.uri+keyword, predicate, None) in self.g
 
