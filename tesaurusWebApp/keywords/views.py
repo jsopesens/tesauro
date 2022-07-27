@@ -43,16 +43,16 @@ def getMatchKeywords(request, search: str):
 
 def getChildrenOf(request, keyword: str) -> JsonResponse:
     keywordData = Tesaurus.getKeywordData(keyword)
-    # coger hasTopConcept y narrower
-    # si este narrower tiene mas narrower, marcarlo
-    sons = []
+    # recover children keywords inside the current keyword 
+    children = []
     if 'hasTopConcept' in keywordData:
-        sons.extend(keywordData['hasTopConcept'])
+        children.extend(keywordData['hasTopConcept'])
     if 'narrower' in keywordData:
-        sons.extend(keywordData['narrower'])
+        children.extend(keywordData['narrower'])
 
+    # generate dictionary with the keywords and a boolean value that indicates if that keyword had more children
     result = {}
-    for son in sons:
-        result[son] = 1 if (Tesaurus.checkKeywordNarrower(son) or Tesaurus.checkKeywordTopConcept(son)) else 0
+    for child in children:
+        result[child] = 1 if (Tesaurus.checkKeywordNarrower(child) or Tesaurus.checkKeywordTopConcept(child)) else 0
 
-    return JsonResponse({'sons': result})
+    return JsonResponse({'children': result})
