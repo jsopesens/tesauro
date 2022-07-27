@@ -1,5 +1,4 @@
 // LANDING PAGE -> CLICK ON LI MAKE REDIRECT TO KEYWORD PAGE
-// EVENT DELEGATION!
 // At clicking on svg element, we aren't redirected
 var fullKeywordList = document.getElementById('fullListKeywords')
 fullKeywordList.addEventListener('click', e => {
@@ -8,7 +7,7 @@ fullKeywordList.addEventListener('click', e => {
     }
 })
 
-// click on svg to ajax call childs
+// click on svg to ajax call children
 fullKeywordList.addEventListener('click', e => {
     if (e.target && e.target.matches('svg.showMore')) {
         let fatherKeyword = e.path[1]
@@ -22,16 +21,16 @@ fullKeywordList.addEventListener('click', e => {
             // generate content and show it
             fetch('/keywords/getChildrenOf/' + keywordName)
                 .then(response => response.json())
-                .then(data => showSons(fatherKeyword, data))
+                .then(data => deployChildren(fatherKeyword, data))
         }
         if(innerList){
             // only need to hide or show it
-            displayListContent(innerList)
+            showListContent(innerList)
         }
     }
 })
 
-function displayListContent(list){
+function showListContent(list){
     const currentDisplay = list.style.display 
     list.style.display = currentDisplay == 'block' ? 'none': 'block'
 }
@@ -41,7 +40,7 @@ function rotateSVG(svg) {
     svg.setAttribute('transform', rotation == 'rotate(0)' ? 'rotate(90)' : 'rotate(0)')
 }
 
-function showSons(fatherKeyword, data) {
+function deployChildren(fatherKeyword, data) {
     const lu = document.createElement('ul')
     lu.style.display = 'block'
     fatherKeyword.appendChild(lu)
