@@ -22,11 +22,7 @@ fullKeywordList.addEventListener('click', e => {
             // generate content and show it
             fetch('/keywords/getChildrenOf/' + keywordName)
                 .then(response => response.json())
-                // .then(data => showSons(fatherKeyword, data))
-                .then(function(data){
-                    console.log(data)
-                    // showSons(fatherKeyword, data)
-                })
+                .then(data => showSons(fatherKeyword, data))
         }
         if(innerList){
             // only need to hide or show it
@@ -50,7 +46,7 @@ function showSons(fatherKeyword, data) {
     lu.style.display = 'block'
     fatherKeyword.appendChild(lu)
 
-    Object.entries(data['sons']).forEach(([key, value]) => {
+    Object.entries(data['sons']).forEach(([key, hadChildren]) => {
         const li = document.createElement('li')
         const a = document.createElement('a')
         li.classList = 'keyword'
@@ -58,9 +54,8 @@ function showSons(fatherKeyword, data) {
         a.href = key
         a.innerHTML = key
         li.appendChild(a)
-        if (value == 1){
-            addTriangleSVG(li)
-        }
+        if (hadChildren) addTriangleSVG(li)
+        
         lu.appendChild(li)
     })
 }
