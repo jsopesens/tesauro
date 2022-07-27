@@ -45,7 +45,7 @@ function deployChildren(fatherKeyword, data) {
     lu.style.display = 'block'
     fatherKeyword.appendChild(lu)
 
-    Object.entries(data['sons']).forEach(([key, hadChildren]) => {
+    Object.entries(data['children']).forEach(([key, hadChildren]) => {
         const li = document.createElement('li')
         const a = document.createElement('a')
         li.classList = 'keyword'
