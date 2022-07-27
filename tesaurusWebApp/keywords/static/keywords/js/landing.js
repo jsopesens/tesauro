@@ -21,7 +21,10 @@ fullKeywordList.addEventListener('click', e => {
             // generate content and show it
             fetch('/keywords/getChildrenOf/' + keywordName)
                 .then(response => response.json())
-                .then(data => deployChildren(fatherKeyword, data))
+                .then(data => {
+                    // console.log(data)
+                    deployChildren(fatherKeyword, data)
+                })
         }
         if(innerList){
             // only need to hide or show it

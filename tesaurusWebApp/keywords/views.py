@@ -54,5 +54,6 @@ def getChildrenOf(request, keyword: str) -> JsonResponse:
     result = {}
     for child in children:
         result[child] = 1 if (Tesaurus.checkKeywordNarrower(child) or Tesaurus.checkKeywordTopConcept(child)) else 0
-
+    
+    result = dict(sorted(result.items(), key=lambda x: x[1], reverse=True))
     return JsonResponse({'children': result})
