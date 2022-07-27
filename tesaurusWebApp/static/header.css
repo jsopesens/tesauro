@@ -27,7 +27,8 @@ header #title:hover {
 nav {
     width: var(--navWidth);
 
-    padding: 3rem;
+    /* width: 30%; */
+    padding: 0 3rem;
     right: 0;
     position: absolute;
     display: flex;
