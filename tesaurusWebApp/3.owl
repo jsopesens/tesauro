@@ -6,8 +6,97 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:skos="http://www.w3.org/2004/02/skos/core#">
-    <owl:Ontology rdf:about="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords"/>
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:terms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords">
+        <terms:contributor>Dave Beckett</terms:contributor>
+        <terms:contributor>Nikki Rogers</terms:contributor>
+        <terms:contributor>Participants in W3C&apos;s Semantic Web Deployment Working Group.</terms:contributor>
+        <terms:creator>Alistair Miles</terms:creator>
+        <terms:creator>Sean Bechhofer</terms:creator>
+        <terms:description xml:lang="en">An RDF vocabulary for describing the basic structure and content of concept schemes such as thesauri, classification schemes, subject heading lists, taxonomies, &apos;folksonomies&apos;, other types of controlled vocabulary, and also concept schemes embedded in glossaries and terminologies.</terms:description>
+        <terms:title xml:lang="en">SKOS Vocabulary</terms:title>
+        <rdfs:seeAlso rdf:resource="http://www.w3.org/TR/skos-reference/"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/contributor -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/contributor"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#definition -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#definition">
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">definition</rdfs:label>
+        <skos:definition xml:lang="en">A statement or formal explanation of the meaning of a concept.</skos:definition>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#example -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#example">
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">example</rdfs:label>
+        <skos:definition xml:lang="en">An example of the use of a concept.</skos:definition>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#prefLabel -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#prefLabel">
+        <rdfs:comment xml:lang="en">A resource has no more than one value of skos:prefLabel per language tag, and no more than one value of skos:prefLabel without language tag.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The range of skos:prefLabel is the class of RDF plain literals.</rdfs:comment>
+        <rdfs:comment xml:lang="en">skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise
+      disjoint properties.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">preferred label</rdfs:label>
+        <skos:definition xml:lang="en">The preferred lexical label for a resource, in a given language.</skos:definition>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#scopeNote -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#scopeNote">
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">scope note</rdfs:label>
+        <skos:definition xml:lang="en">A note that helps to clarify the meaning and/or the use of a concept.</skos:definition>
+    </owl:AnnotationProperty>
     
 
 
@@ -38,6 +127,9 @@
             </rdf:Description>
         </rdfs:subPropertyOf>
         <owl:inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#narrowMatch"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">has broader match</rdfs:label>
+        <skos:definition xml:lang="en">skos:broadMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes.</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -52,6 +144,11 @@
             </rdf:Description>
         </rdfs:subPropertyOf>
         <owl:inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#narrower"/>
+        <rdfs:comment xml:lang="en">Broader concepts are typically rendered as parents in a concept hierarchy (tree).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">has broader</rdfs:label>
+        <skos:definition xml:lang="en">Relates a concept to a concept that is more general in meaning.</skos:definition>
+        <skos:scopeNote xml:lang="en">By convention, skos:broader is only used to assert an immediate (i.e. direct) hierarchical link between two conceptual resources.</skos:scopeNote>
     </owl:ObjectProperty>
     
 
@@ -67,6 +164,10 @@
         </rdfs:subPropertyOf>
         <owl:inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#narrowerTransitive"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">has broader transitive</rdfs:label>
+        <skos:definition>skos:broaderTransitive is a transitive superproperty of skos:broader.</skos:definition>
+        <skos:scopeNote xml:lang="en">By convention, skos:broaderTransitive is not used to make assertions. Rather, the properties can be used to draw inferences about the transitive closure of the hierarchical relation, which is useful e.g. when implementing a simple query expansion algorithm in a search application.</skos:scopeNote>
     </owl:ObjectProperty>
     
 
@@ -82,6 +183,9 @@
         </rdfs:subPropertyOf>
         <owl:inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#closeMatch"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">has close match</rdfs:label>
+        <skos:definition xml:lang="en">skos:closeMatch is used to link two concepts that are sufficiently similar that they can be used interchangeably in some information retrieval applications. In order to avoid the possibility of &quot;compound errors&quot; when combining mappings across more than two concept schemes, skos:closeMatch is not declared to be a transitive property.</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -98,6 +202,10 @@
         <owl:inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#exactMatch"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:comment xml:lang="en">skos:exactMatch is disjoint with each of the properties skos:broadMatch and skos:relatedMatch.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">has exact match</rdfs:label>
+        <skos:definition xml:lang="en">skos:exactMatch is used to link two concepts, indicating a high degree of confidence that the concepts can be used interchangeably across a wide range of information retrieval applications. skos:exactMatch is a transitive property, and is a sub-property of skos:closeMatch.</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -113,6 +221,9 @@
         <owl:inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#topConceptOf"/>
         <rdfs:domain rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
         <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">has top concept</rdfs:label>
+        <skos:definition xml:lang="en">Relates, by convention, a concept scheme to a concept which is topmost in the broader/narrower concept hierarchies for that scheme, providing an entry point to these hierarchies.</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -121,6 +232,10 @@
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#inScheme">
         <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">is in scheme</rdfs:label>
+        <skos:definition xml:lang="en">Relates a resource (for example a concept) to a concept scheme in which it is included.</skos:definition>
+        <skos:scopeNote xml:lang="en">A concept may be a member of more than one concept scheme.</skos:scopeNote>
     </owl:ObjectProperty>
     
 
@@ -129,6 +244,10 @@
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#mappingRelation">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#semanticRelation"/>
+        <rdfs:comment xml:lang="en">These concept mapping relations mirror semantic relations, and the data model defined below is similar (with the exception of skos:exactMatch) to the data model defined for semantic relations. A distinct vocabulary is provided for concept mapping relations, to provide a convenient way to differentiate links within a concept scheme from links between concept schemes. However, this pattern of usage is not a formal requirement of the SKOS data model, and relies on informal definitions of best practice.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">is in mapping relation with</rdfs:label>
+        <skos:definition xml:lang="en">Relates two concepts coming, by convention, from different schemes, and that have comparable meanings</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -145,6 +264,9 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">has member</rdfs:label>
+        <skos:definition xml:lang="en">Relates a collection to one of its members.</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -155,6 +277,11 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.w3.org/2004/02/skos/core#OrderedCollection"/>
         <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+        <rdfs:comment xml:lang="en">For any resource, every item in the list given as the value of the
+      skos:memberList property is also a value of the skos:member property.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">has member list</rdfs:label>
+        <skos:definition xml:lang="en">Relates an ordered collection to the RDF list containing its members.</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -174,6 +301,9 @@
                 <owl:inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#mappingRelation"/>
             </rdf:Description>
         </rdfs:subPropertyOf>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">has narrower match</rdfs:label>
+        <skos:definition xml:lang="en">skos:narrowMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes.</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -187,6 +317,11 @@
                 <owl:inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#broaderTransitive"/>
             </rdf:Description>
         </rdfs:subPropertyOf>
+        <rdfs:comment xml:lang="en">Narrower concepts are typically rendered as children in a concept hierarchy (tree).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">has narrower</rdfs:label>
+        <skos:definition xml:lang="en">Relates a concept to a concept that is more specific in meaning.</skos:definition>
+        <skos:scopeNote xml:lang="en">By convention, skos:broader is only used to assert an immediate (i.e. direct) hierarchical link between two conceptual resources.</skos:scopeNote>
     </owl:ObjectProperty>
     
 
@@ -201,6 +336,10 @@
             </rdf:Description>
         </rdfs:subPropertyOf>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">has narrower transitive</rdfs:label>
+        <skos:definition>skos:narrowerTransitive is a transitive superproperty of skos:narrower.</skos:definition>
+        <skos:scopeNote xml:lang="en">By convention, skos:narrowerTransitive is not used to make assertions. Rather, the properties can be used to draw inferences about the transitive closure of the hierarchical relation, which is useful e.g. when implementing a simple query expansion algorithm in a search application.</skos:scopeNote>
     </owl:ObjectProperty>
     
 
@@ -216,6 +355,10 @@
         </rdfs:subPropertyOf>
         <owl:inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#related"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:comment xml:lang="en">skos:related is disjoint with skos:broaderTransitive</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">has related</rdfs:label>
+        <skos:definition xml:lang="en">Relates a concept to a concept with which there is an associative semantic relationship.</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -237,6 +380,9 @@
         </rdfs:subPropertyOf>
         <owl:inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#relatedMatch"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">has related match</rdfs:label>
+        <skos:definition xml:lang="en">skos:relatedMatch is used to state an associative mapping link between two conceptual resources in different concept schemes.</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -246,6 +392,10 @@
     <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#semanticRelation">
         <rdfs:domain rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">is in semantic relation with</rdfs:label>
+        <skos:definition xml:lang="en">Links a concept to a concept related by meaning.</skos:definition>
+        <skos:scopeNote xml:lang="en">This property should not be used directly, but as a super-property for all properties denoting a relationship of meaning between concepts.</skos:scopeNote>
     </owl:ObjectProperty>
     
 
@@ -256,6 +406,9 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
         <rdfs:domain rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">is top concept in scheme</rdfs:label>
+        <skos:definition xml:lang="en">Relates a concept to the concept scheme that it is a top level concept of.</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -273,7 +426,12 @@
 
     <!-- http://www.w3.org/2004/02/skos/core#notation -->
 
-    <owl:DatatypeProperty rdf:about="http://www.w3.org/2004/02/skos/core#notation"/>
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2004/02/skos/core#notation">
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">notation</rdfs:label>
+        <skos:definition xml:lang="en">A notation, also known as classification code, is a string of characters such as &quot;T58.5&quot; or &quot;303.4833&quot; used to uniquely identify a concept within the scope of a given concept scheme.</skos:definition>
+        <skos:scopeNote xml:lang="en">By convention, skos:notation is used with a typed literal in the object position of the triple.</skos:scopeNote>
+    </owl:DatatypeProperty>
     
 
 
@@ -299,6 +457,10 @@
     <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Collection">
         <owl:disjointWith rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <owl:disjointWith rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">Collection</rdfs:label>
+        <skos:definition xml:lang="en">A meaningful collection of concepts.</skos:definition>
+        <skos:scopeNote xml:lang="en">Labelled collections can be used where you would like a set of concepts to be displayed under a &apos;node label&apos; in the hierarchy.</skos:scopeNote>
     </owl:Class>
     
 
@@ -308,6 +470,9 @@
     <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Concept">
         <owl:disjointWith rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
         <owl:disjointWith rdf:resource="http://www.w3.org/2004/02/skos/core#OrderedCollection"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">Concept</rdfs:label>
+        <skos:definition xml:lang="en">An idea or notion; a unit of thought.</skos:definition>
     </owl:Class>
     
 
@@ -316,6 +481,11 @@
 
     <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptScheme">
         <owl:disjointWith rdf:resource="http://www.w3.org/2004/02/skos/core#OrderedCollection"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">Concept Scheme</rdfs:label>
+        <skos:definition xml:lang="en">A set of concepts, optionally including statements about semantic relationships between those concepts.</skos:definition>
+        <skos:example xml:lang="en">Thesauri, classification schemes, subject heading lists, taxonomies, &apos;folksonomies&apos;, and other types of controlled vocabulary are all examples of concept schemes. Concept schemes are also embedded in glossaries and terminologies.</skos:example>
+        <skos:scopeNote xml:lang="en">A concept scheme may be defined to include concepts from different sources.</skos:scopeNote>
     </owl:Class>
     
 
@@ -324,6 +494,10 @@
 
     <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#OrderedCollection">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Collection"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">Ordered Collection</rdfs:label>
+        <skos:definition xml:lang="en">An ordered collection of concepts, where both the grouping and the ordering are meaningful.</skos:definition>
+        <skos:scopeNote xml:lang="en">Ordered collections can be used where you would like a set of concepts to be displayed in a specific order, and optionally under a &apos;node label&apos;.</skos:scopeNote>
     </owl:Class>
     
 
@@ -348,6 +522,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</skos:notation>
+        <skos:prefLabel xml:lang="en">abel beth maacah</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -361,6 +536,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</skos:notation>
+        <skos:prefLabel xml:lang="en">abri des pcheurs</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -374,6 +550,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</skos:notation>
+        <skos:prefLabel xml:lang="en">abri du maras</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -387,6 +564,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</skos:notation>
+        <skos:prefLabel xml:lang="en">abric romani</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -400,6 +578,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</skos:notation>
+        <skos:prefLabel xml:lang="en">abrigo de los oculados</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -456,6 +635,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#west_turkana"/>
         <skos:topConceptOf rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">192</skos:notation>
+        <skos:prefLabel xml:lang="en">africa</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -469,6 +649,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">72</skos:notation>
+        <skos:prefLabel xml:lang="en">aguazuque</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -525,6 +706,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#southern_atacama_desert"/>
         <skos:topConceptOf rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">237</skos:notation>
+        <skos:prefLabel xml:lang="en">america</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -538,6 +720,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#asia"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">209</skos:notation>
+        <skos:prefLabel xml:lang="en">anatolia</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -553,6 +736,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">136</skos:notation>
+        <skos:prefLabel xml:lang="en">andorra</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -568,6 +752,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">191</skos:notation>
+        <skos:prefLabel xml:lang="en">arago</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -581,6 +766,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#america"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">238</skos:notation>
+        <skos:prefLabel xml:lang="en">argentina</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -594,6 +780,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</skos:notation>
+        <skos:prefLabel xml:lang="en">arlanzon</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -607,6 +794,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#asia"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">210</skos:notation>
+        <skos:prefLabel xml:lang="en">armenia</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -702,6 +890,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#zagros_mountains"/>
         <skos:topConceptOf rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">208</skos:notation>
+        <skos:prefLabel xml:lang="en">asia</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -715,6 +904,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#america"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">239</skos:notation>
+        <skos:prefLabel xml:lang="en">atacama desert</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -728,6 +918,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</skos:notation>
+        <skos:prefLabel xml:lang="en">atapuerca</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -741,6 +932,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</skos:notation>
+        <skos:prefLabel xml:lang="en">atapuerca gran dolina td6</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -754,6 +946,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#oceania"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">254</skos:notation>
+        <skos:prefLabel xml:lang="en">australia</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -767,6 +960,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</skos:notation>
+        <skos:prefLabel xml:lang="en">azokh cave</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -782,6 +976,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">137</skos:notation>
+        <skos:prefLabel xml:lang="en">balearic islands</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -797,6 +992,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">138</skos:notation>
+        <skos:prefLabel xml:lang="en">barcelona</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -810,6 +1006,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</skos:notation>
+        <skos:prefLabel xml:lang="en">barranc de la boella</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -823,6 +1020,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</skos:notation>
+        <skos:prefLabel xml:lang="en">barranco leon</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -836,6 +1034,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">14</skos:notation>
+        <skos:prefLabel xml:lang="en">bed ii olduvai gorge</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -849,6 +1048,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">88</skos:notation>
+        <skos:prefLabel xml:lang="en">belarus</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -862,6 +1062,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">89</skos:notation>
+        <skos:prefLabel xml:lang="en">belgium</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -877,6 +1078,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">139</skos:notation>
+        <skos:prefLabel xml:lang="en">berici hills</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -892,6 +1094,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</skos:notation>
+        <skos:prefLabel xml:lang="en">betics</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -905,6 +1108,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</skos:notation>
+        <skos:prefLabel xml:lang="en">bolomor cave</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -918,6 +1122,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</skos:notation>
+        <skos:prefLabel xml:lang="en">bosque de riofro</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -931,6 +1136,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">90</skos:notation>
+        <skos:prefLabel xml:lang="en">britain</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -944,6 +1150,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">91</skos:notation>
+        <skos:prefLabel xml:lang="en">calabrian</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -957,6 +1164,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">17</skos:notation>
+        <skos:prefLabel xml:lang="en">camp dels ninots</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -972,6 +1180,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">141</skos:notation>
+        <skos:prefLabel xml:lang="en">cantabrian region</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -985,6 +1194,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">18</skos:notation>
+        <skos:prefLabel xml:lang="en">cap de barbaria ii</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1000,6 +1210,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">142</skos:notation>
+        <skos:prefLabel xml:lang="en">capellades</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1013,6 +1224,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">92</skos:notation>
+        <skos:prefLabel xml:lang="en">castelluccio</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1028,6 +1240,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">143</skos:notation>
+        <skos:prefLabel xml:lang="en">catalonia</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1043,6 +1256,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">144</skos:notation>
+        <skos:prefLabel xml:lang="en">cativera</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1056,6 +1270,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">19</skos:notation>
+        <skos:prefLabel xml:lang="en">cau del duc</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1069,6 +1284,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#asia"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">233</skos:notation>
+        <skos:prefLabel xml:lang="en">caucasus</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1082,6 +1298,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</skos:notation>
+        <skos:prefLabel xml:lang="en">caune de larago</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1095,6 +1312,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#america"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">240</skos:notation>
+        <skos:prefLabel xml:lang="en">central america</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1108,6 +1326,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#america"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">241</skos:notation>
+        <skos:prefLabel xml:lang="en">central andes</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1121,6 +1340,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#asia"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">211</skos:notation>
+        <skos:prefLabel xml:lang="en">central asia</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1134,6 +1354,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">93</skos:notation>
+        <skos:prefLabel xml:lang="en">central europe</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1149,6 +1370,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">145</skos:notation>
+        <skos:prefLabel xml:lang="en">central iberian peninsula</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1164,6 +1386,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">146</skos:notation>
+        <skos:prefLabel xml:lang="en">central spain</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1177,6 +1400,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#asia"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">212</skos:notation>
+        <skos:prefLabel xml:lang="en">central zagros</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1190,6 +1414,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">21</skos:notation>
+        <skos:prefLabel xml:lang="en">cerro juan daz</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1203,6 +1428,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">22</skos:notation>
+        <skos:prefLabel xml:lang="en">cerro mangote</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1216,6 +1442,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#america"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">242</skos:notation>
+        <skos:prefLabel xml:lang="en">chile</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1229,6 +1456,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">23</skos:notation>
+        <skos:prefLabel xml:lang="en">cinglera del capello</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1242,6 +1470,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">127</skos:notation>
+        <skos:prefLabel xml:lang="en">corsica</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1255,6 +1484,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">73</skos:notation>
+        <skos:prefLabel xml:lang="en">cova bonica</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1268,6 +1498,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">24</skos:notation>
+        <skos:prefLabel xml:lang="en">cova del coll verdaguer</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1281,6 +1512,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">25</skos:notation>
+        <skos:prefLabel xml:lang="en">cova del rinoceront</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1294,6 +1526,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">26</skos:notation>
+        <skos:prefLabel xml:lang="en">cova eiros</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1307,6 +1540,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">74</skos:notation>
+        <skos:prefLabel xml:lang="en">cowshead cave</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1320,6 +1554,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">94</skos:notation>
+        <skos:prefLabel xml:lang="en">crete</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1333,6 +1568,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">75</skos:notation>
+        <skos:prefLabel xml:lang="en">croscat volcano</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1346,6 +1582,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">27</skos:notation>
+        <skos:prefLabel xml:lang="en">cueva anton</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1359,6 +1596,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">128</skos:notation>
+        <skos:prefLabel xml:lang="en">dinaric alps</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1372,6 +1610,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">76</skos:notation>
+        <skos:prefLabel xml:lang="en">dmanisi</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1387,6 +1626,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">147</skos:notation>
+        <skos:prefLabel xml:lang="en">duero river basin</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1400,6 +1640,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#africa"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">193</skos:notation>
+        <skos:prefLabel xml:lang="en">east africa</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1413,6 +1654,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#africa"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">194</skos:notation>
+        <skos:prefLabel xml:lang="en">east gona</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1426,6 +1668,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">95</skos:notation>
+        <skos:prefLabel xml:lang="en">eastern adriatic</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1439,6 +1682,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#africa"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">195</skos:notation>
+        <skos:prefLabel xml:lang="en">eastern africa</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1452,6 +1696,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">96</skos:notation>
+        <skos:prefLabel xml:lang="en">eastern europe</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1465,6 +1710,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#africa"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">196</skos:notation>
+        <skos:prefLabel xml:lang="en">eastern morocco</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1478,6 +1724,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">97</skos:notation>
+        <skos:prefLabel xml:lang="en">eastern pyrenees</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1493,6 +1740,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">148</skos:notation>
+        <skos:prefLabel xml:lang="en">ebro basin</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1508,6 +1756,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">149</skos:notation>
+        <skos:prefLabel xml:lang="en">eivissa</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1521,6 +1770,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">28</skos:notation>
+        <skos:prefLabel xml:lang="en">el forn</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1534,6 +1784,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">29</skos:notation>
+        <skos:prefLabel xml:lang="en">el mirador cave</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1549,6 +1800,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</skos:notation>
+        <skos:prefLabel xml:lang="en">el salt</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1564,6 +1816,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">151</skos:notation>
+        <skos:prefLabel xml:lang="en">el sidron</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1579,6 +1832,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">189</skos:notation>
+        <skos:prefLabel xml:lang="en">empord plain</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1592,6 +1846,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#africa"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">206</skos:notation>
+        <skos:prefLabel xml:lang="en">equatorial guinea</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1605,6 +1860,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#africa"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">197</skos:notation>
+        <skos:prefLabel xml:lang="en">eritrea</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1618,6 +1874,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#africa"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">198</skos:notation>
+        <skos:prefLabel xml:lang="en">ethiopia</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1885,6 +2142,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#western_pyrenees"/>
         <skos:topConceptOf rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">87</skos:notation>
+        <skos:prefLabel xml:lang="en">europe</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1900,6 +2158,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">152</skos:notation>
+        <skos:prefLabel xml:lang="en">extremadura</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1915,6 +2174,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">187</skos:notation>
+        <skos:prefLabel xml:lang="en">formentera</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1928,6 +2188,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">98</skos:notation>
+        <skos:prefLabel xml:lang="en">fortuna basin</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1941,6 +2202,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">131</skos:notation>
+        <skos:prefLabel xml:lang="en">france</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1954,6 +2216,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">64</skos:notation>
+        <skos:prefLabel xml:lang="en">fuente nueva 3</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1967,6 +2230,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">65</skos:notation>
+        <skos:prefLabel xml:lang="en">gar arjeneh rockshelter</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1980,6 +2244,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">99</skos:notation>
+        <skos:prefLabel xml:lang="en">germany</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -1993,6 +2258,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</skos:notation>
+        <skos:prefLabel xml:lang="en">ghamari cave</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2008,6 +2274,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">153</skos:notation>
+        <skos:prefLabel xml:lang="en">gibraltar</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2021,6 +2288,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">31</skos:notation>
+        <skos:prefLabel xml:lang="en">gilvaran cave</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2034,6 +2302,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</skos:notation>
+        <skos:prefLabel xml:lang="en">gorhams cave</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2047,6 +2316,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">33</skos:notation>
+        <skos:prefLabel xml:lang="en">gran dolina</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2060,6 +2330,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">34</skos:notation>
+        <skos:prefLabel xml:lang="en">gran dolina td10-1</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2073,6 +2344,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35</skos:notation>
+        <skos:prefLabel xml:lang="en">grotta paglicci</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2086,6 +2358,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">36</skos:notation>
+        <skos:prefLabel xml:lang="en">grotte des barasses ii</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2099,6 +2372,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">37</skos:notation>
+        <skos:prefLabel xml:lang="en">grottes-bergeries</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2114,6 +2388,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">154</skos:notation>
+        <skos:prefLabel xml:lang="en">guadix-baza basin</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2127,6 +2402,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">84</skos:notation>
+        <skos:prefLabel xml:lang="en">heppenloch</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2140,6 +2416,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#africa"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">207</skos:notation>
+        <skos:prefLabel xml:lang="en">high plateaus basin</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2153,6 +2430,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">77</skos:notation>
+        <skos:prefLabel xml:lang="en">huescar-1</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2166,6 +2444,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</skos:notation>
+        <skos:prefLabel xml:lang="en">hungary</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2181,6 +2460,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">155</skos:notation>
+        <skos:prefLabel xml:lang="en">iberian northwest</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2362,6 +2642,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#western_iberia"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#western_pyrenees"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">135</skos:notation>
+        <skos:prefLabel xml:lang="en">iberian peninsula</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2375,6 +2656,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#asia"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">213</skos:notation>
+        <skos:prefLabel xml:lang="en">india</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2388,6 +2670,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#asia"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">214</skos:notation>
+        <skos:prefLabel xml:lang="en">indonesia</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2401,6 +2684,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#asia"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">215</skos:notation>
+        <skos:prefLabel xml:lang="en">iran</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2414,6 +2698,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">78</skos:notation>
+        <skos:prefLabel xml:lang="en">irgiz 1</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2427,6 +2712,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">101</skos:notation>
+        <skos:prefLabel xml:lang="en">italian peninsula</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2440,6 +2726,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">102</skos:notation>
+        <skos:prefLabel xml:lang="en">italy</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2453,6 +2740,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">38</skos:notation>
+        <skos:prefLabel xml:lang="en">jarama vi</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2466,6 +2754,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">103</skos:notation>
+        <skos:prefLabel xml:lang="en">julian prealps</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2479,6 +2768,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">39</skos:notation>
+        <skos:prefLabel xml:lang="en">kaldar cave</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2492,6 +2782,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#asia"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">216</skos:notation>
+        <skos:prefLabel xml:lang="en">kelabit highlands</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2505,6 +2796,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#asia"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">217</skos:notation>
+        <skos:prefLabel xml:lang="en">khorramabad valley</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2518,6 +2810,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#asia"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">218</skos:notation>
+        <skos:prefLabel xml:lang="en">kinkazan island</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2531,6 +2824,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">40</skos:notation>
+        <skos:prefLabel xml:lang="en">kvabebi</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2544,6 +2838,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">41</skos:notation>
+        <skos:prefLabel xml:lang="en">la cansaladeta</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2557,6 +2852,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">42</skos:notation>
+        <skos:prefLabel xml:lang="en">la cativera</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2570,6 +2866,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">43</skos:notation>
+        <skos:prefLabel xml:lang="en">la chapelle-aux-saints</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2583,6 +2880,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">44</skos:notation>
+        <skos:prefLabel xml:lang="en">la draga</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2596,6 +2894,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">45</skos:notation>
+        <skos:prefLabel xml:lang="en">la mallada</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2609,6 +2908,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">46</skos:notation>
+        <skos:prefLabel xml:lang="en">la mina</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2624,6 +2924,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">156</skos:notation>
+        <skos:prefLabel xml:lang="en">lake banyoles</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2637,6 +2938,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#asia"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">234</skos:notation>
+        <skos:prefLabel xml:lang="en">lesser caucasus</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2650,6 +2952,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">47</skos:notation>
+        <skos:prefLabel xml:lang="en">lhort de la boquera</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2663,6 +2966,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">133</skos:notation>
+        <skos:prefLabel xml:lang="en">madonie mountain range</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2676,6 +2980,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">48</skos:notation>
+        <skos:prefLabel xml:lang="en">malarnaud</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2689,6 +2994,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#asia"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">219</skos:notation>
+        <skos:prefLabel xml:lang="en">malaysian borneo</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2704,6 +3010,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">157</skos:notation>
+        <skos:prefLabel xml:lang="en">mallorca</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2717,6 +3024,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">49</skos:notation>
+        <skos:prefLabel xml:lang="en">maltravieso cave</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2730,6 +3038,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</skos:notation>
+        <skos:prefLabel xml:lang="en">mar gwergalan cave</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2743,6 +3052,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">104</skos:notation>
+        <skos:prefLabel xml:lang="en">mediterranean europe</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2758,6 +3068,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">158</skos:notation>
+        <skos:prefLabel xml:lang="en">mediterranean iberia</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2771,6 +3082,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">105</skos:notation>
+        <skos:prefLabel xml:lang="en">meiendorf</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2784,6 +3096,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">51</skos:notation>
+        <skos:prefLabel xml:lang="en">melka wakena site-complex</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2799,6 +3112,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">159</skos:notation>
+        <skos:prefLabel xml:lang="en">menorca</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2812,6 +3126,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">106</skos:notation>
+        <skos:prefLabel xml:lang="en">meuse basin of belgium</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2825,6 +3140,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#america"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">243</skos:notation>
+        <skos:prefLabel xml:lang="en">mexico</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2838,6 +3154,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#asia"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">235</skos:notation>
+        <skos:prefLabel xml:lang="en">middle east</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2853,6 +3170,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">188</skos:notation>
+        <skos:prefLabel xml:lang="en">moli del salt</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2868,6 +3186,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">160</skos:notation>
+        <skos:prefLabel xml:lang="en">monte alen</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2881,6 +3200,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">107</skos:notation>
+        <skos:prefLabel xml:lang="en">montenegro</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2894,6 +3214,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">108</skos:notation>
+        <skos:prefLabel xml:lang="en">montmaurin</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2907,6 +3228,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#africa"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">199</skos:notation>
+        <skos:prefLabel xml:lang="en">morocco</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2920,6 +3242,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">52</skos:notation>
+        <skos:prefLabel xml:lang="en">mumba rock shelter</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2933,6 +3256,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#asia"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">220</skos:notation>
+        <skos:prefLabel xml:lang="en">nagorno-karabakh</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2948,6 +3272,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">161</skos:notation>
+        <skos:prefLabel xml:lang="en">nalon river</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2961,6 +3286,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">53</skos:notation>
+        <skos:prefLabel xml:lang="en">navalmaillo rock shelter</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2976,6 +3302,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">162</skos:notation>
+        <skos:prefLabel xml:lang="en">ne iberian peninsula</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2989,6 +3316,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">54</skos:notation>
+        <skos:prefLabel xml:lang="en">neanderthals-el sidron</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3002,6 +3330,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#asia"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">221</skos:notation>
+        <skos:prefLabel xml:lang="en">niah caves</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3015,6 +3344,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#africa"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</skos:notation>
+        <skos:prefLabel xml:lang="en">north africa</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3028,6 +3358,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#america"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">244</skos:notation>
+        <skos:prefLabel xml:lang="en">north america</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3041,6 +3372,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">109</skos:notation>
+        <skos:prefLabel xml:lang="en">northeastern italy</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3054,6 +3386,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#asia"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">236</skos:notation>
+        <skos:prefLabel xml:lang="en">northern plateau</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3069,6 +3402,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">163</skos:notation>
+        <skos:prefLabel xml:lang="en">northwest iberia</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3082,6 +3416,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">110</skos:notation>
+        <skos:prefLabel xml:lang="en">northwestern europe</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3095,6 +3430,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#america"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">245</skos:notation>
+        <skos:prefLabel xml:lang="en">northwestern patagonia</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3108,6 +3444,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#africa"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">201</skos:notation>
+        <skos:prefLabel xml:lang="en">nw tunisia</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3121,6 +3458,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#america"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">251</skos:notation>
+        <skos:prefLabel xml:lang="en">oaxaca</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3138,6 +3476,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#solomon_islands"/>
         <skos:topConceptOf rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">253</skos:notation>
+        <skos:prefLabel xml:lang="en">oceania</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3151,6 +3490,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">55</skos:notation>
+        <skos:prefLabel xml:lang="en">olduvai gorge</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3166,6 +3506,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">164</skos:notation>
+        <skos:prefLabel xml:lang="en">olot</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3181,6 +3522,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">165</skos:notation>
+        <skos:prefLabel xml:lang="en">orce</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3194,6 +3536,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">56</skos:notation>
+        <skos:prefLabel xml:lang="en">oued sarrat</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3207,6 +3550,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#america"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">246</skos:notation>
+        <skos:prefLabel xml:lang="en">pampean region</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3222,6 +3566,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">190</skos:notation>
+        <skos:prefLabel xml:lang="en">panadella chert</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3235,6 +3580,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#america"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">247</skos:notation>
+        <skos:prefLabel xml:lang="en">panama</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3248,6 +3594,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">111</skos:notation>
+        <skos:prefLabel xml:lang="en">payre</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3261,6 +3608,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</skos:notation>
+        <skos:prefLabel xml:lang="en">piedmont</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3274,6 +3622,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">86</skos:notation>
+        <skos:prefLabel xml:lang="en">pilauco</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3287,6 +3636,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">79</skos:notation>
+        <skos:prefLabel xml:lang="en">pirro nord</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3300,6 +3650,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">80</skos:notation>
+        <skos:prefLabel xml:lang="en">pirro nord 13</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3315,6 +3666,7 @@
         <skos:hasTopConcept rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#oceania"/>
         <skos:hasTopConcept rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</skos:notation>
+        <skos:prefLabel xml:lang="en">place</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3328,6 +3680,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">57</skos:notation>
+        <skos:prefLabel xml:lang="en">portel-ouest cave</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3343,6 +3696,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">166</skos:notation>
+        <skos:prefLabel xml:lang="en">portugal</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3356,6 +3710,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">58</skos:notation>
+        <skos:prefLabel xml:lang="en">prado vargas</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3369,6 +3724,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">134</skos:notation>
+        <skos:prefLabel xml:lang="en">pyrenean mountain range</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3382,6 +3738,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">59</skos:notation>
+        <skos:prefLabel xml:lang="en">pyrenean site</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3395,6 +3752,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">112</skos:notation>
+        <skos:prefLabel xml:lang="en">pyrenees</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3408,6 +3766,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</skos:notation>
+        <skos:prefLabel xml:lang="en">qesem cave</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3423,6 +3782,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">167</skos:notation>
+        <skos:prefLabel xml:lang="en">quibas</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3436,6 +3796,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">113</skos:notation>
+        <skos:prefLabel xml:lang="en">rhne valley</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3449,6 +3810,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">114</skos:notation>
+        <skos:prefLabel xml:lang="en">riparo fredian</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3462,6 +3824,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#america"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">248</skos:notation>
+        <skos:prefLabel xml:lang="en">sabana de bogota</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3475,6 +3838,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#asia"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">222</skos:notation>
+        <skos:prefLabel xml:lang="en">sarawak</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3490,6 +3854,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">168</skos:notation>
+        <skos:prefLabel xml:lang="en">se iberian peninsula</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3503,6 +3868,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">115</skos:notation>
+        <skos:prefLabel xml:lang="en">sicily</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3516,6 +3882,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">61</skos:notation>
+        <skos:prefLabel xml:lang="en">sierra de atapuerca sites</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3529,6 +3896,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">62</skos:notation>
+        <skos:prefLabel xml:lang="en">sima de los huesos</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3542,6 +3910,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">63</skos:notation>
+        <skos:prefLabel xml:lang="en">sima del elefante</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3805,6 +4174,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#venta_micena"/>
         <skos:topConceptOf rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</skos:notation>
+        <skos:prefLabel xml:lang="en">site</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3818,6 +4188,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#america"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">252</skos:notation>
+        <skos:prefLabel xml:lang="en">sitio sierra</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3831,6 +4202,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#oceania"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">255</skos:notation>
+        <skos:prefLabel xml:lang="en">solomon islands</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3844,6 +4216,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#africa"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">202</skos:notation>
+        <skos:prefLabel xml:lang="en">somalia-masai/zambezian zone</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3857,6 +4230,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">81</skos:notation>
+        <skos:prefLabel xml:lang="en">song terus</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3872,6 +4246,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">170</skos:notation>
+        <skos:prefLabel xml:lang="en">south-eastern pyrenees</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3885,6 +4260,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#america"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">249</skos:notation>
+        <skos:prefLabel xml:lang="en">south america</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3898,6 +4274,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#asia"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">223</skos:notation>
+        <skos:prefLabel xml:lang="en">south asia</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3913,6 +4290,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">169</skos:notation>
+        <skos:prefLabel xml:lang="en">south of catalonia</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3926,6 +4304,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">116</skos:notation>
+        <skos:prefLabel xml:lang="en">south of france</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3939,6 +4318,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#asia"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">224</skos:notation>
+        <skos:prefLabel xml:lang="en">southeast asia</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3954,6 +4334,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">171</skos:notation>
+        <skos:prefLabel xml:lang="en">southeastern france</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3969,6 +4350,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">172</skos:notation>
+        <skos:prefLabel xml:lang="en">southeastern pre-pyrenees</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3982,6 +4364,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#asia"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">225</skos:notation>
+        <skos:prefLabel xml:lang="en">southern anatolia</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -3995,6 +4378,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#america"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">250</skos:notation>
+        <skos:prefLabel xml:lang="en">southern atacama desert</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4008,6 +4392,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">117</skos:notation>
+        <skos:prefLabel xml:lang="en">southern belgium</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4021,6 +4406,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">118</skos:notation>
+        <skos:prefLabel xml:lang="en">southern europe</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4036,6 +4422,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">173</skos:notation>
+        <skos:prefLabel xml:lang="en">southern iberian range</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4049,6 +4436,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">119</skos:notation>
+        <skos:prefLabel xml:lang="en">southern italy</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4062,6 +4450,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#asia"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">226</skos:notation>
+        <skos:prefLabel xml:lang="en">southwest asia</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4075,6 +4464,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">123</skos:notation>
+        <skos:prefLabel xml:lang="en">southwestern europe</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4088,6 +4478,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</skos:notation>
+        <skos:prefLabel xml:lang="en">southwestern france</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4103,6 +4494,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">174</skos:notation>
+        <skos:prefLabel xml:lang="en">southwestern iberia</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4118,6 +4510,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">175</skos:notation>
+        <skos:prefLabel xml:lang="en">spain</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4131,6 +4524,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">121</skos:notation>
+        <skos:prefLabel xml:lang="en">steinheim</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4144,6 +4538,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">85</skos:notation>
+        <skos:prefLabel xml:lang="en">stellmoor</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4157,6 +4552,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">122</skos:notation>
+        <skos:prefLabel xml:lang="en">swabian jura</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4172,6 +4568,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">176</skos:notation>
+        <skos:prefLabel xml:lang="en">tagus river</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4187,6 +4584,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">177</skos:notation>
+        <skos:prefLabel xml:lang="en">tagus valley</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4202,6 +4600,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">178</skos:notation>
+        <skos:prefLabel xml:lang="en">tarragona</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4215,6 +4614,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">66</skos:notation>
+        <skos:prefLabel xml:lang="en">td6 unit</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4228,6 +4628,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">67</skos:notation>
+        <skos:prefLabel xml:lang="en">teixoneres cave</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4241,6 +4642,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#asia"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">227</skos:notation>
+        <skos:prefLabel xml:lang="en">tel megiddo</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4254,6 +4656,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#asia"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">228</skos:notation>
+        <skos:prefLabel xml:lang="en">tel shadud</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4269,6 +4672,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">179</skos:notation>
+        <skos:prefLabel xml:lang="en">ter basin</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4282,6 +4686,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">82</skos:notation>
+        <skos:prefLabel xml:lang="en">terrasses de la riera dels canyars</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4295,6 +4700,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">68</skos:notation>
+        <skos:prefLabel xml:lang="en">toll cave</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4308,6 +4714,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">69</skos:notation>
+        <skos:prefLabel xml:lang="en">trinchera del ferrocarril</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4321,6 +4728,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">70</skos:notation>
+        <skos:prefLabel xml:lang="en">tritons cave</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4334,6 +4742,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#africa"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">203</skos:notation>
+        <skos:prefLabel xml:lang="en">tunisia</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4347,6 +4756,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#asia"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">229</skos:notation>
+        <skos:prefLabel xml:lang="en">udabno</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4362,6 +4772,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">180</skos:notation>
+        <skos:prefLabel xml:lang="en">ullastret</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4375,6 +4786,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">129</skos:notation>
+        <skos:prefLabel xml:lang="en">untermassfeld</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4388,6 +4800,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">124</skos:notation>
+        <skos:prefLabel xml:lang="en">urals</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4403,6 +4816,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">181</skos:notation>
+        <skos:prefLabel xml:lang="en">valencian region</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4418,6 +4832,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">182</skos:notation>
+        <skos:prefLabel xml:lang="en">vallparadis</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4433,6 +4848,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">183</skos:notation>
+        <skos:prefLabel xml:lang="en">vallparadis estacio</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4448,6 +4864,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">184</skos:notation>
+        <skos:prefLabel xml:lang="en">vallparadis section</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4461,6 +4878,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">71</skos:notation>
+        <skos:prefLabel xml:lang="en">vanguard cave</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4474,6 +4892,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#site"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">83</skos:notation>
+        <skos:prefLabel xml:lang="en">venta micena</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4487,6 +4906,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">132</skos:notation>
+        <skos:prefLabel xml:lang="en">verberie</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4500,6 +4920,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#africa"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">204</skos:notation>
+        <skos:prefLabel xml:lang="en">west africa</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4513,6 +4934,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#africa"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">205</skos:notation>
+        <skos:prefLabel xml:lang="en">west turkana</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4526,6 +4948,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">125</skos:notation>
+        <skos:prefLabel xml:lang="en">western alps</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4539,6 +4962,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">126</skos:notation>
+        <skos:prefLabel xml:lang="en">western europe</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4554,6 +4978,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">185</skos:notation>
+        <skos:prefLabel xml:lang="en">western iberia</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4567,6 +4992,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#asia"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">230</skos:notation>
+        <skos:prefLabel xml:lang="en">western iran</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4582,6 +5008,7 @@
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#europe"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_peninsula"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">186</skos:notation>
+        <skos:prefLabel xml:lang="en">western pyrenees</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4595,6 +5022,7 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#asia"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">231</skos:notation>
+        <skos:prefLabel xml:lang="en">yehud</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -4608,7 +5036,55 @@
         <skos:inScheme rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place"/>
         <skos:semanticRelation rdf:resource="http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#asia"/>
         <skos:notation rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">232</skos:notation>
+        <skos:prefLabel xml:lang="en">zagros mountains</skos:prefLabel>
     </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#altLabel">
+        <skos:example xml:lang="en">Acronyms, abbreviations, spelling variants, and irregular plural/singular forms may be included among the alternative labels for a concept. Mis-spelled terms are normally included as hidden labels (see skos:hiddenLabel).</skos:example>
+        <rdfs:comment xml:lang="en">skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise disjoint properties.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <skos:definition xml:lang="en">An alternative lexical label for a resource.</skos:definition>
+        <rdfs:label xml:lang="en">alternative label</rdfs:label>
+        <rdfs:comment xml:lang="en">The range of skos:altLabel is the class of RDF plain literals.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#changeNote">
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <skos:definition xml:lang="en">A note about a modification to a concept.</skos:definition>
+        <rdfs:label xml:lang="en">change note</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#editorialNote">
+        <rdfs:label xml:lang="en">editorial note</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <skos:definition xml:lang="en">A note for an editor, translator or maintainer of the vocabulary.</skos:definition>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#hiddenLabel">
+        <rdfs:comment xml:lang="en">The range of skos:hiddenLabel is the class of RDF plain literals.</rdfs:comment>
+        <skos:definition xml:lang="en">A lexical label for a resource that should be hidden when generating visual displays of the resource, but should still be accessible to free text search operations.</skos:definition>
+        <rdfs:label xml:lang="en">hidden label</rdfs:label>
+        <rdfs:comment xml:lang="en">skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise disjoint properties.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#historyNote">
+        <skos:definition xml:lang="en">A note about the past state/use/meaning of a concept.</skos:definition>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">history note</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#note">
+        <rdfs:label xml:lang="en">note</rdfs:label>
+        <skos:scopeNote xml:lang="en">This property may be used directly, or as a super-property for more specific note types.</skos:scopeNote>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <skos:definition xml:lang="en">A general note, for any purpose.</skos:definition>
+    </rdf:Description>
 </rdf:RDF>
 
 
