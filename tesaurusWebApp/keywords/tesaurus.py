@@ -4,7 +4,7 @@ class Tesaurus():
     def __init__(self):
         self.g = Graph()
         self.g.parse('3.owl')
-        self.uri = URIRef('http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeyWords#')
+        self.uri = URIRef('http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#')
 
     def getTopConcepts(self) -> list['str']:
         allKeywords = self.getAllKeywords()
