@@ -1,38 +1,34 @@
-from rdflib import SKOS, RDF, OWL, Graph, URIRef, Literal
+from rdflib import SKOS, RDF, Graph, URIRef, Literal
+
 
 class Tesaurus():
     def __init__(self):
         self.g = Graph()
         self.g.parse('3.owl')
-        self.uri = URIRef('http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#')
+        self.uri = URIRef(
+            'http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#')
 
-    def getTopConcepts(self) -> list['str']:
-        allKeywords = self.getAllKeywords()
-        return filter(self.checkKeywordTopConcept, allKeywords)
-
+    def getConceptSchemes(self) -> list['str']:
+        ConceptSchemes = self.g.subjects(RDF.type, SKOS.ConceptScheme)
+        return map(self.getURIKeywordName ,ConceptSchemes)
 
     def checkKeywordTopConcept(self, keyword: str) -> bool:
         return self.checkKeywordPredicate(keyword, SKOS.hasTopConcept)
 
-
-    def checkKeywordNarrower(self, keyword:str)->bool:
+    def checkKeywordNarrower(self, keyword: str) -> bool:
         return self.checkKeywordPredicate(keyword, SKOS.narrower)
 
-
-    def checkKeywordPredicate(self, keyword:str, predicate) -> bool:
+    def checkKeywordPredicate(self, keyword: str, predicate) -> bool:
         return (self.uri+keyword, predicate, None) in self.g
-
 
     def getAllKeywords(self) -> list['str']:
         """
-        generate a list of keyword names using RDFLib function: 
-        "where type is NamedIndividual, catch subject name"
-        :return: A list of keywords.
+        It get the complete list of Concepts and ConceptScheme in the Graph 
+        ands returns a the list of all the keywords names
         """
-        keywords = []
-        for subject in self.g.subjects(RDF.type, OWL.NamedIndividual):
-            keywords.append((subject).split('#')[1])
-        return keywords
+        allKeywords = [subject for subject in self.g.subjects(RDF.type, SKOS.Concept)]
+        allKeywords.extend([subject for subject in self.g.subjects(RDF.type, SKOS.ConceptScheme)])
+        return list(map(self.getURIKeywordName, allKeywords))
 
     def keywordExists(self, keyword: str) -> bool:
         keywords = self.getAllKeywords()
@@ -42,9 +38,9 @@ class Tesaurus():
         keywordData = {}
         # parse keyword data
         for predicate, object in self.g.predicate_objects(URIRef(self.uri+keyword)):
-            predicate = predicate.split('#')[1]
+            predicate = self.getURIKeywordName(predicate)
             if object == URIRef(object):
-                object = object.split('#')[1]
+                object = self.getURIKeywordName(object)
             if object == Literal(object):
                 object = object.value, object.language
             # insert in dictionary
@@ -58,11 +54,22 @@ class Tesaurus():
         """
         It takes a text from searchbar 
         and search all keywords with that substring
-        
+
         :param search: str - The search string from the searchbar
         :return: A list of keywords
         """
         allKeywords = self.getAllKeywords()
+        return [keyword for keyword in allKeywords if search.lower() in keyword.lower()]
 
-        matchs = [keyword for keyword in allKeywords if search.lower() in keyword.lower()]
-        return matchs
+    def getURIKeywordName(self, keyword: str) -> str:
+        return keyword.split('#')[1]
+
+    def getChildrenOf(self, keyword: str) -> list['str']:
+        keywordData = self.getKeywordData(keyword)
+        # recover children keywords inside the current keyword 
+        children = []
+        if 'hasTopConcept' in keywordData:
+            children.extend(keywordData['hasTopConcept'])
+        if 'narrower' in keywordData:
+            children.extend(keywordData['narrower'])
+        return children

@@ -6,22 +6,15 @@ from .tesaurus import Tesaurus
 
 Tesaurus = Tesaurus()
 
-# aquesta funció ha de canviar per a millorar la ordenació dels elements en format arbre... ademés pot allegerir la carrega en temps
-# def index(request):
-#     keywords = Tesaurus.getAllKeywords()
-#     return render(request, "keywords/index.html", {
-#         "keywords": keywords
-#     })
-
-
 def index(request):
-    keywords = Tesaurus.getTopConcepts()
+    keywords =  Tesaurus.getConceptSchemes()
     return render(request, "keywords/index.html", {
         "keywords": keywords
     })
 
 
 def keyword(request, keyword: str):
+    # return HttpResponse(Tesaurus.getAllKeywords())
     # check keyword exists
     if not Tesaurus.keywordExists(keyword):
         return HttpResponseNotFound("keyword doesn't exist")
@@ -42,14 +35,9 @@ def getMatchKeywords(request, search: str):
 
 
 def getChildrenOf(request, keyword: str) -> JsonResponse:
-    keywordData = Tesaurus.getKeywordData(keyword)
-    # recover children keywords inside the current keyword 
-    children = []
-    if 'hasTopConcept' in keywordData:
-        children.extend(keywordData['hasTopConcept'])
-    if 'narrower' in keywordData:
-        children.extend(keywordData['narrower'])
-
+    # get the children of the current element
+    children = Tesaurus.getChildrenOf(keyword)
+    
     # generate dictionary with the keywords and a boolean value that indicates if that keyword had more children
     result = {}
     for child in children:
