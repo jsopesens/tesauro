@@ -21,7 +21,7 @@
         <h2>hasTopConcept:</h2>
         <ul>
             {% for term in keywordData.hasTopConcept %}
-                <li><a href="/keywords/{{term}}">{{term|title}}</a></li>
+                <li><a href="/keywords/{{term|lower}}">{{term|title}}</a></li>
             {% endfor %}
         </ul>
         <hr> 
@@ -32,7 +32,7 @@
         </h2>
         <ul>
             {% for term in keywordData.narrower %}
-                <li><a href="/keywords/{{term}}">{{ term|title }}</a></li>
+                <li><a href="/keywords/{{term|lower}}">{{ term|title }}</a></li>
             {% endfor %}
         </ul>
         <hr>
@@ -45,7 +45,7 @@
     {% endif %}
     {% if 'topConceptOf' in keywordData %}
     <h2>
-        topConceptOf: <a href="/keywords/{{term}}"> {{keywordData.topConceptOf.0|title}}</a>
+        topConceptOf: <a href="/keywords/{{keywordData.topConceptOf.0}}"> {{keywordData.topConceptOf.0|title}}</a>
     </h2>
     <hr>
     {% endif %}
