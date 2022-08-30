@@ -50,7 +50,12 @@
     <hr>
     {% endif %}
     <h2>
-        prefLabel = {{keywordData.prefLabel}}
+        prefLabel: 
+        <ul>
+        {% for lang in keywordData.prefLabel %}
+            <li>{{ lang.1 }}: {{ lang.0 }}</li>
+        {% endfor %}
+        </ul>
     </h2>
     <hr>
     <hr>
