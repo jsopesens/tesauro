@@ -5,8 +5,7 @@ class Tesaurus():
     def __init__(self):
         self.g = Graph()
         self.g.parse('4.ttl')
-        self.uri = URIRef(
-            'http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#')
+        self.uri = URIRef('http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#')
 
     def getConceptSchemes(self) -> list['str']:
         ConceptSchemes = self.g.subjects(RDF.type, SKOS.ConceptScheme)
@@ -36,7 +35,7 @@ class Tesaurus():
     def getKeywordData(self, keyword: str) -> list:
         keywordData = {}
         # parse keyword data
-        for predicate, object in self.g.predicate_objects(URIRef(self.uri+keyword)):
+        for predicate, object in self.g.predicate_objects(self.uri+keyword):
             predicate = self.getURIKeywordName(predicate)
             if object == URIRef(object):
                 object = self.getURIKeywordName(object)
