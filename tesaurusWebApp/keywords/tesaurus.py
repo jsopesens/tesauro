@@ -1,10 +1,10 @@
-from rdflib import SKOS, RDF, Graph, URIRef, Literal
+from rdflib import SKOS, RDF, OWL, Graph, URIRef, Literal
 
 
 class Tesaurus():
     def __init__(self):
         self.g = Graph()
-        self.g.parse('3.owl')
+        self.g.parse('4.ttl')
         self.uri = URIRef(
             'http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#')
 
@@ -26,8 +26,7 @@ class Tesaurus():
         It get the complete list of Concepts and ConceptScheme in the Graph 
         ands returns a the list of all the keywords names
         """
-        allKeywords = [subject for subject in self.g.subjects(RDF.type, SKOS.Concept)]
-        allKeywords.extend([subject for subject in self.g.subjects(RDF.type, SKOS.ConceptScheme)])
+        allKeywords = [subject for subject in self.g.subjects(RDF.type, OWL.NamedIndividual)]
         return list(map(self.getURIKeywordName, allKeywords))
 
     def keywordExists(self, keyword: str) -> bool:
