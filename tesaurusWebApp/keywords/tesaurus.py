@@ -4,7 +4,7 @@ from rdflib import SKOS, RDF, OWL, Graph, URIRef, Literal
 class Tesaurus():
     def __init__(self):
         self.g = Graph()
-        self.g.parse('4.ttl')
+        self.g.parse('5.ttl')
         self.uri = URIRef('http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#')
 
     def getConceptSchemes(self) -> list['str']:
