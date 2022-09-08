@@ -9,11 +9,12 @@ fullKeywordList.addEventListener('click', e => {
 
 // click on svg to ajax call children
 fullKeywordList.addEventListener('click', e => {
+    console.log(e.target.closest('li'))
     if (e.target && e.target.matches('svg.showMore')) {
-        let fatherKeyword = e.path[1]
-        let svg = e.path[0]
+        let fatherKeyword = e.target.closest('li')
+        let svg = e.target
         let innerList = fatherKeyword.querySelector('ul')
-        let keywordName = e.path[1].id
+        let keywordName = fatherKeyword.id
         
         rotateSVG(svg)
 
@@ -22,7 +23,6 @@ fullKeywordList.addEventListener('click', e => {
             fetch('/keywords/getChildrenOf/' + keywordName)
                 .then(response => response.json())
                 .then(data => {
-                    // console.log(data)
                     deployChildren(fatherKeyword, data)
                 })
         }
