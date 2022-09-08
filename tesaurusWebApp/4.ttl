@@ -453,8 +453,8 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#african_tropical_forest
 :african_tropical_forest rdf:type owl:NamedIndividual ,
                                   skos:Concept ;
-                         skos:inScheme :non_defined_sites ;
-                         skos:topConceptOf :non_defined_sites ;
+                         skos:inScheme :others ;
+                         skos:topConceptOf :others ;
                          skos:notation 257 ;
                          skos:prefLabel "african tropical forest"@en .
 
@@ -564,8 +564,8 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#archaeo-palaeontological_site
 :archaeo-palaeontological_site rdf:type owl:NamedIndividual ,
                                         skos:Concept ;
-                               skos:inScheme :non_defined_sites ;
-                               skos:topConceptOf :non_defined_sites ;
+                               skos:inScheme :others ;
+                               skos:topConceptOf :others ;
                                skos:notation 258 ;
                                skos:prefLabel "archaeo-palaeontological site"@en .
 
@@ -573,8 +573,8 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#archaeological_site
 :archaeological_site rdf:type owl:NamedIndividual ,
                               skos:Concept ;
-                     skos:inScheme :non_defined_sites ;
-                     skos:topConceptOf :non_defined_sites ;
+                     skos:inScheme :others ;
+                     skos:topConceptOf :others ;
                      skos:notation 259 ;
                      skos:prefLabel "archaeological site"@en .
 
@@ -870,8 +870,8 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#biotic_regions
 :biotic_regions rdf:type owl:NamedIndividual ,
                          skos:Concept ;
-                skos:inScheme :non_defined_sites ;
-                skos:topConceptOf :non_defined_sites ;
+                skos:inScheme :others ;
+                skos:topConceptOf :others ;
                 skos:notation 260 ;
                 skos:prefLabel "biotic regions"@en .
 
@@ -879,8 +879,8 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#bison_bone_bed
 :bison_bone_bed rdf:type owl:NamedIndividual ,
                          skos:Concept ;
-                skos:inScheme :non_defined_sites ;
-                skos:topConceptOf :non_defined_sites ;
+                skos:inScheme :others ;
+                skos:topConceptOf :others ;
                 skos:notation 261 ;
                 skos:prefLabel "bison bone bed"@en .
 
@@ -899,8 +899,8 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#boreholes
 :boreholes rdf:type owl:NamedIndividual ,
                     skos:Concept ;
-           skos:inScheme :non_defined_sites ;
-           skos:topConceptOf :non_defined_sites ;
+           skos:inScheme :others ;
+           skos:topConceptOf :others ;
            skos:notation 262 ;
            skos:prefLabel "boreholes"@en .
 
@@ -989,8 +989,8 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#carnivore_den
 :carnivore_den rdf:type owl:NamedIndividual ,
                         skos:Concept ;
-               skos:inScheme :non_defined_sites ;
-               skos:topConceptOf :non_defined_sites ;
+               skos:inScheme :others ;
+               skos:topConceptOf :others ;
                skos:notation 283 ;
                skos:prefLabel "carnivore den"@en .
 
@@ -1009,8 +1009,8 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#catalan_volcanic_zone
 :catalan_volcanic_zone rdf:type owl:NamedIndividual ,
                                 skos:Concept ;
-                       skos:inScheme :non_defined_sites ;
-                       skos:topConceptOf :non_defined_sites ;
+                       skos:inScheme :others ;
+                       skos:topConceptOf :others ;
                        skos:notation 263 ;
                        skos:prefLabel "catalan volcanic zone"@en .
 
@@ -1301,8 +1301,8 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#den
 :den rdf:type owl:NamedIndividual ,
               skos:Concept ;
-     skos:inScheme :non_defined_sites ;
-     skos:topConceptOf :non_defined_sites ;
+     skos:inScheme :others ;
+     skos:topConceptOf :others ;
      skos:notation 264 ;
      skos:prefLabel "den"@en .
 
@@ -1807,8 +1807,8 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#excavation
 :excavation rdf:type owl:NamedIndividual ,
                      skos:Concept ;
-            skos:inScheme :non_defined_sites ;
-            skos:topConceptOf :non_defined_sites ;
+            skos:inScheme :others ;
+            skos:topConceptOf :others ;
             skos:notation 265 ;
             skos:prefLabel "excavation"@en .
 
@@ -1965,8 +1965,8 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#grassland
 :grassland rdf:type owl:NamedIndividual ,
                     skos:Concept ;
-           skos:inScheme :non_defined_sites ;
-           skos:topConceptOf :non_defined_sites ;
+           skos:inScheme :others ;
+           skos:topConceptOf :others ;
            skos:notation 266 ;
            skos:prefLabel "grassland"@en .
 
@@ -2042,8 +2042,8 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#home_base
 :home_base rdf:type owl:NamedIndividual ,
                     skos:Concept ;
-           skos:inScheme :non_defined_sites ;
-           skos:topConceptOf :non_defined_sites ;
+           skos:inScheme :others ;
+           skos:topConceptOf :others ;
            skos:notation 267 ;
            skos:prefLabel "home base"@en .
 
@@ -2073,8 +2073,8 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#hunting_camp
 :hunting_camp rdf:type owl:NamedIndividual ,
                        skos:Concept ;
-              skos:inScheme :non_defined_sites ;
-              skos:topConceptOf :non_defined_sites ;
+              skos:inScheme :others ;
+              skos:topConceptOf :others ;
               skos:notation 281 ;
               skos:prefLabel "hunting camp"@en .
 
@@ -2082,8 +2082,8 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#hyena_den
 :hyena_den rdf:type owl:NamedIndividual ,
                     skos:Concept ;
-           skos:inScheme :non_defined_sites ;
-           skos:topConceptOf :non_defined_sites ;
+           skos:inScheme :others ;
+           skos:topConceptOf :others ;
            skos:notation 285 ;
            skos:prefLabel "hyena den"@en .
 
@@ -2327,8 +2327,8 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#island_southeast_asia
 :island_southeast_asia rdf:type owl:NamedIndividual ,
                                 skos:Concept ;
-                       skos:inScheme :non_defined_sites ;
-                       skos:topConceptOf :non_defined_sites ;
+                       skos:inScheme :others ;
+                       skos:topConceptOf :others ;
                        skos:notation 268 ;
                        skos:prefLabel "island southeast asia"@en .
 
@@ -2413,8 +2413,8 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#kill_site
 :kill_site rdf:type owl:NamedIndividual ,
                     skos:Concept ;
-           skos:inScheme :non_defined_sites ;
-           skos:topConceptOf :non_defined_sites ;
+           skos:inScheme :others ;
+           skos:topConceptOf :others ;
            skos:notation 269 ;
            skos:prefLabel "kill site"@en .
 
@@ -2834,8 +2834,8 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#neotropics
 :neotropics rdf:type owl:NamedIndividual ,
                      skos:Concept ;
-            skos:inScheme :non_defined_sites ;
-            skos:topConceptOf :non_defined_sites ;
+            skos:inScheme :others ;
+            skos:topConceptOf :others ;
             skos:notation 284 ;
             skos:prefLabel "neotropics"@en .
 
@@ -2851,8 +2851,8 @@ skos:OrderedCollection rdf:type owl:Class ;
             skos:prefLabel "niah caves"@en .
 
 
-###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#non_defined_sites
-:non_defined_sites rdf:type owl:NamedIndividual ,
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#others
+:others rdf:type owl:NamedIndividual ,
                             skos:ConceptScheme ;
                    skos:hasTopConcept :african_tropical_forest ,
                                       :archaeo-palaeontological_site ,
@@ -3030,8 +3030,8 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#open-air_camp
 :open-air_camp rdf:type owl:NamedIndividual ,
                         skos:Concept ;
-               skos:inScheme :non_defined_sites ;
-               skos:topConceptOf :non_defined_sites ;
+               skos:inScheme :others ;
+               skos:topConceptOf :others ;
                skos:notation 270 ;
                skos:prefLabel "open-air camp"@en .
 
@@ -3039,8 +3039,8 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#open-air_sites
 :open-air_sites rdf:type owl:NamedIndividual ,
                          skos:Concept ;
-                skos:inScheme :non_defined_sites ;
-                skos:topConceptOf :non_defined_sites ;
+                skos:inScheme :others ;
+                skos:topConceptOf :others ;
                 skos:notation 271 ;
                 skos:prefLabel "open-air sites"@en .
 
@@ -3072,8 +3072,8 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#palaeontological_site
 :palaeontological_site rdf:type owl:NamedIndividual ,
                                 skos:Concept ;
-                       skos:inScheme :non_defined_sites ;
-                       skos:topConceptOf :non_defined_sites ;
+                       skos:inScheme :others ;
+                       skos:topConceptOf :others ;
                        skos:notation 272 ;
                        skos:prefLabel "palaeontological site"@en .
 
@@ -3081,8 +3081,8 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#paleoanthropological_sites
 :paleoanthropological_sites rdf:type owl:NamedIndividual ,
                                      skos:Concept ;
-                            skos:inScheme :non_defined_sites ;
-                            skos:topConceptOf :non_defined_sites ;
+                            skos:inScheme :others ;
+                            skos:topConceptOf :others ;
                             skos:notation 273 ;
                             skos:prefLabel "paleoanthropological sites"@en .
 
@@ -3193,8 +3193,8 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#pleistocene_heritage_site
 :pleistocene_heritage_site rdf:type owl:NamedIndividual ,
                                     skos:Concept ;
-                           skos:inScheme :non_defined_sites ;
-                           skos:topConceptOf :non_defined_sites ;
+                           skos:inScheme :others ;
+                           skos:topConceptOf :others ;
                            skos:notation 274 ;
                            skos:prefLabel "pleistocene heritage site"@en .
 
@@ -3237,8 +3237,8 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#prehistoric_settlements
 :prehistoric_settlements rdf:type owl:NamedIndividual ,
                                   skos:Concept ;
-                         skos:inScheme :non_defined_sites ;
-                         skos:topConceptOf :non_defined_sites ;
+                         skos:inScheme :others ;
+                         skos:topConceptOf :others ;
                          skos:notation 282 ;
                          skos:prefLabel "prehistoric settlements"@en .
 
@@ -3303,8 +3303,8 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#residential_site
 :residential_site rdf:type owl:NamedIndividual ,
                            skos:Concept ;
-                  skos:inScheme :non_defined_sites ;
-                  skos:topConceptOf :non_defined_sites ;
+                  skos:inScheme :others ;
+                  skos:topConceptOf :others ;
                   skos:notation 275 ;
                   skos:prefLabel "residential site"@en .
 
@@ -3345,8 +3345,8 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#sanctuary
 :sanctuary rdf:type owl:NamedIndividual ,
                     skos:Concept ;
-           skos:inScheme :non_defined_sites ;
-           skos:topConceptOf :non_defined_sites ;
+           skos:inScheme :others ;
+           skos:topConceptOf :others ;
            skos:notation 276 ;
            skos:prefLabel "sanctuary"@en .
 
@@ -3378,8 +3378,8 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#semi-arid_north
 :semi-arid_north rdf:type owl:NamedIndividual ,
                           skos:Concept ;
-                 skos:inScheme :non_defined_sites ;
-                 skos:topConceptOf :non_defined_sites ;
+                 skos:inScheme :others ;
+                 skos:topConceptOf :others ;
                  skos:notation 280 ;
                  skos:prefLabel "semi-arid north"@en .
 
@@ -3387,8 +3387,8 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#sepulcros_de_fosa
 :sepulcros_de_fosa rdf:type owl:NamedIndividual ,
                             skos:Concept ;
-                   skos:inScheme :non_defined_sites ;
-                   skos:topConceptOf :non_defined_sites ;
+                   skos:inScheme :others ;
+                   skos:topConceptOf :others ;
                    skos:notation 277 ;
                    skos:prefLabel "sepulcros de fosa"@en .
 
@@ -3396,8 +3396,8 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#sheepfold_cave
 :sheepfold_cave rdf:type owl:NamedIndividual ,
                          skos:Concept ;
-                skos:inScheme :non_defined_sites ;
-                skos:topConceptOf :non_defined_sites ;
+                skos:inScheme :others ;
+                skos:topConceptOf :others ;
                 skos:notation 278 ;
                 skos:prefLabel "sheepfold cave"@en .
 
@@ -3405,8 +3405,8 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#shelter
 :shelter rdf:type owl:NamedIndividual ,
                   skos:Concept ;
-         skos:inScheme :non_defined_sites ;
-         skos:topConceptOf :non_defined_sites ;
+         skos:inScheme :others ;
+         skos:topConceptOf :others ;
          skos:notation 279 ;
          skos:prefLabel "shelter"@en .
 

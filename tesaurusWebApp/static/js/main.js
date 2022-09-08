@@ -17,7 +17,6 @@ searchInput.addEventListener('focusout', () => {
         keyword_list.style.display = 'none';
     }, 200)
 })
-
 searchInput.addEventListener('focusin', () => 
     keyword_list.style.display = 'block'
 )
