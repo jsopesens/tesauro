@@ -14,7 +14,6 @@ def index(request):
 
 
 def keyword(request, keyword: str):
-    # return HttpResponse(Tesaurus.getAllKeywords())
     # check keyword exists
     if not Tesaurus.keywordExists(keyword):
         return HttpResponseNotFound("keyword doesn't exist")

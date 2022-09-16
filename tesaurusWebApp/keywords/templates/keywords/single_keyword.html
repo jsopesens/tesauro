@@ -14,8 +14,13 @@
     <h1>{{keyword|title}}</h1>
     <hr>
     <h2>
-        InScheme: <a href="/keywords/{{keywordData.inScheme.0}}">{{keywordData.inScheme.0|title}}</a>
+        InScheme:
     </h2>
+    <ul>
+        {% for scheme in keywordData.inScheme %}
+            <h3><li><a href="/keywords/{{ scheme }}">{{scheme|title}}</a></li></h3>
+        {% endfor %}
+    </ul>
     <hr>
     {% if 'hasTopConcept' in keywordData %}
         <h2>hasTopConcept:</h2>
@@ -32,20 +37,25 @@
         </h2>
         <ul>
             {% for term in keywordData.narrower %}
-                <li><a href="/keywords/{{term|lower}}">{{ term|title }}</a></li>
+                <li><a href="/keywords/{{ term|lower }}">{{ term|title }}</a></li>
             {% endfor %}
         </ul>
         <hr>
     {% endif %}
     {% if 'broader' in keywordData %}
     <h2>
-        Broader: <a href="/keywords/{{keywordData.broader.0}}">{{keywordData.broader.0|title}}</a>
+        Broader:
     </h2>
+    <ul>
+        {% for broader in keywordData.broader%}
+        <h3><li><a href="/keywords/{{ broader|lower }}">{{ broader|title }}</a></li></h3>
+        {% endfor %}
+    </ul>
     <hr>
     {% endif %}
     {% if 'topConceptOf' in keywordData %}
     <h2>
-        topConceptOf: <a href="/keywords/{{keywordData.topConceptOf.0}}"> {{keywordData.topConceptOf.0|title}}</a>
+        topConceptOf: <a href="/keywords/{{ keywordData.topConceptOf.0 }}"> {{ keywordData.topConceptOf.0|title }}</a>
     </h2>
     <hr>
     {% endif %}
