@@ -9,7 +9,6 @@ fullKeywordList.addEventListener('click', e => {
 
 // click on svg to ajax call children
 fullKeywordList.addEventListener('click', e => {
-    console.log(e.target.closest('li'))
     if (e.target && e.target.matches('svg.showMore')) {
         let fatherKeyword = e.target.closest('li')
         let svg = e.target
@@ -54,12 +53,20 @@ function deployChildren(fatherKeyword, data) {
         li.classList = 'keyword'
         li.id = key
         a.href = key
-        a.innerHTML = key
+        a.innerHTML = UpperCaseEveryWord(key.replaceAll("_", " "))
         li.appendChild(a)
         if (hadChildren) addTriangleSVG(li)
         
         lu.appendChild(li)
     })
+}
+
+function UpperCaseEveryWord(text){
+    const words = text.split(" ")
+    for (let i = 0; i != words.length; i++){
+        words[i] = words[i][0].toUpperCase() + words[i].substr(1)
+    }
+    return words.join(' ')
 }
 
 function addTriangleSVG(li){

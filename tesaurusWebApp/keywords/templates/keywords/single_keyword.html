@@ -48,7 +48,7 @@
     </h2>
     <ul>
         {% for broader in keywordData.broader%}
-        <h3><li><a href="/keywords/{{ broader|lower }}">{{ broader|title }}</a></li></h3>
+            <h3><li><a href="/keywords/{{ broader|lower }}">{{ broader|title }}</a></li></h3>
         {% endfor %}
     </ul>
     <hr>
@@ -61,12 +61,12 @@
     {% endif %}
     <h2>
         prefLabel: 
-        <ul>
-        {% for lang in keywordData.prefLabel %}
-            <li>{{ lang.1 }}: {{ lang.0 }}</li>
-        {% endfor %}
-        </ul>
     </h2>
+    <ul>
+        {% for lang in keywordData.prefLabel %}
+            <h3><li>{{ lang.1 }}: {{ lang.0|title }}</li></h3>
+        {% endfor %}
+    </ul>
     <hr>
     <hr>
     <h5>Developement Mode</h5>
