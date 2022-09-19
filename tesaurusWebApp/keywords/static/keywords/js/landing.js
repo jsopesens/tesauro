@@ -52,7 +52,7 @@ function deployChildren(fatherKeyword, data) {
         const a = document.createElement('a')
         li.classList = 'keyword'
         li.id = key
-        a.href = key
+        a.href = '/keywords/'+key
         a.innerHTML = UpperCaseEveryWord(key.replaceAll("_", " "))
         li.appendChild(a)
         if (hadChildren) addTriangleSVG(li)
