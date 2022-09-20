@@ -25,14 +25,16 @@ class Tesaurus():
         return (self.uri+keyword, predicate, None) in self.g
 
 
-    def getAllKeywordNames(self) -> list['str']:
+    def getAllSubjects(self) -> list['str']:
         """
-        It get the complete list of Concepts and ConceptScheme in the Graph 
-        and returns a the list of all the keywords names
+        It returns a list of all the subjects in the graph
+        :return: A list of strings.
         """
-        allKeywords = [subject for subject in self.g.subjects(
-            RDF.type, OWL.NamedIndividual)]
-        return list(map(self.getURIKeywordName, allKeywords))
+        
+        subjects  = [subject for subject in self.g.subjects(RDF.type, SKOS.Concept)]
+        subjects += [subject for subject in self.g.subjects(RDF.type, SKOS.ConceptScheme)]
+
+        return list(map(self.getURIKeywordName, subjects))
 
 
     def getAllKeywordsWithPrefLabel(self) -> list['str']:
@@ -44,7 +46,7 @@ class Tesaurus():
 
 
     def keywordExists(self, keyword: str) -> bool:
-        keywords = self.getAllKeywordNames()
+        keywords = self.getAllSubjects()
         return (str(keyword) in keywords)
 
 
@@ -87,6 +89,10 @@ class Tesaurus():
         return keyword.split('#')[1]
 
 
+    def getSubjectFromURI(self, keyword:object) -> str:
+        return keyword[0].split('#')[1]
+
+
     def getChildrenOf(self, keyword: str) -> list['str']:
         keywordData = self.getKeywordData(keyword)
         # recover children keywords inside the current keyword
@@ -96,7 +102,3 @@ class Tesaurus():
         if 'narrower' in keywordData:
             children.extend(keywordData['narrower'])
         return children
-
-
-    def getSubjectFromURI(self, keyword:object) -> str:
-        return keyword[0].split('#')[1]
