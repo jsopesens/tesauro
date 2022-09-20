@@ -448,7 +448,9 @@ skos:OrderedCollection rdf:type owl:Class ;
                               :west_turkana ;
         skos:topConceptOf :place ;
         skos:notation 192 ;
-        skos:prefLabel "africa"@en .
+        skos:prefLabel "Africa"@en ,
+                       "Àfrica"@cat ,
+                       "África"@es .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#african_humid_period
