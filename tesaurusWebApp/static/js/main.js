@@ -31,21 +31,10 @@ function showMatchKeywords(searchText) {
         fetch(endpoint + searchText)
             .then(keywordsList.innerHTML = '')
             .then(response => response.json())
+            // .then(response => console.log(response))
             .then(data => convertToListElements(data.keywords))
     } else
         keywordsContainer.style.display = 'none'
-    // POST MODE
-    // input = this.value,
-    // fetch( endpoint+this.value,{
-    //     method: "POST",
-    //     headers:{
-    //         "X-CSRFToken": csrf,
-    //     },
-    //     body: JSON.stringify(input)
-    // }).then(response => response.json())
-    // .then(data=>{
-    //     console.log(data)
-    // })
 }
 
 function convertToListElements(data) {
