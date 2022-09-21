@@ -1,16 +1,15 @@
-from rdflib import SKOS, RDF, OWL, Graph, URIRef, Literal
+from rdflib import SKOS, RDF, Graph, URIRef, Literal
 
 
 class Tesaurus():
     def __init__(self):
         self.g = Graph()
         self.g.parse('6.ttl')
-        self.uri = URIRef(
-            'http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#')
+        self.uri = URIRef('http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#')
 
     def getConceptSchemes(self) -> list['str']:
         ConceptSchemes = self.g.subjects(RDF.type, SKOS.ConceptScheme)
-        return map(self.getURIKeywordName, ConceptSchemes)
+        return map(self.slicePrefix, ConceptSchemes)
 
 
     def checkKeywordTopConcept(self, keyword: str) -> bool:
@@ -34,7 +33,7 @@ class Tesaurus():
         subjects  = [subject for subject in self.g.subjects(RDF.type, SKOS.Concept)]
         subjects += [subject for subject in self.g.subjects(RDF.type, SKOS.ConceptScheme)]
 
-        return list(map(self.getURIKeywordName, subjects))
+        return list(map(self.slicePrefix, subjects))
 
 
     def getAllKeywordsWithPrefLabel(self) -> list['str']:
@@ -51,12 +50,20 @@ class Tesaurus():
 
 
     def getKeywordData(self, keyword: str) -> list:
+        """
+        It takes a keyword and returns a dictionary of all the predicates and objects associated with
+        
+        :param keyword: str
+        :type keyword: str
+        :return: A dictionary of the keyword data.
+        """
         keywordData = {}
-        # parse keyword data
+
         for predicate, object in self.g.predicate_objects(self.uri+keyword):
-            predicate = self.getURIKeywordName(predicate)
+            # parse keyword data
+            predicate  = self.slicePrefix(predicate)
             if object == URIRef(object):
-                object = self.getURIKeywordName(object)
+                object = self.slicePrefix(object)
             if object == Literal(object):
                 object = object.value, object.language
             # insert in dictionary
@@ -85,10 +92,11 @@ class Tesaurus():
         return list(map(self.getSubjectFromURI, keywords))
 
 
-    def getURIKeywordName(self, keyword: str) -> str:
+    # used when we have the uri of an element 
+    def slicePrefix(self, keyword: str) -> str:
         return keyword.split('#')[1]
 
-
+    # used when we have the uri and some properties as labels
     def getSubjectFromURI(self, keyword:object) -> str:
         return keyword[0].split('#')[1]
 
