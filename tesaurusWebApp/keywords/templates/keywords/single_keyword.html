@@ -12,91 +12,129 @@
 
 {% block content %}
     <h1>{{keyword|title}}</h1>
+    <div id="content">
+        <div id="labels">
+
+            {% if 'inScheme' in keywordData %}
+                <hr>
+                <h2>
+                    InScheme:
+                </h2>
+                <ul>
+                    {% for scheme in keywordData.inScheme %}
+                        <h3><li><a href="/keywords/{{ scheme }}">{{scheme|title}}</a></li></h3>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            {% if 'hasTopConcept' in keywordData %}
+                <hr>
+                <h2>hasTopConcept:</h2>
+                <ul>
+                    {% for term in keywordData.hasTopConcept %}
+                        <li><a href="/keywords/{{term|lower}}">{{term|title}}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            {% if 'narrower' in keywordData %}
+                <hr> 
+                <h2>
+                    Narrower:
+                </h2>
+                <ul>
+                    {% for term in keywordData.narrower %}
+                        <li><a href="/keywords/{{ term|lower }}">{{ term|title }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            {% if 'broader' in keywordData %}
+                <hr>
+                <h2>
+                    Broader:
+                </h2>
+                <ul>
+                    {% for broader in keywordData.broader%}
+                        <h3><li><a href="/keywords/{{ broader|lower }}">{{ broader|title }}</a></li></h3>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            {% if 'topConceptOf' in keywordData %}
+                <hr>
+                <h2>
+                    topConceptOf: <a href="/keywords/{{ keywordData.topConceptOf.0 }}"> {{ keywordData.topConceptOf.0|title }}</a>
+                </h2>
+            {% endif %}
+
+            {% if 'prefLabel' in keywordData %}
+                <hr>
+                <h2>
+                    prefLabel: 
+                </h2>
+                <ul>
+                    {% for lang in keywordData.prefLabel %}
+                        <h3><li>{{ lang.1 }}: {{ lang.0|title }}</li></h3>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+                
+            {% if 'altLabel' in keywordData %}
+                <hr>
+                <h2>
+                    altLabel: 
+                </h2>
+                <ul>
+                    {% for altLabel in keywordData.altLabel %}
+                        <h3>
+                            <li>
+                                {{ altLabel.1 }}: {{ altLabel.0|title }}
+                            </li>
+                        </h3>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+                
+            {% if 'exactMatch' in keywordData %}
+                <hr>
+                <h2>Exact Match:</h2>
+                {% for element in keywordData.exactMatch %}
+                    <h3>
+                        <li>
+                            <a href="{{element.0}}">{{element.0}}</a>
+                        </li>
+                    </h3>
+                {% endfor %}
+            {% endif %}
+            
+        </div>
+
+        {% if 'definition' in keywordData %}
+            <div id="definition">
+                <h2>
+                    Definition:
+                </h2>
+                {% for definition in keywordData.definition %}
+                    <h2>
+                        <li>
+                            {{definition.1}}: {{definition.0}}
+                        </li>    
+                    </h2>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    </div>
     <hr>
-    <h2>
-        InScheme:
-    </h2>
-    <ul>
-        {% for scheme in keywordData.inScheme %}
-            <h3><li><a href="/keywords/{{ scheme }}">{{scheme|title}}</a></li></h3>
+    <hr>
+    <div id="developement">
+        <h5>Developement Mode</h5>
+        {% for data in keywordData.items %}
+            <b>{{data.0}}</b><p>{{data.1}}</p>
+            <br>
         {% endfor %}
-    </ul>
-    <hr>
-    {% if 'hasTopConcept' in keywordData %}
-        <h2>hasTopConcept:</h2>
-        <ul>
-            {% for term in keywordData.hasTopConcept %}
-                <li><a href="/keywords/{{term|lower}}">{{term|title}}</a></li>
-            {% endfor %}
-        </ul>
-        <hr> 
-    {% endif %}
-    {% if 'narrower' in keywordData %}
-        <h2>
-            Narrower:
-        </h2>
-        <ul>
-            {% for term in keywordData.narrower %}
-                <li><a href="/keywords/{{ term|lower }}">{{ term|title }}</a></li>
-            {% endfor %}
-        </ul>
-        <hr>
-    {% endif %}
-    {% if 'broader' in keywordData %}
-    <h2>
-        Broader:
-    </h2>
-    <ul>
-        {% for broader in keywordData.broader%}
-            <h3><li><a href="/keywords/{{ broader|lower }}">{{ broader|title }}</a></li></h3>
-        {% endfor %}
-    </ul>
-    <hr>
-    {% endif %}
-    {% if 'topConceptOf' in keywordData %}
-    <h2>
-        topConceptOf: <a href="/keywords/{{ keywordData.topConceptOf.0 }}"> {{ keywordData.topConceptOf.0|title }}</a>
-    </h2>
-    <hr>
-    {% endif %}
-    <h2>
-        prefLabel: 
-    </h2>
-    <ul>
-        {% for lang in keywordData.prefLabel %}
-            <h3><li>{{ lang.1 }}: {{ lang.0|title }}</li></h3>
-        {% endfor %}
-    </ul>
-    <hr>
-    {% if 'altLabel' in keywordData %}
-    <h2>
-        altLabel: 
-    </h2>
-    <ul>
-        {% for altLabel in keywordData.altLabel %}
-        <h3><li>{{ altLabel.1 }}: {{ altLabel.0|title }}</li></h3>
-        {% endfor %}
-    </ul>
-    <hr>
-    {% endif %}
-    {% if 'exactMatch' in keywordData %}
-    <h2>Exact Match:</h2>
-        {% for element in keywordData.exactMatch %}
-            <h3>
-                <li>
-                    <a href="{{element.0}}">{{element.0}}</a>
-                </li>
-            </h3>
-        {% endfor %}
-    {% endif %}
+    </div>
 
 
-
-    <hr>
-    <hr>
-    <h5>Developement Mode</h5>
-    {% for data in keywordData.items %}
-        <b>{{data.0}}</b><p>{{data.1}}</p>
-        <br>
-    {% endfor %}
 {% endblock %}

@@ -9,7 +9,6 @@ h1 {
 }
 
 h2{
-    /* text-align: center; */
     padding: 0 2rem;
 }
 
@@ -19,7 +18,6 @@ hr{
 
 ul{
     list-style: none;
-    /* font-size: 1.2rem; */
 }
 
 li{
@@ -37,4 +35,17 @@ a:hover, a:active{
     color:rgb(162, 188, 42);
 }
 
+#content{
+    display: flex;
+}
 
+#labels{
+    flex-grow:2;
+    min-width: 50%;
+}
+
+#definition{
+    border-top: 1px solid grey;
+    flex-grow:1;
+    min-width: 50%;
+}
