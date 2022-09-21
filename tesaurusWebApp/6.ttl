@@ -1077,7 +1077,9 @@ skos:OrderedCollection rdf:type owl:Class ;
          skos:inScheme :lithic ;
          skos:semanticRelation :lithic_technology ;
          skos:notation 428 ;
-         skos:definition "Lithic artifact that has had flakes removed from both sides of the artifact."@en ;
+         skos:definition "Lithic artifact that has had flakes removed from both sides of the artifact."@en ,
+                         "Artefacte lític amb lasques extretes dels dos costats de l'artefacte."@cat ,
+                         "Artefacto lítico con lascas extraídas de ambos lados del artefacto."@es ;
          skos:prefLabel "bifaces"@en .
 
 
