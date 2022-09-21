@@ -68,6 +68,31 @@
         {% endfor %}
     </ul>
     <hr>
+    {% if 'altLabel' in keywordData %}
+    <h2>
+        altLabel: 
+    </h2>
+    <ul>
+        {% for altLabel in keywordData.altLabel %}
+        <h3><li>{{ altLabel.1 }}: {{ altLabel.0|title }}</li></h3>
+        {% endfor %}
+    </ul>
+    <hr>
+    {% endif %}
+    {% if 'exactMatch' in keywordData %}
+    <h2>Exact Match:</h2>
+        {% for element in keywordData.exactMatch %}
+            <h3>
+                <li>
+                    <a href="{{element.0}}">{{element.0}}</a>
+                </li>
+            </h3>
+        {% endfor %}
+    {% endif %}
+
+
+
+    <hr>
     <hr>
     <h5>Developement Mode</h5>
     {% for data in keywordData.items %}
