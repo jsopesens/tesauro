@@ -118,6 +118,19 @@
                 </ul>
             {% endif %}
             
+            {% if 'hiddenLabel' in keywordData %}
+                <hr>
+                <h2>Non advised:</h2>
+                <ul>
+                {% for element in keywordData.hiddenLabel %}
+                    <h3>
+                        <li>
+                            {{element.0}}
+                        </li>
+                    </h3>
+                {% endfor %}
+                </ul>
+            {% endif %}
         </div>
 
         {% if 'definition' in keywordData %}
