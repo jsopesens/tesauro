@@ -56,8 +56,6 @@ skos:prefLabel rdf:type owl:AnnotationProperty ;
                rdfs:comment "A resource has no more than one value of skos:prefLabel per language tag, and no more than one value of skos:prefLabel without language tag."@en ,
                             "The range of skos:prefLabel is the class of RDF plain literals."@en ,
                             """skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise
-      disjoint properties."""@en ,
-                            """skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise
       disjoint properties."""@en ;
                rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
                rdfs:label "preferred label"@en ;
@@ -190,8 +188,6 @@ skos:memberList rdf:type owl:ObjectProperty ,
                 rdfs:domain skos:OrderedCollection ;
                 rdfs:range rdf:List ;
                 rdfs:comment """For any resource, every item in the list given as the value of the
-      skos:memberList property is also a value of the skos:member property."""@en ,
-                             """For any resource, every item in the list given as the value of the
       skos:memberList property is also a value of the skos:member property."""@en ;
                 rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
                 rdfs:label "has member list"@en ;
@@ -400,6 +396,16 @@ skos:OrderedCollection rdf:type owl:Class ;
                         skos:prefLabel "abrigo de los oculados"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#accumulator
+:accumulator rdf:type owl:NamedIndividual ,
+                      skos:Concept ;
+             skos:broader :taphonomic_agent ;
+             skos:broaderTransitive :taphonomic_agent ;
+             skos:inScheme :taphonomy ;
+             skos:semanticRelation :taphonomic_agent ;
+             skos:prefLabel "accumulator"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#africa
 :africa rdf:type owl:NamedIndividual ,
                  skos:Concept ;
@@ -489,6 +495,19 @@ skos:OrderedCollection rdf:type owl:Class ;
               skos:semanticRelation :human_evolution ;
               skos:notation 715 ;
               skos:prefLabel "ages of homo"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#aggressive_cannibalism
+:aggressive_cannibalism rdf:type owl:NamedIndividual ,
+                                 skos:Concept ;
+                        skos:broader :anthropofagy ;
+                        skos:broaderTransitive :anthropofagy ,
+                                               :forensic_taphonomy ;
+                        skos:inScheme :taphonomy ;
+                        skos:semanticRelation :anthropofagy ,
+                                              :forensic_taphonomy ;
+                        skos:notation 941 ;
+                        skos:prefLabel "aggressive cannibalism"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#aguazuque
@@ -589,6 +608,15 @@ skos:OrderedCollection rdf:type owl:Class ;
           skos:prefLabel "anatolia"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#anatomical_profiles
+:anatomical_profiles rdf:type owl:NamedIndividual ,
+                              skos:Concept ;
+                     skos:inScheme :zooarchaeology ;
+                     skos:topConceptOf :zooarchaeology ;
+                     skos:notation 840 ;
+                     skos:prefLabel "anatomical profiles"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#anatomically_modern_humans
 :anatomically_modern_humans rdf:type owl:NamedIndividual ,
                                      skos:Concept ;
@@ -598,6 +626,16 @@ skos:OrderedCollection rdf:type owl:Class ;
                             skos:semanticRelation :human_evolution ;
                             skos:notation 700 ;
                             skos:prefLabel "anatomically modern humans"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#ancient_livestock_strategies
+:ancient_livestock_strategies rdf:type owl:NamedIndividual ,
+                                       skos:Concept ;
+                              skos:broader :sheparding_farming ;
+                              skos:broaderTransitive :sheparding_farming ;
+                              skos:inScheme :zooarchaeology ;
+                              skos:semanticRelation :sheparding_farming ;
+                              skos:prefLabel "ancient livestock strategies"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#andorra
@@ -611,6 +649,15 @@ skos:OrderedCollection rdf:type owl:Class ;
                                :iberian_peninsula ;
          skos:notation 136 ;
          skos:prefLabel "andorra"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#animal_exploitation
+:animal_exploitation rdf:type owl:NamedIndividual ,
+                              skos:Concept ;
+                     skos:inScheme :zooarchaeology ;
+                     skos:topConceptOf :zooarchaeology ;
+                     skos:notation 839 ;
+                     skos:prefLabel "animal exploitation"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#anthraco-typology
@@ -637,6 +684,75 @@ skos:OrderedCollection rdf:type owl:Class ;
                                     :disciplines ;
               skos:notation 776 ;
               skos:prefLabel "anthracology"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#anthropic
+:anthropic rdf:type owl:NamedIndividual ,
+                    skos:Concept ;
+           skos:broader :taphonomic_agent ;
+           skos:broaderTransitive :taphonomic_agent ;
+           skos:inScheme :taphonomy ;
+           skos:semanticRelation :taphonomic_agent ;
+           skos:prefLabel "anthropic"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#anthropofagy
+:anthropofagy rdf:type owl:NamedIndividual ,
+                       skos:Concept ;
+              skos:broader :forensic_taphonomy ;
+              skos:broaderTransitive :forensic_taphonomy ;
+              skos:inScheme :taphonomy ;
+              skos:narrower :aggressive_cannibalism ,
+                            :anthropophagy ,
+                            :cannibalism ,
+                            :endocannibalism ,
+                            :exocannibalism ,
+                            :gastronomic_and_nutritional_cannibalism ,
+                            :human_skull-cup ,
+                            :nutritional_cannibalism ,
+                            :prehistoric_cannibalism ,
+                            :ritual_cannibalism ,
+                            :scalping ,
+                            :survival_cannibalism ;
+              skos:narrowerTransitive :aggressive_cannibalism ,
+                                      :anthropophagy ,
+                                      :cannibalism ,
+                                      :endocannibalism ,
+                                      :exocannibalism ,
+                                      :gastronomic_and_nutritional_cannibalism ,
+                                      :human_skull-cup ,
+                                      :nutritional_cannibalism ,
+                                      :prehistoric_cannibalism ,
+                                      :ritual_cannibalism ,
+                                      :scalping ,
+                                      :survival_cannibalism ;
+              skos:semanticRelation :aggressive_cannibalism ,
+                                    :anthropophagy ,
+                                    :cannibalism ,
+                                    :endocannibalism ,
+                                    :exocannibalism ,
+                                    :forensic_taphonomy ,
+                                    :gastronomic_and_nutritional_cannibalism ,
+                                    :human_skull-cup ,
+                                    :nutritional_cannibalism ,
+                                    :prehistoric_cannibalism ,
+                                    :ritual_cannibalism ,
+                                    :scalping ,
+                                    :survival_cannibalism ;
+              skos:prefLabel "anthropofagy"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#anthropophagy
+:anthropophagy rdf:type owl:NamedIndividual ,
+                        skos:Concept ;
+               skos:broader :anthropofagy ;
+               skos:broaderTransitive :anthropofagy ,
+                                      :forensic_taphonomy ;
+               skos:inScheme :taphonomy ;
+               skos:semanticRelation :anthropofagy ,
+                                     :forensic_taphonomy ;
+               skos:notation 950 ;
+               skos:prefLabel "anthropophagy"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#applications
@@ -1451,16 +1567,34 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#bone_alteration
 :bone_alteration rdf:type owl:NamedIndividual ,
                           skos:Concept ;
-                 skos:inScheme :bioarchaeology ;
+                 skos:broader :bone_surface_modifications ;
+                 skos:broaderTransitive :bone_surface_modifications ;
+                 skos:inScheme :bioarchaeology ,
+                               :taphonomy ;
+                 skos:semanticRelation :bone_surface_modifications ;
                  skos:topConceptOf :bioarchaeology ;
                  skos:notation 742 ;
                  skos:prefLabel "bone alteration"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#bone_bed
+:bone_bed rdf:type owl:NamedIndividual ,
+                   skos:Concept ;
+          skos:broader :taphonomic_agent ;
+          skos:broaderTransitive :taphonomic_agent ;
+          skos:inScheme :taphonomy ;
+          skos:semanticRelation :taphonomic_agent ;
+          skos:prefLabel "bone bed"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#bone_breakage
 :bone_breakage rdf:type owl:NamedIndividual ,
                         skos:Concept ;
-               skos:inScheme :bioarchaeology ;
+               skos:broader :bone_surface_modifications ;
+               skos:broaderTransitive :bone_surface_modifications ;
+               skos:inScheme :bioarchaeology ,
+                             :taphonomy ;
+               skos:semanticRelation :bone_surface_modifications ;
                skos:topConceptOf :bioarchaeology ;
                skos:notation 743 ;
                skos:prefLabel "bone breakage"@en .
@@ -1469,10 +1603,32 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#bone_density
 :bone_density rdf:type owl:NamedIndividual ,
                        skos:Concept ;
-              skos:inScheme :bioarchaeology ;
+              skos:broader :diagenesis ;
+              skos:broaderTransitive :diagenesis ,
+                                     :geological_approach ,
+                                     :natural_formation ;
+              skos:inScheme :bioarchaeology ,
+                            :taphonomy ;
+              skos:semanticRelation :diagenesis ,
+                                    :geological_approach ,
+                                    :natural_formation ;
               skos:topConceptOf :bioarchaeology ;
               skos:notation 744 ;
               skos:prefLabel "bone density"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#bone_integrity
+:bone_integrity rdf:type owl:NamedIndividual ,
+                         skos:Concept ;
+                skos:broader :diagenesis ;
+                skos:broaderTransitive :diagenesis ,
+                                       :geological_approach ,
+                                       :natural_formation ;
+                skos:inScheme :taphonomy ;
+                skos:semanticRelation :diagenesis ,
+                                      :geological_approach ,
+                                      :natural_formation ;
+                skos:prefLabel "bone integrity"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#bone_lesions
@@ -1484,10 +1640,24 @@ skos:OrderedCollection rdf:type owl:Class ;
               skos:prefLabel "bone lesions"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#bone_marks
+:bone_marks rdf:type owl:NamedIndividual ,
+                     skos:Concept ;
+            skos:broader :bone_surface_modifications ;
+            skos:broaderTransitive :bone_surface_modifications ;
+            skos:inScheme :taphonomy ;
+            skos:semanticRelation :bone_surface_modifications ;
+            skos:prefLabel "bone marks"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#bone_modifications
 :bone_modifications rdf:type owl:NamedIndividual ,
                              skos:Concept ;
-                    skos:inScheme :bioarchaeology ;
+                    skos:broader :bone_surface_modifications ;
+                    skos:broaderTransitive :bone_surface_modifications ;
+                    skos:inScheme :bioarchaeology ,
+                                  :taphonomy ;
+                    skos:semanticRelation :bone_surface_modifications ;
                     skos:topConceptOf :bioarchaeology ;
                     skos:notation 739 ;
                     skos:prefLabel "bone modifications"@en .
@@ -1496,7 +1666,11 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#bone_refits
 :bone_refits rdf:type owl:NamedIndividual ,
                       skos:Concept ;
-             skos:inScheme :bioarchaeology ;
+             skos:broader :spatial_taphonomy ;
+             skos:broaderTransitive :spatial_taphonomy ;
+             skos:inScheme :bioarchaeology ,
+                           :taphonomy ;
+             skos:semanticRelation :spatial_taphonomy ;
              skos:topConceptOf :bioarchaeology ;
              skos:notation 740 ;
              skos:prefLabel "bone refits"@en .
@@ -1505,8 +1679,147 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#bone_surface_modifications
 :bone_surface_modifications rdf:type owl:NamedIndividual ,
                                      skos:Concept ;
-                            skos:inScheme :bioarchaeology ;
-                            skos:topConceptOf :bioarchaeology ;
+                            skos:inScheme :bioarchaeology ,
+                                          :taphonomy ,
+                                          :zooarchaeology ;
+                            skos:narrower :bone_alteration ,
+                                          :bone_breakage ,
+                                          :bone_marks ,
+                                          :bone_modifications ,
+                                          :breakage ,
+                                          :breakage_patterns ,
+                                          :butchery ,
+                                          :butchery_marks ,
+                                          :carnivore_ravaging ,
+                                          :carnivore_tooth_marks ,
+                                          :chew_marls ,
+                                          :chewing ,
+                                          :corrosion ,
+                                          :cut-marked_bones ,
+                                          :cut_mark_morphology ,
+                                          :cut_marks ,
+                                          :cutmark ,
+                                          :digested_bones ,
+                                          :furrowing ,
+                                          :groove ,
+                                          :hammerstone_percussion ,
+                                          :human_tooth_marks ,
+                                          :ia ,
+                                          :impact_point ,
+                                          :long_bone_breakage ,
+                                          :meter_todas_las_modificaciones ,
+                                          :ml ,
+                                          :mn_staining ,
+                                          :non-ingested_remains ,
+                                          :osteophagia ,
+                                          :peeling ,
+                                          :percussion_mark ,
+                                          :pit ,
+                                          :polished_surfaces ,
+                                          :puncture ,
+                                          :rubefaction ,
+                                          :scooping_out ,
+                                          :score ,
+                                          :scoring ,
+                                          :taphonomic_signal ,
+                                          :taphotype ,
+                                          :tooth_marks ,
+                                          :toothmarks ,
+                                          :trampling ,
+                                          :tumbling ;
+                            skos:narrowerTransitive :bone_alteration ,
+                                                    :bone_breakage ,
+                                                    :bone_marks ,
+                                                    :bone_modifications ,
+                                                    :breakage ,
+                                                    :breakage_patterns ,
+                                                    :butchery ,
+                                                    :butchery_marks ,
+                                                    :carnivore_ravaging ,
+                                                    :carnivore_tooth_marks ,
+                                                    :chew_marls ,
+                                                    :chewing ,
+                                                    :corrosion ,
+                                                    :cut-marked_bones ,
+                                                    :cut_mark_morphology ,
+                                                    :cut_marks ,
+                                                    :cutmark ,
+                                                    :digested_bones ,
+                                                    :furrowing ,
+                                                    :groove ,
+                                                    :hammerstone_percussion ,
+                                                    :human_tooth_marks ,
+                                                    :ia ,
+                                                    :impact_point ,
+                                                    :long_bone_breakage ,
+                                                    :meter_todas_las_modificaciones ,
+                                                    :ml ,
+                                                    :mn_staining ,
+                                                    :non-ingested_remains ,
+                                                    :osteophagia ,
+                                                    :peeling ,
+                                                    :percussion_mark ,
+                                                    :pit ,
+                                                    :polished_surfaces ,
+                                                    :puncture ,
+                                                    :rubefaction ,
+                                                    :scooping_out ,
+                                                    :score ,
+                                                    :scoring ,
+                                                    :taphonomic_signal ,
+                                                    :taphotype ,
+                                                    :tooth_marks ,
+                                                    :toothmarks ,
+                                                    :trampling ,
+                                                    :tumbling ;
+                            skos:semanticRelation :bone_alteration ,
+                                                  :bone_breakage ,
+                                                  :bone_marks ,
+                                                  :bone_modifications ,
+                                                  :breakage ,
+                                                  :breakage_patterns ,
+                                                  :butchery ,
+                                                  :butchery_marks ,
+                                                  :carnivore_ravaging ,
+                                                  :carnivore_tooth_marks ,
+                                                  :chew_marls ,
+                                                  :chewing ,
+                                                  :corrosion ,
+                                                  :cut-marked_bones ,
+                                                  :cut_mark_morphology ,
+                                                  :cut_marks ,
+                                                  :cutmark ,
+                                                  :digested_bones ,
+                                                  :furrowing ,
+                                                  :groove ,
+                                                  :hammerstone_percussion ,
+                                                  :human_tooth_marks ,
+                                                  :ia ,
+                                                  :impact_point ,
+                                                  :long_bone_breakage ,
+                                                  :meter_todas_las_modificaciones ,
+                                                  :ml ,
+                                                  :mn_staining ,
+                                                  :non-ingested_remains ,
+                                                  :osteophagia ,
+                                                  :peeling ,
+                                                  :percussion_mark ,
+                                                  :pit ,
+                                                  :polished_surfaces ,
+                                                  :puncture ,
+                                                  :rubefaction ,
+                                                  :scooping_out ,
+                                                  :score ,
+                                                  :scoring ,
+                                                  :taphonomic_signal ,
+                                                  :taphotype ,
+                                                  :tooth_marks ,
+                                                  :toothmarks ,
+                                                  :trampling ,
+                                                  :tumbling ;
+                            skos:topConceptOf :bioarchaeology ,
+                                              :taphonomy ,
+                                              :zooarchaeology ;
                             skos:notation 735 ;
                             skos:prefLabel "bone surface modifications"@en .
 
@@ -1551,6 +1864,26 @@ skos:OrderedCollection rdf:type owl:Class ;
                         skos:semanticRelation :object_of_study ;
                         skos:notation 793 ;
                         skos:prefLabel "botanical macroremains"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#breakage
+:breakage rdf:type owl:NamedIndividual ,
+                   skos:Concept ;
+          skos:broader :bone_surface_modifications ;
+          skos:broaderTransitive :bone_surface_modifications ;
+          skos:inScheme :taphonomy ;
+          skos:semanticRelation :bone_surface_modifications ;
+          skos:prefLabel "breakage"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#breakage_patterns
+:breakage_patterns rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader :bone_surface_modifications ;
+                   skos:broaderTransitive :bone_surface_modifications ;
+                   skos:inScheme :taphonomy ;
+                   skos:semanticRelation :bone_surface_modifications ;
+                   skos:prefLabel "breakage patterns"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#britain
@@ -1599,6 +1932,32 @@ skos:OrderedCollection rdf:type owl:Class ;
                                                  :dating_methods ;
                            skos:notation 544 ;
                            skos:prefLabel "brunhes-matuyama boundary"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#burial
+:burial rdf:type owl:NamedIndividual ,
+                 skos:Concept ;
+        skos:broader :funeray_behaviours ;
+        skos:broaderTransitive :forensic_taphonomy ,
+                               :funeray_behaviours ;
+        skos:inScheme :taphonomy ;
+        skos:semanticRelation :forensic_taphonomy ,
+                              :funeray_behaviours ;
+        skos:notation 955 ;
+        skos:prefLabel "burial"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#burial_deposit
+:burial_deposit rdf:type owl:NamedIndividual ,
+                         skos:Concept ;
+                skos:broader :funeray_behaviours ;
+                skos:broaderTransitive :forensic_taphonomy ,
+                                       :funeray_behaviours ;
+                skos:inScheme :taphonomy ;
+                skos:semanticRelation :forensic_taphonomy ,
+                                      :funeray_behaviours ;
+                skos:notation 956 ;
+                skos:prefLabel "burial deposit"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#burn_and_combustion
@@ -1715,6 +2074,56 @@ skos:OrderedCollection rdf:type owl:Class ;
              skos:prefLabel "burnt bones"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#butchering_process
+:butchering_process rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    skos:broader :functionality ;
+                    skos:broaderTransitive :functionality ;
+                    skos:inScheme :zooarchaeology ;
+                    skos:semanticRelation :functionality ;
+                    skos:prefLabel "butchering process"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#butchering_site
+:butchering_site rdf:type owl:NamedIndividual ,
+                          skos:Concept ;
+                 skos:broader :functionality ;
+                 skos:broaderTransitive :functionality ;
+                 skos:inScheme :zooarchaeology ;
+                 skos:semanticRelation :functionality ;
+                 skos:prefLabel "butchering site"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#butchery
+:butchery rdf:type owl:NamedIndividual ,
+                   skos:Concept ;
+          skos:broader :bone_surface_modifications ;
+          skos:broaderTransitive :bone_surface_modifications ;
+          skos:inScheme :zooarchaeology ;
+          skos:semanticRelation :bone_surface_modifications ;
+          skos:prefLabel "butchery"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#butchery_marks
+:butchery_marks rdf:type owl:NamedIndividual ,
+                         skos:Concept ;
+                skos:broader :bone_surface_modifications ;
+                skos:broaderTransitive :bone_surface_modifications ;
+                skos:inScheme :zooarchaeology ;
+                skos:semanticRelation :bone_surface_modifications ;
+                skos:prefLabel "butchery marks"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#butchery_site
+:butchery_site rdf:type owl:NamedIndividual ,
+                        skos:Concept ;
+               skos:broader :functionality ;
+               skos:broaderTransitive :functionality ;
+               skos:inScheme :zooarchaeology ;
+               skos:semanticRelation :functionality ;
+               skos:prefLabel "butchery site"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#c_and_n_stable_isotopes
 :c_and_n_stable_isotopes rdf:type owl:NamedIndividual ,
                                   skos:Concept ;
@@ -1763,6 +2172,19 @@ skos:OrderedCollection rdf:type owl:Class ;
                   skos:prefLabel "camp dels ninots"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#cannibalism
+:cannibalism rdf:type owl:NamedIndividual ,
+                      skos:Concept ;
+             skos:broader :anthropofagy ;
+             skos:broaderTransitive :anthropofagy ,
+                                    :forensic_taphonomy ;
+             skos:inScheme :taphonomy ;
+             skos:semanticRelation :anthropofagy ,
+                                   :forensic_taphonomy ;
+             skos:notation 942 ;
+             skos:prefLabel "cannibalism"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#cantabrian_region
 :cantabrian_region rdf:type owl:NamedIndividual ,
                             skos:Concept ;
@@ -1798,6 +2220,16 @@ skos:OrderedCollection rdf:type owl:Class ;
                                   :iberian_peninsula ;
             skos:notation 142 ;
             skos:prefLabel "capellades"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#caprine_paleodiet
+:caprine_paleodiet rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader :sheparding_farming ;
+                   skos:broaderTransitive :sheparding_farming ;
+                   skos:inScheme :zooarchaeology ;
+                   skos:semanticRelation :sheparding_farming ;
+                   skos:prefLabel "caprine paleodiet"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#carbon
@@ -1868,10 +2300,43 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#carnivore_den
 :carnivore_den rdf:type owl:NamedIndividual ,
                         skos:Concept ;
-               skos:inScheme :others ;
+               skos:broader :functionality ;
+               skos:broaderTransitive :functionality ;
+               skos:inScheme :others ,
+                             :taphonomy ;
+               skos:semanticRelation :functionality ;
                skos:topConceptOf :others ;
                skos:notation 283 ;
                skos:prefLabel "carnivore den"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#carnivore_ravaging
+:carnivore_ravaging rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    skos:broader :bone_surface_modifications ;
+                    skos:broaderTransitive :bone_surface_modifications ;
+                    skos:inScheme :taphonomy ;
+                    skos:semanticRelation :bone_surface_modifications ;
+                    skos:prefLabel "carnivore ravaging"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#carnivore_tooth_marks
+:carnivore_tooth_marks rdf:type owl:NamedIndividual ,
+                                skos:Concept ;
+                       skos:broader :bone_surface_modifications ;
+                       skos:broaderTransitive :bone_surface_modifications ;
+                       skos:inScheme :taphonomy ;
+                       skos:semanticRelation :bone_surface_modifications ;
+                       skos:prefLabel "carnivore tooth marks"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#carnivores
+:carnivores rdf:type owl:NamedIndividual ,
+                     skos:Concept ;
+            skos:inScheme :zooarchaeology ;
+            skos:topConceptOf :zooarchaeology ;
+            skos:notation 842 ;
+            skos:prefLabel "carnivores"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#carpology
@@ -1946,6 +2411,16 @@ skos:OrderedCollection rdf:type owl:Class ;
                                 :iberian_peninsula ;
           skos:notation 144 ;
           skos:prefLabel "cativera"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#cattle
+:cattle rdf:type owl:NamedIndividual ,
+                 skos:Concept ;
+        skos:broader :sheparding_farming ;
+        skos:broaderTransitive :sheparding_farming ;
+        skos:inScheme :zooarchaeology ;
+        skos:semanticRelation :sheparding_farming ;
+        skos:prefLabel "cattle"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#cau_del_duc
@@ -2244,6 +2719,26 @@ skos:OrderedCollection rdf:type owl:Class ;
                              :raw_materials ;
        skos:notation 689 ;
        skos:prefLabel "chert"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#chew_marls
+:chew_marls rdf:type owl:NamedIndividual ,
+                     skos:Concept ;
+            skos:broader :bone_surface_modifications ;
+            skos:broaderTransitive :bone_surface_modifications ;
+            skos:inScheme :taphonomy ;
+            skos:semanticRelation :bone_surface_modifications ;
+            skos:prefLabel "chew marls"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#chewing
+:chewing rdf:type owl:NamedIndividual ,
+                  skos:Concept ;
+         skos:broader :bone_surface_modifications ;
+         skos:broaderTransitive :bone_surface_modifications ;
+         skos:inScheme :taphonomy ;
+         skos:semanticRelation :bone_surface_modifications ;
+         skos:prefLabel "chewing"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#chile
@@ -2816,6 +3311,19 @@ skos:OrderedCollection rdf:type owl:Class ;
                       skos:prefLabel "cold to warm climate"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#collective_burial
+:collective_burial rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader :funeray_behaviours ;
+                   skos:broaderTransitive :forensic_taphonomy ,
+                                          :funeray_behaviours ;
+                   skos:inScheme :taphonomy ;
+                   skos:semanticRelation :forensic_taphonomy ,
+                                         :funeray_behaviours ;
+                   skos:notation 960 ;
+                   skos:prefLabel "collective burial"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#colluvial_fans
 :colluvial_fans rdf:type owl:NamedIndividual ,
                          skos:Concept ;
@@ -2853,6 +3361,26 @@ skos:OrderedCollection rdf:type owl:Class ;
                        skos:prefLabel "combustion structures"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#competition
+:competition rdf:type owl:NamedIndividual ,
+                      skos:Concept ;
+             skos:broader :ecology ;
+             skos:broaderTransitive :ecology ;
+             skos:inScheme :taphonomy ;
+             skos:semanticRelation :ecology ;
+             skos:prefLabel "competition"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#competition_among_predators
+:competition_among_predators rdf:type owl:NamedIndividual ,
+                                      skos:Concept ;
+                             skos:broader :ecology ;
+                             skos:broaderTransitive :ecology ;
+                             skos:inScheme :taphonomy ;
+                             skos:semanticRelation :ecology ;
+                             skos:prefLabel "competition among predators"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#controlled_use_of_fire
 :controlled_use_of_fire rdf:type owl:NamedIndividual ,
                                  skos:Concept ;
@@ -2873,6 +3401,16 @@ skos:OrderedCollection rdf:type owl:Class ;
             skos:semanticRelation :historical_period ;
             skos:notation 292 ;
             skos:prefLabel "copper age"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#coprolites
+:coprolites rdf:type owl:NamedIndividual ,
+                     skos:Concept ;
+            skos:broader :taphonomic_agent ;
+            skos:broaderTransitive :taphonomic_agent ;
+            skos:inScheme :taphonomy ;
+            skos:semanticRelation :taphonomic_agent ;
+            skos:prefLabel "coprolites"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#core-on-flake
@@ -2928,6 +3466,16 @@ skos:OrderedCollection rdf:type owl:Class ;
        skos:semanticRelation :lithic_technology ;
        skos:notation 422 ;
        skos:prefLabel "cores"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#corrosion
+:corrosion rdf:type owl:NamedIndividual ,
+                    skos:Concept ;
+           skos:broader :bone_surface_modifications ;
+           skos:broaderTransitive :bone_surface_modifications ;
+           skos:inScheme :taphonomy ;
+           skos:semanticRelation :bone_surface_modifications ;
+           skos:prefLabel "corrosion"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#corsica
@@ -3020,6 +3568,19 @@ skos:OrderedCollection rdf:type owl:Class ;
                skos:prefLabel "cowshead cave"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#cremation
+:cremation rdf:type owl:NamedIndividual ,
+                    skos:Concept ;
+           skos:broader :funeray_behaviours ;
+           skos:broaderTransitive :forensic_taphonomy ,
+                                  :funeray_behaviours ;
+           skos:inScheme :taphonomy ;
+           skos:semanticRelation :forensic_taphonomy ,
+                                 :funeray_behaviours ;
+           skos:notation 965 ;
+           skos:prefLabel "cremation"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#crete
 :crete rdf:type owl:NamedIndividual ,
                 skos:Concept ;
@@ -3098,6 +3659,46 @@ skos:OrderedCollection rdf:type owl:Class ;
                  skos:prefLabel "cultural period"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#cut-marked_bones
+:cut-marked_bones rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader :bone_surface_modifications ;
+                  skos:broaderTransitive :bone_surface_modifications ;
+                  skos:inScheme :taphonomy ;
+                  skos:semanticRelation :bone_surface_modifications ;
+                  skos:prefLabel "cut-marked bones"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#cut_mark_morphology
+:cut_mark_morphology rdf:type owl:NamedIndividual ,
+                              skos:Concept ;
+                     skos:broader :bone_surface_modifications ;
+                     skos:broaderTransitive :bone_surface_modifications ;
+                     skos:inScheme :taphonomy ;
+                     skos:semanticRelation :bone_surface_modifications ;
+                     skos:prefLabel "cut mark morphology"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#cut_marks
+:cut_marks rdf:type owl:NamedIndividual ,
+                    skos:Concept ;
+           skos:broader :bone_surface_modifications ;
+           skos:broaderTransitive :bone_surface_modifications ;
+           skos:inScheme :taphonomy ;
+           skos:semanticRelation :bone_surface_modifications ;
+           skos:prefLabel "cut marks"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#cutmark
+:cutmark rdf:type owl:NamedIndividual ,
+                  skos:Concept ;
+         skos:broader :bone_surface_modifications ;
+         skos:broaderTransitive :bone_surface_modifications ;
+         skos:inScheme :taphonomy ;
+         skos:semanticRelation :bone_surface_modifications ;
+         skos:prefLabel "cutmark"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#darwinism
 :darwinism rdf:type owl:NamedIndividual ,
                     skos:Concept ;
@@ -3151,10 +3752,40 @@ skos:OrderedCollection rdf:type owl:Class ;
                 skos:prefLabel "dating methods"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#death_events
+:death_events rdf:type owl:NamedIndividual ,
+                       skos:Concept ;
+              skos:broader :paleopathology ;
+              skos:broaderTransitive :forensic_taphonomy ,
+                                     :paleopathology ;
+              skos:inScheme :taphonomy ;
+              skos:semanticRelation :forensic_taphonomy ,
+                                    :paleopathology ;
+              skos:notation 976 ;
+              skos:prefLabel "death events"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#decapitation
+:decapitation rdf:type owl:NamedIndividual ,
+                       skos:Concept ;
+              skos:broader :violence ;
+              skos:broaderTransitive :forensic_taphonomy ,
+                                     :violence ;
+              skos:inScheme :taphonomy ;
+              skos:semanticRelation :forensic_taphonomy ,
+                                    :violence ;
+              skos:notation 972 ;
+              skos:prefLabel "decapitation"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#den
 :den rdf:type owl:NamedIndividual ,
               skos:Concept ;
-     skos:inScheme :others ;
+     skos:broader :functionality ;
+     skos:broaderTransitive :functionality ;
+     skos:inScheme :others ,
+                   :taphonomy ;
+     skos:semanticRelation :functionality ;
      skos:topConceptOf :others ;
      skos:notation 264 ;
      skos:prefLabel "den"@en .
@@ -3219,11 +3850,35 @@ skos:OrderedCollection rdf:type owl:Class ;
             skos:broader :natural_formation ;
             skos:broaderTransitive :geological_approach ,
                                    :natural_formation ;
-            skos:inScheme :geoarchaeology ;
-            skos:semanticRelation :geological_approach ,
-                                  :natural_formation ;
+            skos:inScheme :geoarchaeology ,
+                          :taphonomy ;
+            skos:narrower :bone_density ,
+                          :bone_integrity ,
+                          :post-depositional_processes ,
+                          :post-depositional_surface_modifications ;
+            skos:narrowerTransitive :bone_density ,
+                                    :bone_integrity ,
+                                    :post-depositional_processes ,
+                                    :post-depositional_surface_modifications ;
+            skos:semanticRelation :bone_density ,
+                                  :bone_integrity ,
+                                  :geological_approach ,
+                                  :natural_formation ,
+                                  :post-depositional_processes ,
+                                  :post-depositional_surface_modifications ;
+            skos:topConceptOf :taphonomy ;
             skos:notation 602 ;
             skos:prefLabel "diagenesis"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#digested_bones
+:digested_bones rdf:type owl:NamedIndividual ,
+                         skos:Concept ;
+                skos:broader :bone_surface_modifications ;
+                skos:broaderTransitive :bone_surface_modifications ;
+                skos:inScheme :taphonomy ;
+                skos:semanticRelation :bone_surface_modifications ;
+                skos:prefLabel "digested bones"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#dinaric_alps
@@ -3294,6 +3949,16 @@ skos:OrderedCollection rdf:type owl:Class ;
            skos:prefLabel "dispersal"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#diversity
+:diversity rdf:type owl:NamedIndividual ,
+                    skos:Concept ;
+           skos:broader :ecology ;
+           skos:broaderTransitive :ecology ;
+           skos:inScheme :zooarchaeology ;
+           skos:semanticRelation :ecology ;
+           skos:prefLabel "diversity"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#dmanisi
 :dmanisi rdf:type owl:NamedIndividual ,
                   skos:Concept ;
@@ -3303,6 +3968,29 @@ skos:OrderedCollection rdf:type owl:Class ;
          skos:semanticRelation :site ;
          skos:notation 76 ;
          skos:prefLabel "dmanisi"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#domestication
+:domestication rdf:type owl:NamedIndividual ,
+                        skos:Concept ;
+               skos:broader :sheparding_farming ;
+               skos:broaderTransitive :sheparding_farming ;
+               skos:inScheme :zooarchaeology ;
+               skos:semanticRelation :sheparding_farming ;
+               skos:prefLabel "domestication"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#double_burial
+:double_burial rdf:type owl:NamedIndividual ,
+                        skos:Concept ;
+               skos:broader :funeray_behaviours ;
+               skos:broaderTransitive :forensic_taphonomy ,
+                                      :funeray_behaviours ;
+               skos:inScheme :taphonomy ;
+               skos:semanticRelation :forensic_taphonomy ,
+                                     :funeray_behaviours ;
+               skos:notation 961 ;
+               skos:prefLabel "double burial"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#drill_core
@@ -3694,6 +4382,65 @@ skos:OrderedCollection rdf:type owl:Class ;
             skos:prefLabel "ebro basin"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#ecology
+:ecology rdf:type owl:NamedIndividual ,
+                  skos:Concept ;
+         skos:inScheme :taphonomy ,
+                       :zooarchaeology ;
+         skos:narrower :competition ,
+                       :competition_among_predators ,
+                       :diversity ,
+                       :hominid_carnivore_interactions ,
+                       :large_herbivores ,
+                       :large_mammals ,
+                       :macro-mammals ,
+                       :megafauna ,
+                       :monospecific_faunal_assemblages ,
+                       :seasonality ,
+                       :shannon_index ,
+                       :sharp-blunt_trauma ,
+                       :simpson_diversity_index ,
+                       :small_fauna ,
+                       :small_game ,
+                       :ungulate_community ;
+         skos:narrowerTransitive :competition ,
+                                 :competition_among_predators ,
+                                 :diversity ,
+                                 :hominid_carnivore_interactions ,
+                                 :large_herbivores ,
+                                 :large_mammals ,
+                                 :macro-mammals ,
+                                 :megafauna ,
+                                 :monospecific_faunal_assemblages ,
+                                 :seasonality ,
+                                 :shannon_index ,
+                                 :sharp-blunt_trauma ,
+                                 :simpson_diversity_index ,
+                                 :small_fauna ,
+                                 :small_game ,
+                                 :ungulate_community ;
+         skos:semanticRelation :competition ,
+                               :competition_among_predators ,
+                               :diversity ,
+                               :hominid_carnivore_interactions ,
+                               :large_herbivores ,
+                               :large_mammals ,
+                               :macro-mammals ,
+                               :megafauna ,
+                               :monospecific_faunal_assemblages ,
+                               :seasonality ,
+                               :shannon_index ,
+                               :sharp-blunt_trauma ,
+                               :simpson_diversity_index ,
+                               :small_fauna ,
+                               :small_game ,
+                               :ungulate_community ;
+         skos:topConceptOf :taphonomy ,
+                           :zooarchaeology ;
+         skos:notation 847 ;
+         skos:prefLabel "ecology"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#eivissa
 :eivissa rdf:type owl:NamedIndividual ,
                   skos:Concept ;
@@ -3766,6 +4513,19 @@ skos:OrderedCollection rdf:type owl:Class ;
                                     :iberian_peninsula ;
               skos:notation 189 ;
               skos:prefLabel "empord plain"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#endocannibalism
+:endocannibalism rdf:type owl:NamedIndividual ,
+                          skos:Concept ;
+                 skos:broader :anthropofagy ;
+                 skos:broaderTransitive :anthropofagy ,
+                                        :forensic_taphonomy ;
+                 skos:inScheme :taphonomy ;
+                 skos:semanticRelation :anthropofagy ,
+                                       :forensic_taphonomy ;
+                 skos:notation 948 ;
+                 skos:prefLabel "endocannibalism"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#endokarst
@@ -4308,6 +5068,19 @@ skos:OrderedCollection rdf:type owl:Class ;
             skos:prefLabel "excavation"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#exocannibalism
+:exocannibalism rdf:type owl:NamedIndividual ,
+                         skos:Concept ;
+                skos:broader :anthropofagy ;
+                skos:broaderTransitive :anthropofagy ,
+                                       :forensic_taphonomy ;
+                skos:inScheme :taphonomy ;
+                skos:semanticRelation :anthropofagy ,
+                                      :forensic_taphonomy ;
+                skos:notation 949 ;
+                skos:prefLabel "exocannibalism"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#extinction
 :extinction rdf:type owl:NamedIndividual ,
                      skos:Concept ;
@@ -4527,6 +5300,109 @@ skos:OrderedCollection rdf:type owl:Class ;
                   skos:prefLabel "fluvial terraces"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#forensic_taphonomy
+:forensic_taphonomy rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    skos:inScheme :taphonomy ;
+                    skos:narrower :anthropofagy ,
+                                  :funeray_behaviours ,
+                                  :paleopathology ,
+                                  :violence ;
+                    skos:narrowerTransitive :aggressive_cannibalism ,
+                                            :anthropofagy ,
+                                            :anthropophagy ,
+                                            :burial ,
+                                            :burial_deposit ,
+                                            :cannibalism ,
+                                            :collective_burial ,
+                                            :cremation ,
+                                            :death_events ,
+                                            :decapitation ,
+                                            :double_burial ,
+                                            :endocannibalism ,
+                                            :exocannibalism ,
+                                            :fracture ,
+                                            :funerary_practices ,
+                                            :funeray_behaviours ,
+                                            :gastronomic_and_nutritional_cannibalism ,
+                                            :grave ,
+                                            :grave_goods ,
+                                            :graveyard ,
+                                            :human_skull-cup ,
+                                            :illness ,
+                                            :incineration ,
+                                            :intentional_damage ,
+                                            :interpersonal_violence ,
+                                            :mass_vs_mutiple_death ,
+                                            :megalithic_tombs ,
+                                            :mmummy ,
+                                            :mortality_events ,
+                                            :mousterian_burial ,
+                                            :nutritional_cannibalism ,
+                                            :paleopathology ,
+                                            :pathology ,
+                                            :perimortem ,
+                                            :prehistoric_cannibalism ,
+                                            :ritual_cannibalism ,
+                                            :ritualization_of_skulls ,
+                                            :scalping ,
+                                            :scapling ,
+                                            :survival_cannibalism ,
+                                            :trepanation ,
+                                            :violence ,
+                                            :violencia ,
+                                            :war ,
+                                            :warfare ;
+                    skos:semanticRelation :aggressive_cannibalism ,
+                                          :anthropofagy ,
+                                          :anthropophagy ,
+                                          :burial ,
+                                          :burial_deposit ,
+                                          :cannibalism ,
+                                          :collective_burial ,
+                                          :cremation ,
+                                          :death_events ,
+                                          :decapitation ,
+                                          :double_burial ,
+                                          :endocannibalism ,
+                                          :exocannibalism ,
+                                          :fracture ,
+                                          :funerary_practices ,
+                                          :funeray_behaviours ,
+                                          :gastronomic_and_nutritional_cannibalism ,
+                                          :grave ,
+                                          :grave_goods ,
+                                          :graveyard ,
+                                          :human_skull-cup ,
+                                          :illness ,
+                                          :incineration ,
+                                          :intentional_damage ,
+                                          :interpersonal_violence ,
+                                          :mass_vs_mutiple_death ,
+                                          :megalithic_tombs ,
+                                          :mmummy ,
+                                          :mortality_events ,
+                                          :mousterian_burial ,
+                                          :nutritional_cannibalism ,
+                                          :paleopathology ,
+                                          :pathology ,
+                                          :perimortem ,
+                                          :prehistoric_cannibalism ,
+                                          :ritual_cannibalism ,
+                                          :ritualization_of_skulls ,
+                                          :scalping ,
+                                          :scapling ,
+                                          :survival_cannibalism ,
+                                          :trepanation ,
+                                          :violence ,
+                                          :violencia ,
+                                          :war ,
+                                          :warfare ;
+                    skos:topConceptOf :taphonomy ;
+                    skos:notation 939 ;
+                    skos:prefLabel "forensic taphonomy"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#formation_processes
 :formation_processes rdf:type owl:NamedIndividual ,
                               skos:Concept ;
@@ -4564,6 +5440,36 @@ skos:OrderedCollection rdf:type owl:Class ;
                skos:prefLabel "fortuna basin"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#fossil_accumulation
+:fossil_accumulation rdf:type owl:NamedIndividual ,
+                              skos:Concept ;
+                     skos:broader :taphonomic_agent ;
+                     skos:broaderTransitive :taphonomic_agent ;
+                     skos:inScheme :taphonomy ;
+                     skos:semanticRelation :taphonomic_agent ;
+                     skos:prefLabel "fossil accumulation"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#fossil_assemblage
+:fossil_assemblage rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader :taphonomic_agent ;
+                   skos:broaderTransitive :taphonomic_agent ;
+                   skos:inScheme :taphonomy ;
+                   skos:semanticRelation :taphonomic_agent ;
+                   skos:prefLabel "fossil assemblage"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#fossil_birds
+:fossil_birds rdf:type owl:NamedIndividual ,
+                       skos:Concept ;
+              skos:broader :taxonomy ;
+              skos:broaderTransitive :taxonomy ;
+              skos:inScheme :zooarchaeology ;
+              skos:semanticRelation :taxonomy ;
+              skos:prefLabel "fossil birds"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#fossil_record
 :fossil_record rdf:type owl:NamedIndividual ,
                         skos:Concept ;
@@ -4571,6 +5477,29 @@ skos:OrderedCollection rdf:type owl:Class ;
                skos:topConceptOf :paleoanthropology ;
                skos:notation 730 ;
                skos:prefLabel "fossil record"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#fossil_vertebrates
+:fossil_vertebrates rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    skos:broader :taxonomy ;
+                    skos:broaderTransitive :taxonomy ;
+                    skos:inScheme :zooarchaeology ;
+                    skos:semanticRelation :taxonomy ;
+                    skos:prefLabel "fossil vertebrates"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#fracture
+:fracture rdf:type owl:NamedIndividual ,
+                   skos:Concept ;
+          skos:broader :paleopathology ;
+          skos:broaderTransitive :forensic_taphonomy ,
+                                 :paleopathology ;
+          skos:inScheme :taphonomy ;
+          skos:semanticRelation :forensic_taphonomy ,
+                                :paleopathology ;
+          skos:notation 982 ;
+          skos:prefLabel "fracture"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#fracture_pattern
@@ -4617,6 +5546,113 @@ skos:OrderedCollection rdf:type owl:Class ;
                 skos:prefLabel "fuente nueva 3"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#functionality
+:functionality rdf:type owl:NamedIndividual ,
+                        skos:Concept ;
+               skos:inScheme :taphonomy ,
+                             :zooarchaeology ;
+               skos:narrower :butchering_process ,
+                             :butchering_site ,
+                             :butchery_site ,
+                             :carnivore_den ,
+                             :den ,
+                             :hyena_den ;
+               skos:narrowerTransitive :butchering_process ,
+                                       :butchering_site ,
+                                       :butchery_site ,
+                                       :carnivore_den ,
+                                       :den ,
+                                       :hyena_den ;
+               skos:semanticRelation :butchering_process ,
+                                     :butchering_site ,
+                                     :butchery_site ,
+                                     :carnivore_den ,
+                                     :den ,
+                                     :hyena_den ;
+               skos:topConceptOf :taphonomy ,
+                                 :zooarchaeology ;
+               skos:notation 861 ;
+               skos:prefLabel "functionality"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#funerary_practices
+:funerary_practices rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    skos:broader :funeray_behaviours ;
+                    skos:broaderTransitive :forensic_taphonomy ,
+                                           :funeray_behaviours ;
+                    skos:inScheme :taphonomy ;
+                    skos:semanticRelation :forensic_taphonomy ,
+                                          :funeray_behaviours ;
+                    skos:notation 957 ;
+                    skos:prefLabel "funerary practices"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#funeray_behaviours
+:funeray_behaviours rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    skos:broader :forensic_taphonomy ;
+                    skos:broaderTransitive :forensic_taphonomy ;
+                    skos:inScheme :taphonomy ;
+                    skos:narrower :burial ,
+                                  :burial_deposit ,
+                                  :collective_burial ,
+                                  :cremation ,
+                                  :double_burial ,
+                                  :funerary_practices ,
+                                  :grave ,
+                                  :grave_goods ,
+                                  :graveyard ,
+                                  :incineration ,
+                                  :mass_vs_mutiple_death ,
+                                  :megalithic_tombs ,
+                                  :mmummy ,
+                                  :mousterian_burial ,
+                                  :ritualization_of_skulls ;
+                    skos:narrowerTransitive :burial ,
+                                            :burial_deposit ,
+                                            :collective_burial ,
+                                            :cremation ,
+                                            :double_burial ,
+                                            :funerary_practices ,
+                                            :grave ,
+                                            :grave_goods ,
+                                            :graveyard ,
+                                            :incineration ,
+                                            :mass_vs_mutiple_death ,
+                                            :megalithic_tombs ,
+                                            :mmummy ,
+                                            :mousterian_burial ,
+                                            :ritualization_of_skulls ;
+                    skos:semanticRelation :burial ,
+                                          :burial_deposit ,
+                                          :collective_burial ,
+                                          :cremation ,
+                                          :double_burial ,
+                                          :forensic_taphonomy ,
+                                          :funerary_practices ,
+                                          :grave ,
+                                          :grave_goods ,
+                                          :graveyard ,
+                                          :incineration ,
+                                          :mass_vs_mutiple_death ,
+                                          :megalithic_tombs ,
+                                          :mmummy ,
+                                          :mousterian_burial ,
+                                          :ritualization_of_skulls ;
+                    skos:prefLabel "funeray behaviours"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#furrowing
+:furrowing rdf:type owl:NamedIndividual ,
+                    skos:Concept ;
+           skos:broader :bone_surface_modifications ;
+           skos:broaderTransitive :bone_surface_modifications ;
+           skos:inScheme :taphonomy ;
+           skos:semanticRelation :bone_surface_modifications ;
+           skos:prefLabel "furrowing"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#gar_arjeneh_rockshelter
 :gar_arjeneh_rockshelter rdf:type owl:NamedIndividual ,
                                   skos:Concept ;
@@ -4626,6 +5662,37 @@ skos:OrderedCollection rdf:type owl:Class ;
                          skos:semanticRelation :site ;
                          skos:notation 65 ;
                          skos:prefLabel "gar arjeneh rockshelter"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#garden_hunting
+:garden_hunting rdf:type owl:NamedIndividual ,
+                         skos:Concept ;
+                skos:inScheme :zooarchaeology ;
+                skos:topConceptOf :zooarchaeology ;
+                skos:notation 837 ;
+                skos:prefLabel "garden hunting"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#garden_hunting-wildlife_management
+:garden_hunting-wildlife_management rdf:type owl:NamedIndividual ,
+                                             skos:Concept ;
+                                    skos:inScheme :zooarchaeology ;
+                                    skos:topConceptOf :zooarchaeology ;
+                                    skos:notation 838 ;
+                                    skos:prefLabel "garden hunting-wildlife management"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#gastronomic_and_nutritional_cannibalism
+:gastronomic_and_nutritional_cannibalism rdf:type owl:NamedIndividual ,
+                                                  skos:Concept ;
+                                         skos:broader :anthropofagy ;
+                                         skos:broaderTransitive :anthropofagy ,
+                                                                :forensic_taphonomy ;
+                                         skos:inScheme :taphonomy ;
+                                         skos:semanticRelation :anthropofagy ,
+                                                               :forensic_taphonomy ;
+                                         skos:notation 943 ;
+                                         skos:prefLabel "gastronomic and nutritional cannibalism"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#geoarchaeology
@@ -4662,6 +5729,8 @@ skos:OrderedCollection rdf:type owl:Class ;
                      skos:narrowerTransitive :bamboo ,
                                              :basalt ,
                                              :bleached_quartz ,
+                                             :bone_density ,
+                                             :bone_integrity ,
                                              :calcium_oxalate ,
                                              :carbon ,
                                              :carbonate_rock_shelter ,
@@ -4723,6 +5792,8 @@ skos:OrderedCollection rdf:type owl:Class ;
                                              :petrographic_analysis ,
                                              :petrographic_characterisation ,
                                              :porphyry ,
+                                             :post-depositional_processes ,
+                                             :post-depositional_surface_modifications ,
                                              :proglacial_lake ,
                                              :quartz ,
                                              :quartz_flakes ,
@@ -4762,6 +5833,8 @@ skos:OrderedCollection rdf:type owl:Class ;
                      skos:semanticRelation :bamboo ,
                                            :basalt ,
                                            :bleached_quartz ,
+                                           :bone_density ,
+                                           :bone_integrity ,
                                            :calcium_oxalate ,
                                            :carbon ,
                                            :carbonate_rock_shelter ,
@@ -4823,6 +5896,8 @@ skos:OrderedCollection rdf:type owl:Class ;
                                            :petrographic_analysis ,
                                            :petrographic_characterisation ,
                                            :porphyry ,
+                                           :post-depositional_processes ,
+                                           :post-depositional_surface_modifications ,
                                            :proglacial_lake ,
                                            :quartz ,
                                            :quartz_flakes ,
@@ -5188,6 +6263,32 @@ skos:OrderedCollection rdf:type owl:Class ;
            skos:prefLabel "grassland"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#grave
+:grave rdf:type owl:NamedIndividual ,
+                skos:Concept ;
+       skos:broader :funeray_behaviours ;
+       skos:broaderTransitive :forensic_taphonomy ,
+                              :funeray_behaviours ;
+       skos:inScheme :taphonomy ;
+       skos:semanticRelation :forensic_taphonomy ,
+                             :funeray_behaviours ;
+       skos:notation 962 ;
+       skos:prefLabel "grave"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#grave_goods
+:grave_goods rdf:type owl:NamedIndividual ,
+                      skos:Concept ;
+             skos:broader :funeray_behaviours ;
+             skos:broaderTransitive :forensic_taphonomy ,
+                                    :funeray_behaviours ;
+             skos:inScheme :taphonomy ;
+             skos:semanticRelation :forensic_taphonomy ,
+                                   :funeray_behaviours ;
+             skos:notation 966 ;
+             skos:prefLabel "grave goods"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#gravettian
 :gravettian rdf:type owl:NamedIndividual ,
                      skos:Concept ;
@@ -5197,6 +6298,19 @@ skos:OrderedCollection rdf:type owl:Class ;
             skos:semanticRelation :cultural_period ;
             skos:notation 391 ;
             skos:prefLabel "gravettian"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#graveyard
+:graveyard rdf:type owl:NamedIndividual ,
+                    skos:Concept ;
+           skos:broader :funeray_behaviours ;
+           skos:broaderTransitive :forensic_taphonomy ,
+                                  :funeray_behaviours ;
+           skos:inScheme :taphonomy ;
+           skos:semanticRelation :forensic_taphonomy ,
+                                 :funeray_behaviours ;
+           skos:notation 963 ;
+           skos:prefLabel "graveyard"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#gravity_survey
@@ -5210,6 +6324,16 @@ skos:OrderedCollection rdf:type owl:Class ;
                                       :geology_method_analysis ;
                 skos:notation 654 ;
                 skos:prefLabel "gravity survey"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#groove
+:groove rdf:type owl:NamedIndividual ,
+                 skos:Concept ;
+        skos:broader :bone_surface_modifications ;
+        skos:broaderTransitive :bone_surface_modifications ;
+        skos:inScheme :taphonomy ;
+        skos:semanticRelation :bone_surface_modifications ;
+        skos:prefLabel "groove"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#grotta_paglicci
@@ -5270,10 +6394,14 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#hammerstone_percussion
 :hammerstone_percussion rdf:type owl:NamedIndividual ,
                                  skos:Concept ;
-                        skos:broader :use_marks_and_functionality ;
-                        skos:broaderTransitive :use_marks_and_functionality ;
-                        skos:inScheme :lithic ;
-                        skos:semanticRelation :use_marks_and_functionality ;
+                        skos:broader :bone_surface_modifications ,
+                                     :use_marks_and_functionality ;
+                        skos:broaderTransitive :bone_surface_modifications ,
+                                               :use_marks_and_functionality ;
+                        skos:inScheme :lithic ,
+                                      :taphonomy ;
+                        skos:semanticRelation :bone_surface_modifications ,
+                                              :use_marks_and_functionality ;
                         skos:notation 470 ;
                         skos:prefLabel "hammerstone percussion"@en .
 
@@ -5401,6 +6529,15 @@ skos:OrderedCollection rdf:type owl:Class ;
             skos:semanticRelation :site ;
             skos:notation 84 ;
             skos:prefLabel "heppenloch"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#herbivore
+:herbivore rdf:type owl:NamedIndividual ,
+                    skos:Concept ;
+           skos:inScheme :zooarchaeology ;
+           skos:topConceptOf :zooarchaeology ;
+           skos:notation 844 ;
+           skos:prefLabel "herbivore"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#high_mountains
@@ -5649,6 +6786,16 @@ skos:OrderedCollection rdf:type owl:Class ;
            skos:prefLabel "home base"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#hominid_carnivore_interactions
+:hominid_carnivore_interactions rdf:type owl:NamedIndividual ,
+                                         skos:Concept ;
+                                skos:broader :ecology ;
+                                skos:broaderTransitive :ecology ;
+                                skos:inScheme :taphonomy ;
+                                skos:semanticRelation :ecology ;
+                                skos:prefLabel "hominid carnivore interactions"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#hominin_evolution
 :hominin_evolution rdf:type owl:NamedIndividual ,
                             skos:Concept ;
@@ -5880,6 +7027,29 @@ skos:OrderedCollection rdf:type owl:Class ;
                   skos:prefLabel "human prehistory"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#human_skull-cup
+:human_skull-cup rdf:type owl:NamedIndividual ,
+                          skos:Concept ;
+                 skos:broader :anthropofagy ;
+                 skos:broaderTransitive :anthropofagy ,
+                                        :forensic_taphonomy ;
+                 skos:inScheme :taphonomy ;
+                 skos:semanticRelation :anthropofagy ,
+                                       :forensic_taphonomy ;
+                 skos:notation 951 ;
+                 skos:prefLabel "human skull-cup"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#human_tooth_marks
+:human_tooth_marks rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader :bone_surface_modifications ;
+                   skos:broaderTransitive :bone_surface_modifications ;
+                   skos:inScheme :taphonomy ;
+                   skos:semanticRelation :bone_surface_modifications ;
+                   skos:prefLabel "human tooth marks"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#hungary
 :hungary rdf:type owl:NamedIndividual ,
                   skos:Concept ;
@@ -5891,6 +7061,16 @@ skos:OrderedCollection rdf:type owl:Class ;
          skos:prefLabel "hungary"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#hunter-gatherers
+:hunter-gatherers rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader :hunting_foraging ;
+                  skos:broaderTransitive :hunting_foraging ;
+                  skos:inScheme :zooarchaeology ;
+                  skos:semanticRelation :hunting_foraging ;
+                  skos:prefLabel "hunter-gatherers"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#hunting_camp
 :hunting_camp rdf:type owl:NamedIndividual ,
                        skos:Concept ;
@@ -5898,6 +7078,54 @@ skos:OrderedCollection rdf:type owl:Class ;
               skos:topConceptOf :others ;
               skos:notation 281 ;
               skos:prefLabel "hunting camp"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#hunting_foraging
+:hunting_foraging rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:inScheme :zooarchaeology ;
+                  skos:narrower :hunter-gatherers ,
+                                :large_game ,
+                                :mass_kill ;
+                  skos:narrowerTransitive :hunter-gatherers ,
+                                          :large_game ,
+                                          :mass_kill ;
+                  skos:semanticRelation :hunter-gatherers ,
+                                        :large_game ,
+                                        :mass_kill ;
+                  skos:topConceptOf :zooarchaeology ;
+                  skos:notation 874 ;
+                  skos:prefLabel "hunting/foraging"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#husbandry
+:husbandry rdf:type owl:NamedIndividual ,
+                    skos:Concept ;
+           skos:broader :sheparding_farming ;
+           skos:broaderTransitive :sheparding_farming ;
+           skos:inScheme :zooarchaeology ;
+           skos:semanticRelation :sheparding_farming ;
+           skos:prefLabel "husbandry"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#husbandry_implementation
+:husbandry_implementation rdf:type owl:NamedIndividual ,
+                                   skos:Concept ;
+                          skos:broader :sheparding_farming ;
+                          skos:broaderTransitive :sheparding_farming ;
+                          skos:inScheme :zooarchaeology ;
+                          skos:semanticRelation :sheparding_farming ;
+                          skos:prefLabel "husbandry implementation"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#husbandry_practices
+:husbandry_practices rdf:type owl:NamedIndividual ,
+                              skos:Concept ;
+                     skos:broader :sheparding_farming ;
+                     skos:broaderTransitive :sheparding_farming ;
+                     skos:inScheme :zooarchaeology ;
+                     skos:semanticRelation :sheparding_farming ;
+                     skos:prefLabel "husbandry practices"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#hydrocarbon_fuel
@@ -5916,10 +7144,24 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#hyena_den
 :hyena_den rdf:type owl:NamedIndividual ,
                     skos:Concept ;
-           skos:inScheme :others ;
+           skos:broader :functionality ;
+           skos:broaderTransitive :functionality ;
+           skos:inScheme :others ,
+                         :taphonomy ;
+           skos:semanticRelation :functionality ;
            skos:topConceptOf :others ;
            skos:notation 285 ;
            skos:prefLabel "hyena den"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#ia
+:ia rdf:type owl:NamedIndividual ,
+             skos:Concept ;
+    skos:broader :bone_surface_modifications ;
+    skos:broaderTransitive :bone_surface_modifications ;
+    skos:inScheme :taphonomy ;
+    skos:semanticRelation :bone_surface_modifications ;
+    skos:prefLabel "ia"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#iberian_northwest
@@ -6125,6 +7367,19 @@ skos:OrderedCollection rdf:type owl:Class ;
                               skos:prefLabel "iberian peninsula prehistory"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#illness
+:illness rdf:type owl:NamedIndividual ,
+                  skos:Concept ;
+         skos:broader :paleopathology ;
+         skos:broaderTransitive :forensic_taphonomy ,
+                                :paleopathology ;
+         skos:inScheme :taphonomy ;
+         skos:semanticRelation :forensic_taphonomy ,
+                               :paleopathology ;
+         skos:notation 981 ;
+         skos:prefLabel "illness"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#illuviation
 :illuviation rdf:type owl:NamedIndividual ,
                       skos:Concept ;
@@ -6136,6 +7391,29 @@ skos:OrderedCollection rdf:type owl:Class ;
                                    :natural_formation ;
              skos:notation 608 ;
              skos:prefLabel "illuviation"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#impact_point
+:impact_point rdf:type owl:NamedIndividual ,
+                       skos:Concept ;
+              skos:broader :bone_surface_modifications ;
+              skos:broaderTransitive :bone_surface_modifications ;
+              skos:inScheme :taphonomy ;
+              skos:semanticRelation :bone_surface_modifications ;
+              skos:prefLabel "impact point"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#incineration
+:incineration rdf:type owl:NamedIndividual ,
+                       skos:Concept ;
+              skos:broader :funeray_behaviours ;
+              skos:broaderTransitive :forensic_taphonomy ,
+                                     :funeray_behaviours ;
+              skos:inScheme :taphonomy ;
+              skos:semanticRelation :forensic_taphonomy ,
+                                    :funeray_behaviours ;
+              skos:notation 964 ;
+              skos:prefLabel "incineration"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#india
@@ -6189,6 +7467,19 @@ skos:OrderedCollection rdf:type owl:Class ;
                  skos:prefLabel "insertion areas"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#intentional_damage
+:intentional_damage rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    skos:broader :paleopathology ;
+                    skos:broaderTransitive :forensic_taphonomy ,
+                                           :paleopathology ;
+                    skos:inScheme :taphonomy ;
+                    skos:semanticRelation :forensic_taphonomy ,
+                                          :paleopathology ;
+                    skos:notation 977 ;
+                    skos:prefLabel "intentional damage"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#interglacial
 :interglacial rdf:type owl:NamedIndividual ,
                        skos:Concept ;
@@ -6215,6 +7506,19 @@ skos:OrderedCollection rdf:type owl:Class ;
                                             :climatology_and_climate_events ;
                       skos:notation 567 ;
                       skos:prefLabel "interglacial climate"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#interpersonal_violence
+:interpersonal_violence rdf:type owl:NamedIndividual ,
+                                 skos:Concept ;
+                        skos:broader :violence ;
+                        skos:broaderTransitive :forensic_taphonomy ,
+                                               :violence ;
+                        skos:inScheme :taphonomy ;
+                        skos:semanticRelation :forensic_taphonomy ,
+                                              :violence ;
+                        skos:notation 969 ;
+                        skos:prefLabel "interpersonal violence"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#intraspecific_variation
@@ -6884,6 +8188,36 @@ skos:OrderedCollection rdf:type owl:Class ;
                        skos:semanticRelation :lithic_technology ;
                        skos:notation 449 ;
                        skos:prefLabel "large flake acheulean"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#large_game
+:large_game rdf:type owl:NamedIndividual ,
+                     skos:Concept ;
+            skos:broader :hunting_foraging ;
+            skos:broaderTransitive :hunting_foraging ;
+            skos:inScheme :zooarchaeology ;
+            skos:semanticRelation :hunting_foraging ;
+            skos:prefLabel "large game"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#large_herbivores
+:large_herbivores rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader :ecology ;
+                  skos:broaderTransitive :ecology ;
+                  skos:inScheme :zooarchaeology ;
+                  skos:semanticRelation :ecology ;
+                  skos:prefLabel "large herbivores"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#large_mammals
+:large_mammals rdf:type owl:NamedIndividual ,
+                        skos:Concept ;
+               skos:broader :ecology ;
+               skos:broaderTransitive :ecology ;
+               skos:inScheme :zooarchaeology ;
+               skos:semanticRelation :ecology ;
+               skos:prefLabel "large mammals"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#last_glacial
@@ -7734,6 +9068,16 @@ skos:OrderedCollection rdf:type owl:Class ;
                    skos:prefLabel "logistic mobility"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#long_bone_breakage
+:long_bone_breakage rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    skos:broader :bone_surface_modifications ;
+                    skos:broaderTransitive :bone_surface_modifications ;
+                    skos:inScheme :taphonomy ;
+                    skos:semanticRelation :bone_surface_modifications ;
+                    skos:prefLabel "long bone breakage"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#lower_palaeolithic
 :lower_palaeolithic rdf:type owl:NamedIndividual ,
                              skos:Concept ;
@@ -7806,6 +9150,16 @@ skos:OrderedCollection rdf:type owl:Class ;
                skos:semanticRelation :geological_period ;
                skos:notation 377 ;
                skos:prefLabel "maastrichtian"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#macro-mammals
+:macro-mammals rdf:type owl:NamedIndividual ,
+                        skos:Concept ;
+               skos:broader :ecology ;
+               skos:broaderTransitive :ecology ;
+               skos:inScheme :zooarchaeology ;
+               skos:semanticRelation :ecology ;
+               skos:prefLabel "macro-mammals"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#madonie_mountain_range
@@ -7890,6 +9244,15 @@ skos:OrderedCollection rdf:type owl:Class ;
                   skos:prefLabel "maltravieso cave"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#mammalian_carnivores
+:mammalian_carnivores rdf:type owl:NamedIndividual ,
+                               skos:Concept ;
+                      skos:inScheme :zooarchaeology ;
+                      skos:topConceptOf :zooarchaeology ;
+                      skos:notation 843 ;
+                      skos:prefLabel "mammalian carnivores"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#mar_gwergalan_cave
 :mar_gwergalan_cave rdf:type owl:NamedIndividual ,
                              skos:Concept ;
@@ -7966,6 +9329,29 @@ skos:OrderedCollection rdf:type owl:Class ;
                skos:prefLabel "marine shells"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#mass_kill
+:mass_kill rdf:type owl:NamedIndividual ,
+                    skos:Concept ;
+           skos:broader :hunting_foraging ;
+           skos:broaderTransitive :hunting_foraging ;
+           skos:inScheme :zooarchaeology ;
+           skos:semanticRelation :hunting_foraging ;
+           skos:prefLabel "mass kill"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#mass_vs_mutiple_death
+:mass_vs_mutiple_death rdf:type owl:NamedIndividual ,
+                                skos:Concept ;
+                       skos:broader :funeray_behaviours ;
+                       skos:broaderTransitive :forensic_taphonomy ,
+                                              :funeray_behaviours ;
+                       skos:inScheme :taphonomy ;
+                       skos:semanticRelation :forensic_taphonomy ,
+                                             :funeray_behaviours ;
+                       skos:notation 954 ;
+                       skos:prefLabel "mass vs mutiple death"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#mechanical_alteration
 :mechanical_alteration rdf:type owl:NamedIndividual ,
                                 skos:Concept ;
@@ -7997,6 +9383,29 @@ skos:OrderedCollection rdf:type owl:Class ;
                                             :iberian_peninsula ;
                       skos:notation 158 ;
                       skos:prefLabel "mediterranean iberia"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#megafauna
+:megafauna rdf:type owl:NamedIndividual ,
+                    skos:Concept ;
+           skos:broader :ecology ;
+           skos:broaderTransitive :ecology ;
+           skos:inScheme :zooarchaeology ;
+           skos:semanticRelation :ecology ;
+           skos:prefLabel "megafauna"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#megalithic_tombs
+:megalithic_tombs rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader :funeray_behaviours ;
+                  skos:broaderTransitive :forensic_taphonomy ,
+                                         :funeray_behaviours ;
+                  skos:inScheme :taphonomy ;
+                  skos:semanticRelation :forensic_taphonomy ,
+                                        :funeray_behaviours ;
+                  skos:notation 958 ;
+                  skos:prefLabel "megalithic tombs"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#meiendorf
@@ -8102,6 +9511,16 @@ skos:OrderedCollection rdf:type owl:Class ;
                                                  :climatology_and_climate_events ;
                            skos:notation 595 ;
                            skos:prefLabel "messinian salinity crisis"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#meter_todas_las_modificaciones
+:meter_todas_las_modificaciones rdf:type owl:NamedIndividual ,
+                                         skos:Concept ;
+                                skos:broader :bone_surface_modifications ;
+                                skos:broaderTransitive :bone_surface_modifications ;
+                                skos:inScheme :taphonomy ;
+                                skos:semanticRelation :bone_surface_modifications ;
+                                skos:prefLabel "meter todas las modificaciones"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#meuse_basin_of_belgium
@@ -8483,6 +9902,39 @@ skos:OrderedCollection rdf:type owl:Class ;
          skos:prefLabel "mis 5_4"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#ml
+:ml rdf:type owl:NamedIndividual ,
+             skos:Concept ;
+    skos:broader :bone_surface_modifications ;
+    skos:broaderTransitive :bone_surface_modifications ;
+    skos:inScheme :taphonomy ;
+    skos:semanticRelation :bone_surface_modifications ;
+    skos:prefLabel "ml"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#mmummy
+:mmummy rdf:type owl:NamedIndividual ,
+                 skos:Concept ;
+        skos:broader :funeray_behaviours ;
+        skos:broaderTransitive :forensic_taphonomy ,
+                               :funeray_behaviours ;
+        skos:inScheme :taphonomy ;
+        skos:semanticRelation :forensic_taphonomy ,
+                              :funeray_behaviours ;
+        skos:notation 967 ;
+        skos:prefLabel "mmummy"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#mn_staining
+:mn_staining rdf:type owl:NamedIndividual ,
+                      skos:Concept ;
+             skos:broader :bone_surface_modifications ;
+             skos:broaderTransitive :bone_surface_modifications ;
+             skos:inScheme :taphonomy ;
+             skos:semanticRelation :bone_surface_modifications ;
+             skos:prefLabel "mn staining"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#mobile_toolkit
 :mobile_toolkit rdf:type owl:NamedIndividual ,
                          skos:Concept ;
@@ -8540,6 +9992,16 @@ skos:OrderedCollection rdf:type owl:Class ;
                skos:prefLabel "moli del salt"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#monospecific_faunal_assemblages
+:monospecific_faunal_assemblages rdf:type owl:NamedIndividual ,
+                                          skos:Concept ;
+                                 skos:broader :ecology ;
+                                 skos:broaderTransitive :ecology ;
+                                 skos:inScheme :zooarchaeology ;
+                                 skos:semanticRelation :ecology ;
+                                 skos:prefLabel "monospecific faunal assemblages"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#monte_alen
 :monte_alen rdf:type owl:NamedIndividual ,
                      skos:Concept ;
@@ -8584,6 +10046,32 @@ skos:OrderedCollection rdf:type owl:Class ;
          skos:semanticRelation :africa ;
          skos:notation 199 ;
          skos:prefLabel "morocco"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#mortality_events
+:mortality_events rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader :paleopathology ;
+                  skos:broaderTransitive :forensic_taphonomy ,
+                                         :paleopathology ;
+                  skos:inScheme :taphonomy ;
+                  skos:semanticRelation :forensic_taphonomy ,
+                                        :paleopathology ;
+                  skos:notation 978 ;
+                  skos:prefLabel "mortality events"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#mousterian_burial
+:mousterian_burial rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader :funeray_behaviours ;
+                   skos:broaderTransitive :forensic_taphonomy ,
+                                          :funeray_behaviours ;
+                   skos:inScheme :taphonomy ;
+                   skos:semanticRelation :forensic_taphonomy ,
+                                         :funeray_behaviours ;
+                   skos:notation 959 ;
+                   skos:prefLabel "mousterian burial"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#multi-proxy_analysis
@@ -8749,7 +10237,9 @@ skos:OrderedCollection rdf:type owl:Class ;
                                  :valley_evolution ,
                                  :water_flows ,
                                  :wetlands ;
-                   skos:narrowerTransitive :carbonate_rock_shelter ,
+                   skos:narrowerTransitive :bone_density ,
+                                           :bone_integrity ,
+                                           :carbonate_rock_shelter ,
                                            :cave ,
                                            :cave_deposits ,
                                            :cave_entrances ,
@@ -8780,6 +10270,8 @@ skos:OrderedCollection rdf:type owl:Class ;
                                            :multilevel_caves ,
                                            :palaeokarst_filling ,
                                            :paleosols ,
+                                           :post-depositional_processes ,
+                                           :post-depositional_surface_modifications ,
                                            :proglacial_lake ,
                                            :rock_shelter ,
                                            :saline_lake ,
@@ -8792,7 +10284,9 @@ skos:OrderedCollection rdf:type owl:Class ;
                                            :valley_evolution ,
                                            :water_flows ,
                                            :wetlands ;
-                   skos:semanticRelation :carbonate_rock_shelter ,
+                   skos:semanticRelation :bone_density ,
+                                         :bone_integrity ,
+                                         :carbonate_rock_shelter ,
                                          :cave ,
                                          :cave_deposits ,
                                          :cave_entrances ,
@@ -8824,6 +10318,8 @@ skos:OrderedCollection rdf:type owl:Class ;
                                          :multilevel_caves ,
                                          :palaeokarst_filling ,
                                          :paleosols ,
+                                         :post-depositional_processes ,
+                                         :post-depositional_surface_modifications ,
                                          :proglacial_lake ,
                                          :rock_shelter ,
                                          :saline_lake ,
@@ -8937,6 +10433,16 @@ skos:OrderedCollection rdf:type owl:Class ;
             skos:prefLabel "niah caves"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#nocturnal_raptors
+:nocturnal_raptors rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader :taphonomic_agent ;
+                   skos:broaderTransitive :taphonomic_agent ;
+                   skos:inScheme :taphonomy ;
+                   skos:semanticRelation :taphonomic_agent ;
+                   skos:prefLabel "nocturnal raptors"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#node_reconstruction
 :node_reconstruction rdf:type owl:NamedIndividual ,
                               skos:Concept ;
@@ -8970,6 +10476,16 @@ skos:OrderedCollection rdf:type owl:Class ;
                                              :raw_materials ;
                        skos:notation 684 ;
                        skos:prefLabel "non-condensable gases"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#non-ingested_remains
+:non-ingested_remains rdf:type owl:NamedIndividual ,
+                               skos:Concept ;
+                      skos:broader :bone_surface_modifications ;
+                      skos:broaderTransitive :bone_surface_modifications ;
+                      skos:inScheme :taphonomy ;
+                      skos:semanticRelation :bone_surface_modifications ;
+                      skos:prefLabel "non-ingested remains"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#non-pollen_palynomorphs
@@ -9082,6 +10598,19 @@ skos:OrderedCollection rdf:type owl:Class ;
                skos:semanticRelation :lithic_technology ;
                skos:notation 412 ;
                skos:prefLabel "notched tools"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#nutritional_cannibalism
+:nutritional_cannibalism rdf:type owl:NamedIndividual ,
+                                  skos:Concept ;
+                         skos:broader :anthropofagy ;
+                         skos:broaderTransitive :anthropofagy ,
+                                                :forensic_taphonomy ;
+                         skos:inScheme :taphonomy ;
+                         skos:semanticRelation :anthropofagy ,
+                                               :forensic_taphonomy ;
+                         skos:notation 944 ;
+                         skos:prefLabel "nutritional cannibalism"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#nw_tunisia
@@ -9333,10 +10862,22 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#osteoarcheological_remains
 :osteoarcheological_remains rdf:type owl:NamedIndividual ,
                                      skos:Concept ;
-                            skos:inScheme :bioarchaeology ;
-                            skos:topConceptOf :bioarchaeology ;
+                            skos:inScheme :bioarchaeology ,
+                                          :zooarchaeology ;
+                            skos:topConceptOf :bioarchaeology ,
+                                              :zooarchaeology ;
                             skos:notation 754 ;
                             skos:prefLabel "osteoarcheological remains"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#osteophagia
+:osteophagia rdf:type owl:NamedIndividual ,
+                      skos:Concept ;
+             skos:broader :bone_surface_modifications ;
+             skos:broaderTransitive :bone_surface_modifications ;
+             skos:inScheme :taphonomy ;
+             skos:semanticRelation :bone_surface_modifications ;
+             skos:prefLabel "osteophagia"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#others
@@ -9689,6 +11230,46 @@ skos:OrderedCollection rdf:type owl:Class ;
                 skos:prefLabel "paleomagnetism"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#paleopathology
+:paleopathology rdf:type owl:NamedIndividual ,
+                         skos:Concept ;
+                skos:broader :forensic_taphonomy ,
+                             :paleopathology ;
+                skos:broaderTransitive :forensic_taphonomy ,
+                                       :paleopathology ;
+                skos:inScheme :taphonomy ;
+                skos:narrower :death_events ,
+                              :fracture ,
+                              :illness ,
+                              :intentional_damage ,
+                              :mortality_events ,
+                              :paleopathology ,
+                              :pathology ,
+                              :perimortem ,
+                              :trepanation ;
+                skos:narrowerTransitive :death_events ,
+                                        :fracture ,
+                                        :illness ,
+                                        :intentional_damage ,
+                                        :mortality_events ,
+                                        :paleopathology ,
+                                        :pathology ,
+                                        :perimortem ,
+                                        :trepanation ;
+                skos:semanticRelation :death_events ,
+                                      :forensic_taphonomy ,
+                                      :fracture ,
+                                      :illness ,
+                                      :intentional_damage ,
+                                      :mortality_events ,
+                                      :paleopathology ,
+                                      :pathology ,
+                                      :perimortem ,
+                                      :trepanation ;
+                skos:notation 975 ;
+                skos:prefLabel "paleopathology"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#paleosols
 :paleosols rdf:type owl:NamedIndividual ,
                     skos:Concept ;
@@ -9791,6 +11372,19 @@ skos:OrderedCollection rdf:type owl:Class ;
                  skos:prefLabel "past vegetation"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#pathology
+:pathology rdf:type owl:NamedIndividual ,
+                    skos:Concept ;
+           skos:broader :paleopathology ;
+           skos:broaderTransitive :forensic_taphonomy ,
+                                  :paleopathology ;
+           skos:inScheme :taphonomy ;
+           skos:semanticRelation :forensic_taphonomy ,
+                                 :paleopathology ;
+           skos:notation 980 ;
+           skos:prefLabel "pathology"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#payre
 :payre rdf:type owl:NamedIndividual ,
                 skos:Concept ;
@@ -9800,6 +11394,16 @@ skos:OrderedCollection rdf:type owl:Class ;
        skos:semanticRelation :europe ;
        skos:notation 111 ;
        skos:prefLabel "payre"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#peeling
+:peeling rdf:type owl:NamedIndividual ,
+                  skos:Concept ;
+         skos:broader :bone_surface_modifications ;
+         skos:broaderTransitive :bone_surface_modifications ;
+         skos:inScheme :taphonomy ;
+         skos:semanticRelation :bone_surface_modifications ;
+         skos:prefLabel "peeling"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#penultimate_glacial_period
@@ -9817,6 +11421,16 @@ skos:OrderedCollection rdf:type owl:Class ;
                                                   :climatology_and_climate_events ;
                             skos:notation 587 ;
                             skos:prefLabel "penultimate glacial period"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#percussion_mark
+:percussion_mark rdf:type owl:NamedIndividual ,
+                          skos:Concept ;
+                 skos:broader :bone_surface_modifications ;
+                 skos:broaderTransitive :bone_surface_modifications ;
+                 skos:inScheme :taphonomy ;
+                 skos:semanticRelation :bone_surface_modifications ;
+                 skos:prefLabel "percussion mark"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#percussion_marks
@@ -9850,6 +11464,19 @@ skos:OrderedCollection rdf:type owl:Class ;
                        skos:semanticRelation :lithic_technology ;
                        skos:notation 440 ;
                        skos:prefLabel "percussive technology"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#perimortem
+:perimortem rdf:type owl:NamedIndividual ,
+                     skos:Concept ;
+            skos:broader :paleopathology ;
+            skos:broaderTransitive :forensic_taphonomy ,
+                                   :paleopathology ;
+            skos:inScheme :taphonomy ;
+            skos:semanticRelation :forensic_taphonomy ,
+                                  :paleopathology ;
+            skos:notation 979 ;
+            skos:prefLabel "perimortem"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#period
@@ -9921,6 +11548,16 @@ skos:OrderedCollection rdf:type owl:Class ;
           skos:prefLabel "piedmont"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#pig_diet
+:pig_diet rdf:type owl:NamedIndividual ,
+                   skos:Concept ;
+          skos:broader :sheparding_farming ;
+          skos:broaderTransitive :sheparding_farming ;
+          skos:inScheme :zooarchaeology ;
+          skos:semanticRelation :sheparding_farming ;
+          skos:prefLabel "pig diet"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#pilauco
 :pilauco rdf:type owl:NamedIndividual ,
                   skos:Concept ;
@@ -9952,6 +11589,16 @@ skos:OrderedCollection rdf:type owl:Class ;
                skos:semanticRelation :site ;
                skos:notation 80 ;
                skos:prefLabel "pirro nord 13"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#pit
+:pit rdf:type owl:NamedIndividual ,
+              skos:Concept ;
+     skos:broader :bone_surface_modifications ;
+     skos:broaderTransitive :bone_surface_modifications ;
+     skos:inScheme :taphonomy ;
+     skos:semanticRelation :bone_surface_modifications ;
+     skos:prefLabel "pit"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#pit_hearth
@@ -10053,6 +11700,16 @@ skos:OrderedCollection rdf:type owl:Class ;
           skos:prefLabel "pliocene"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#polished_surfaces
+:polished_surfaces rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader :bone_surface_modifications ;
+                   skos:broaderTransitive :bone_surface_modifications ;
+                   skos:inScheme :taphonomy ;
+                   skos:semanticRelation :bone_surface_modifications ;
+                   skos:prefLabel "polished surfaces"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#pollen_identification
 :pollen_identification rdf:type owl:NamedIndividual ,
                                 skos:Concept ;
@@ -10126,7 +11783,15 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#post-depositional_processes
 :post-depositional_processes rdf:type owl:NamedIndividual ,
                                       skos:Concept ;
-                             skos:inScheme :bioarchaeology ;
+                             skos:broader :diagenesis ;
+                             skos:broaderTransitive :diagenesis ,
+                                                    :geological_approach ,
+                                                    :natural_formation ;
+                             skos:inScheme :bioarchaeology ,
+                                           :taphonomy ;
+                             skos:semanticRelation :diagenesis ,
+                                                   :geological_approach ,
+                                                   :natural_formation ;
                              skos:topConceptOf :bioarchaeology ;
                              skos:notation 755 ;
                              skos:prefLabel "post-depositional processes"@en .
@@ -10135,7 +11800,15 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#post-depositional_surface_modifications
 :post-depositional_surface_modifications rdf:type owl:NamedIndividual ,
                                                   skos:Concept ;
-                                         skos:inScheme :bioarchaeology ;
+                                         skos:broader :diagenesis ;
+                                         skos:broaderTransitive :diagenesis ,
+                                                                :geological_approach ,
+                                                                :natural_formation ;
+                                         skos:inScheme :bioarchaeology ,
+                                                       :taphonomy ;
+                                         skos:semanticRelation :diagenesis ,
+                                                               :geological_approach ,
+                                                               :natural_formation ;
                                          skos:topConceptOf :bioarchaeology ;
                                          skos:notation 756 ;
                                          skos:prefLabel "post-depositional surface modifications"@en .
@@ -10193,6 +11866,19 @@ skos:OrderedCollection rdf:type owl:Class ;
                skos:prefLabel "precipitation"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#prehistoric_cannibalism
+:prehistoric_cannibalism rdf:type owl:NamedIndividual ,
+                                  skos:Concept ;
+                         skos:broader :anthropofagy ;
+                         skos:broaderTransitive :anthropofagy ,
+                                                :forensic_taphonomy ;
+                         skos:inScheme :taphonomy ;
+                         skos:semanticRelation :anthropofagy ,
+                                               :forensic_taphonomy ;
+                         skos:notation 945 ;
+                         skos:prefLabel "prehistoric cannibalism"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#prehistoric_settlements
 :prehistoric_settlements rdf:type owl:NamedIndividual ,
                                   skos:Concept ;
@@ -10224,6 +11910,16 @@ skos:OrderedCollection rdf:type owl:Class ;
                                        :natural_formation ;
                  skos:notation 631 ;
                  skos:prefLabel "proglacial lake"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#puncture
+:puncture rdf:type owl:NamedIndividual ,
+                   skos:Concept ;
+          skos:broader :bone_surface_modifications ;
+          skos:broaderTransitive :bone_surface_modifications ;
+          skos:inScheme :taphonomy ;
+          skos:semanticRelation :bone_surface_modifications ;
+          skos:prefLabel "puncture"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#pyrenean_mountain_range
@@ -10394,6 +12090,26 @@ skos:OrderedCollection rdf:type owl:Class ;
                        skos:prefLabel "rapid climate changes"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#raptors
+:raptors rdf:type owl:NamedIndividual ,
+                  skos:Concept ;
+         skos:broader :taphonomic_agent ;
+         skos:broaderTransitive :taphonomic_agent ;
+         skos:inScheme :taphonomy ;
+         skos:semanticRelation :taphonomic_agent ;
+         skos:prefLabel "raptors"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#ravaging
+:ravaging rdf:type owl:NamedIndividual ,
+                   skos:Concept ;
+          skos:broader :taphonomic_agent ;
+          skos:broaderTransitive :taphonomic_agent ;
+          skos:inScheme :taphonomy ;
+          skos:semanticRelation :taphonomic_agent ;
+          skos:prefLabel "ravaging"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#raw_material_procurement
 :raw_material_procurement rdf:type owl:NamedIndividual ,
                                    skos:Concept ;
@@ -10556,6 +12272,16 @@ skos:OrderedCollection rdf:type owl:Class ;
            skos:prefLabel "refitting"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#regurgitation_pellets
+:regurgitation_pellets rdf:type owl:NamedIndividual ,
+                                skos:Concept ;
+                       skos:broader :taphonomic_agent ;
+                       skos:broaderTransitive :taphonomic_agent ;
+                       skos:inScheme :taphonomy ;
+                       skos:semanticRelation :taphonomic_agent ;
+                       skos:prefLabel "regurgitation pellets"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#relationship_between_muscles_and_bones
 :relationship_between_muscles_and_bones rdf:type owl:NamedIndividual ,
                                                  skos:Concept ;
@@ -10631,6 +12357,19 @@ skos:OrderedCollection rdf:type owl:Class ;
                 skos:prefLabel "riparo fredian"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#ritual_cannibalism
+:ritual_cannibalism rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    skos:broader :anthropofagy ;
+                    skos:broaderTransitive :anthropofagy ,
+                                           :forensic_taphonomy ;
+                    skos:inScheme :taphonomy ;
+                    skos:semanticRelation :anthropofagy ,
+                                          :forensic_taphonomy ;
+                    skos:notation 946 ;
+                    skos:prefLabel "ritual cannibalism"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#ritual_practices
 :ritual_practices rdf:type owl:NamedIndividual ,
                            skos:Concept ;
@@ -10643,7 +12382,13 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#ritualization_of_skulls
 :ritualization_of_skulls rdf:type owl:NamedIndividual ,
                                   skos:Concept ;
-                         skos:inScheme :bioarchaeology ;
+                         skos:broader :funeray_behaviours ;
+                         skos:broaderTransitive :forensic_taphonomy ,
+                                                :funeray_behaviours ;
+                         skos:inScheme :bioarchaeology ,
+                                       :taphonomy ;
+                         skos:semanticRelation :forensic_taphonomy ,
+                                               :funeray_behaviours ;
                          skos:topConceptOf :bioarchaeology ;
                          skos:notation 760 ;
                          skos:prefLabel "ritualization of skulls"@en .
@@ -10721,6 +12466,16 @@ skos:OrderedCollection rdf:type owl:Class ;
              skos:prefLabel "root canals"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#rubefaction
+:rubefaction rdf:type owl:NamedIndividual ,
+                      skos:Concept ;
+             skos:broader :bone_surface_modifications ;
+             skos:broaderTransitive :bone_surface_modifications ;
+             skos:inScheme :taphonomy ;
+             skos:semanticRelation :bone_surface_modifications ;
+             skos:prefLabel "rubefaction"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#sabana_de_bogota
 :sabana_de_bogota rdf:type owl:NamedIndividual ,
                            skos:Concept ;
@@ -10778,6 +12533,72 @@ skos:OrderedCollection rdf:type owl:Class ;
          skos:prefLabel "sarawak"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#scalping
+:scalping rdf:type owl:NamedIndividual ,
+                   skos:Concept ;
+          skos:broader :anthropofagy ;
+          skos:broaderTransitive :anthropofagy ,
+                                 :forensic_taphonomy ;
+          skos:inScheme :taphonomy ;
+          skos:semanticRelation :anthropofagy ,
+                                :forensic_taphonomy ;
+          skos:notation 952 ;
+          skos:prefLabel "scalping"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#scapling
+:scapling rdf:type owl:NamedIndividual ,
+                   skos:Concept ;
+          skos:broader :violence ;
+          skos:broaderTransitive :forensic_taphonomy ,
+                                 :violence ;
+          skos:inScheme :taphonomy ;
+          skos:semanticRelation :forensic_taphonomy ,
+                                :violence ;
+          skos:notation 971 ;
+          skos:prefLabel "scapling"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#scat
+:scat rdf:type owl:NamedIndividual ,
+               skos:Concept ;
+      skos:broader :taphonomic_agent ;
+      skos:broaderTransitive :taphonomic_agent ;
+      skos:inScheme :taphonomy ;
+      skos:semanticRelation :taphonomic_agent ;
+      skos:prefLabel "scat"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#scooping_out
+:scooping_out rdf:type owl:NamedIndividual ,
+                       skos:Concept ;
+              skos:broader :bone_surface_modifications ;
+              skos:broaderTransitive :bone_surface_modifications ;
+              skos:inScheme :taphonomy ;
+              skos:semanticRelation :bone_surface_modifications ;
+              skos:prefLabel "scooping out"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#score
+:score rdf:type owl:NamedIndividual ,
+                skos:Concept ;
+       skos:broader :bone_surface_modifications ;
+       skos:broaderTransitive :bone_surface_modifications ;
+       skos:inScheme :taphonomy ;
+       skos:semanticRelation :bone_surface_modifications ;
+       skos:prefLabel "score"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#scoring
+:scoring rdf:type owl:NamedIndividual ,
+                  skos:Concept ;
+         skos:broader :bone_surface_modifications ;
+         skos:broaderTransitive :bone_surface_modifications ;
+         skos:inScheme :taphonomy ;
+         skos:semanticRelation :bone_surface_modifications ;
+         skos:prefLabel "scoring"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#se_iberian_peninsula
 :se_iberian_peninsula rdf:type owl:NamedIndividual ,
                                skos:Concept ;
@@ -10832,6 +12653,16 @@ skos:OrderedCollection rdf:type owl:Class ;
                                         :object_of_study ;
                   skos:notation 580 ;
                   skos:prefLabel "seasonal climate"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#seasonality
+:seasonality rdf:type owl:NamedIndividual ,
+                      skos:Concept ;
+             skos:broader :ecology ;
+             skos:broaderTransitive :ecology ;
+             skos:inScheme :zooarchaeology ;
+             skos:semanticRelation :ecology ;
+             skos:prefLabel "seasonality"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#sedimentary_charcoal_analysis
@@ -10902,6 +12733,16 @@ skos:OrderedCollection rdf:type owl:Class ;
                              skos:prefLabel "sex-based division of labor"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#shannon_index
+:shannon_index rdf:type owl:NamedIndividual ,
+                        skos:Concept ;
+               skos:broader :ecology ;
+               skos:broaderTransitive :ecology ;
+               skos:inScheme :zooarchaeology ;
+               skos:semanticRelation :ecology ;
+               skos:prefLabel "shannon index"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#shaping_strategies
 :shaping_strategies rdf:type owl:NamedIndividual ,
                              skos:Concept ;
@@ -10911,6 +12752,16 @@ skos:OrderedCollection rdf:type owl:Class ;
                     skos:semanticRelation :lithic_study ;
                     skos:notation 484 ;
                     skos:prefLabel "shaping strategies"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#sharp-blunt_trauma
+:sharp-blunt_trauma rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    skos:broader :ecology ;
+                    skos:broaderTransitive :ecology ;
+                    skos:inScheme :zooarchaeology ;
+                    skos:semanticRelation :ecology ;
+                    skos:prefLabel "sharp-blunt trauma"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#sheepfold_cave
@@ -10955,6 +12806,39 @@ skos:OrderedCollection rdf:type owl:Class ;
          skos:prefLabel "shelter"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#sheparding_farming
+:sheparding_farming rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    skos:inScheme :zooarchaeology ;
+                    skos:narrower :ancient_livestock_strategies ,
+                                  :caprine_paleodiet ,
+                                  :cattle ,
+                                  :domestication ,
+                                  :husbandry ,
+                                  :husbandry_implementation ,
+                                  :husbandry_practices ,
+                                  :pig_diet ;
+                    skos:narrowerTransitive :ancient_livestock_strategies ,
+                                            :caprine_paleodiet ,
+                                            :cattle ,
+                                            :domestication ,
+                                            :husbandry ,
+                                            :husbandry_implementation ,
+                                            :husbandry_practices ,
+                                            :pig_diet ;
+                    skos:semanticRelation :ancient_livestock_strategies ,
+                                          :caprine_paleodiet ,
+                                          :cattle ,
+                                          :domestication ,
+                                          :husbandry ,
+                                          :husbandry_implementation ,
+                                          :husbandry_practices ,
+                                          :pig_diet ;
+                    skos:topConceptOf :zooarchaeology ;
+                    skos:notation 865 ;
+                    skos:prefLabel "sheparding/farming"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#sicily
 :sicily rdf:type owl:NamedIndividual ,
                  skos:Concept ;
@@ -10997,6 +12881,16 @@ skos:OrderedCollection rdf:type owl:Class ;
                    skos:semanticRelation :site ;
                    skos:notation 63 ;
                    skos:prefLabel "sima del elefante"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#simpson_diversity_index
+:simpson_diversity_index rdf:type owl:NamedIndividual ,
+                                  skos:Concept ;
+                         skos:broader :ecology ;
+                         skos:broaderTransitive :ecology ;
+                         skos:inScheme :zooarchaeology ;
+                         skos:semanticRelation :ecology ;
+                         skos:prefLabel "simpson diversity index"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#single-grain
@@ -11395,6 +13289,35 @@ skos:OrderedCollection rdf:type owl:Class ;
               skos:prefLabel "size sorting"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#skeletal_assemblage
+:skeletal_assemblage rdf:type owl:NamedIndividual ,
+                              skos:Concept ;
+                     skos:inScheme :zooarchaeology ;
+                     skos:topConceptOf :zooarchaeology ;
+                     skos:notation 841 ;
+                     skos:prefLabel "skeletal assemblage"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#small_fauna
+:small_fauna rdf:type owl:NamedIndividual ,
+                      skos:Concept ;
+             skos:broader :ecology ;
+             skos:broaderTransitive :ecology ;
+             skos:inScheme :zooarchaeology ;
+             skos:semanticRelation :ecology ;
+             skos:prefLabel "small fauna"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#small_game
+:small_game rdf:type owl:NamedIndividual ,
+                     skos:Concept ;
+            skos:broader :ecology ;
+            skos:broaderTransitive :ecology ;
+            skos:inScheme :zooarchaeology ;
+            skos:semanticRelation :ecology ;
+            skos:prefLabel "small game"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#soil_microfacies
 :soil_microfacies rdf:type owl:NamedIndividual ,
                            skos:Concept ;
@@ -11676,6 +13599,18 @@ skos:OrderedCollection rdf:type owl:Class ;
        skos:prefLabel "spain"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#spatial_taphonomy
+:spatial_taphonomy rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:inScheme :taphonomy ;
+                   skos:narrower :bone_refits ;
+                   skos:narrowerTransitive :bone_refits ;
+                   skos:semanticRelation :bone_refits ;
+                   skos:topConceptOf :taphonomy ;
+                   skos:notation 926 ;
+                   skos:prefLabel "spatial taphonomy"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#speleogenesis
 :speleogenesis rdf:type owl:NamedIndividual ,
                         skos:Concept ;
@@ -11923,6 +13858,29 @@ skos:OrderedCollection rdf:type owl:Class ;
                        skos:prefLabel "subboreal-subatlantic"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#suid_remains
+:suid_remains rdf:type owl:NamedIndividual ,
+                       skos:Concept ;
+              skos:broader :taxonomy ;
+              skos:broaderTransitive :taxonomy ;
+              skos:inScheme :zooarchaeology ;
+              skos:semanticRelation :taxonomy ;
+              skos:prefLabel "suid remains"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#survival_cannibalism
+:survival_cannibalism rdf:type owl:NamedIndividual ,
+                               skos:Concept ;
+                      skos:broader :anthropofagy ;
+                      skos:broaderTransitive :anthropofagy ,
+                                             :forensic_taphonomy ;
+                      skos:inScheme :taphonomy ;
+                      skos:semanticRelation :anthropofagy ,
+                                            :forensic_taphonomy ;
+                      skos:notation 947 ;
+                      skos:prefLabel "survival cannibalism"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#swabian_jura
 :swabian_jura rdf:type owl:NamedIndividual ,
                        skos:Concept ;
@@ -11960,6 +13918,82 @@ skos:OrderedCollection rdf:type owl:Class ;
               skos:prefLabel "tagus valley"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#taphonomic_agent
+:taphonomic_agent rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:inScheme :taphonomy ;
+                  skos:narrower :accumulator ,
+                                :anthropic ,
+                                :bone_bed ,
+                                :coprolites ,
+                                :fossil_accumulation ,
+                                :fossil_assemblage ,
+                                :nocturnal_raptors ,
+                                :raptors ,
+                                :ravaging ,
+                                :regurgitation_pellets ,
+                                :scat ;
+                  skos:narrowerTransitive :accumulator ,
+                                          :anthropic ,
+                                          :bone_bed ,
+                                          :coprolites ,
+                                          :fossil_accumulation ,
+                                          :fossil_assemblage ,
+                                          :nocturnal_raptors ,
+                                          :raptors ,
+                                          :ravaging ,
+                                          :regurgitation_pellets ,
+                                          :scat ;
+                  skos:semanticRelation :accumulator ,
+                                        :anthropic ,
+                                        :bone_bed ,
+                                        :coprolites ,
+                                        :fossil_accumulation ,
+                                        :fossil_assemblage ,
+                                        :nocturnal_raptors ,
+                                        :raptors ,
+                                        :ravaging ,
+                                        :regurgitation_pellets ,
+                                        :scat ;
+                  skos:topConceptOf :taphonomy ;
+                  skos:notation 927 ;
+                  skos:prefLabel "taphonomic agent"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#taphonomic_signal
+:taphonomic_signal rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader :bone_surface_modifications ;
+                   skos:broaderTransitive :bone_surface_modifications ;
+                   skos:inScheme :taphonomy ;
+                   skos:semanticRelation :bone_surface_modifications ;
+                   skos:prefLabel "taphonomic signal"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#taphonomy
+:taphonomy rdf:type owl:NamedIndividual ,
+                    skos:ConceptScheme ;
+           skos:hasTopConcept :bone_surface_modifications ,
+                              :diagenesis ,
+                              :ecology ,
+                              :forensic_taphonomy ,
+                              :functionality ,
+                              :spatial_taphonomy ,
+                              :taphonomic_agent ;
+           skos:notation 882 ;
+           skos:prefLabel "taphonomy"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#taphotype
+:taphotype rdf:type owl:NamedIndividual ,
+                    skos:Concept ;
+           skos:broader :bone_surface_modifications ;
+           skos:broaderTransitive :bone_surface_modifications ;
+           skos:inScheme :taphonomy ;
+           skos:semanticRelation :bone_surface_modifications ;
+           skos:prefLabel "taphotype"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#tardiglaciar
 :tardiglaciar rdf:type owl:NamedIndividual ,
                        skos:Concept ;
@@ -11982,6 +14016,24 @@ skos:OrderedCollection rdf:type owl:Class ;
                                  :iberian_peninsula ;
            skos:notation 178 ;
            skos:prefLabel "tarragona"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#taxonomy
+:taxonomy rdf:type owl:NamedIndividual ,
+                   skos:Concept ;
+          skos:inScheme :zooarchaeology ;
+          skos:narrower :fossil_birds ,
+                        :fossil_vertebrates ,
+                        :suid_remains ;
+          skos:narrowerTransitive :fossil_birds ,
+                                  :fossil_vertebrates ,
+                                  :suid_remains ;
+          skos:semanticRelation :fossil_birds ,
+                                :fossil_vertebrates ,
+                                :suid_remains ;
+          skos:topConceptOf :zooarchaeology ;
+          skos:notation 878 ;
+          skos:prefLabel "taxonomy"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#td6_unit
@@ -12161,6 +14213,49 @@ skos:OrderedCollection rdf:type owl:Class ;
        skos:prefLabel "tools"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#tooth_marks
+:tooth_marks rdf:type owl:NamedIndividual ,
+                      skos:Concept ;
+             skos:broader :bone_surface_modifications ;
+             skos:broaderTransitive :bone_surface_modifications ;
+             skos:inScheme :taphonomy ;
+             skos:semanticRelation :bone_surface_modifications ;
+             skos:prefLabel "tooth marks"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#toothmarks
+:toothmarks rdf:type owl:NamedIndividual ,
+                     skos:Concept ;
+            skos:broader :bone_surface_modifications ;
+            skos:broaderTransitive :bone_surface_modifications ;
+            skos:inScheme :taphonomy ;
+            skos:semanticRelation :bone_surface_modifications ;
+            skos:prefLabel "toothmarks"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#trampling
+:trampling rdf:type owl:NamedIndividual ,
+                    skos:Concept ;
+           skos:broader :bone_surface_modifications ;
+           skos:broaderTransitive :bone_surface_modifications ;
+           skos:inScheme :taphonomy ;
+           skos:semanticRelation :bone_surface_modifications ;
+           skos:prefLabel "trampling"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#trepanation
+:trepanation rdf:type owl:NamedIndividual ,
+                      skos:Concept ;
+             skos:broader :paleopathology ;
+             skos:broaderTransitive :forensic_taphonomy ,
+                                    :paleopathology ;
+             skos:inScheme :taphonomy ;
+             skos:semanticRelation :forensic_taphonomy ,
+                                   :paleopathology ;
+             skos:notation 983 ;
+             skos:prefLabel "trepanation"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#trinchera_del_ferrocarril
 :trinchera_del_ferrocarril rdf:type owl:NamedIndividual ,
                                     skos:Concept ;
@@ -12181,6 +14276,16 @@ skos:OrderedCollection rdf:type owl:Class ;
               skos:semanticRelation :site ;
               skos:notation 70 ;
               skos:prefLabel "tritons cave"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#tumbling
+:tumbling rdf:type owl:NamedIndividual ,
+                   skos:Concept ;
+          skos:broader :bone_surface_modifications ;
+          skos:broaderTransitive :bone_surface_modifications ;
+          skos:inScheme :taphonomy ;
+          skos:semanticRelation :bone_surface_modifications ;
+          skos:prefLabel "tumbling"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#tunisia
@@ -12277,6 +14382,16 @@ skos:OrderedCollection rdf:type owl:Class ;
           skos:semanticRelation :historical_period ;
           skos:notation 332 ;
           skos:prefLabel "uluzzian"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#ungulate_community
+:ungulate_community rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    skos:broader :ecology ;
+                    skos:broaderTransitive :ecology ;
+                    skos:inScheme :zooarchaeology ;
+                    skos:semanticRelation :ecology ;
+                    skos:prefLabel "ungulate community"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#untermassfeld
@@ -12541,6 +14656,73 @@ skos:OrderedCollection rdf:type owl:Class ;
           skos:prefLabel "verberie"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#violence
+:violence rdf:type owl:NamedIndividual ,
+                   skos:Concept ;
+          skos:broader :forensic_taphonomy ;
+          skos:broaderTransitive :forensic_taphonomy ;
+          skos:inScheme :taphonomy ;
+          skos:narrower :decapitation ,
+                        :interpersonal_violence ,
+                        :scapling ,
+                        :violencia ,
+                        :war ,
+                        :warfare ;
+          skos:narrowerTransitive :decapitation ,
+                                  :interpersonal_violence ,
+                                  :scapling ,
+                                  :violencia ,
+                                  :war ,
+                                  :warfare ;
+          skos:semanticRelation :decapitation ,
+                                :forensic_taphonomy ,
+                                :interpersonal_violence ,
+                                :scapling ,
+                                :violencia ,
+                                :war ,
+                                :warfare ;
+          skos:prefLabel "violence"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#violencia
+:violencia rdf:type owl:NamedIndividual ,
+                    skos:Concept ;
+           skos:broader :violence ;
+           skos:broaderTransitive :forensic_taphonomy ,
+                                  :violence ;
+           skos:inScheme :taphonomy ;
+           skos:semanticRelation :forensic_taphonomy ,
+                                 :violence ;
+           skos:notation 970 ;
+           skos:prefLabel "violencia"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#war
+:war rdf:type owl:NamedIndividual ,
+              skos:Concept ;
+     skos:broader :violence ;
+     skos:broaderTransitive :forensic_taphonomy ,
+                            :violence ;
+     skos:inScheme :taphonomy ;
+     skos:semanticRelation :forensic_taphonomy ,
+                           :violence ;
+     skos:notation 974 ;
+     skos:prefLabel "war"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#warfare
+:warfare rdf:type owl:NamedIndividual ,
+                  skos:Concept ;
+         skos:broader :violence ;
+         skos:broaderTransitive :forensic_taphonomy ,
+                                :violence ;
+         skos:inScheme :taphonomy ;
+         skos:semanticRelation :forensic_taphonomy ,
+                               :violence ;
+         skos:notation 973 ;
+         skos:prefLabel "warfare"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#water_flows
 :water_flows rdf:type owl:NamedIndividual ,
                       skos:Concept ;
@@ -12751,6 +14933,28 @@ skos:OrderedCollection rdf:type owl:Class ;
           skos:prefLabel "zanclean"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#zooarchaeology
+:zooarchaeology rdf:type owl:NamedIndividual ,
+                         skos:ConceptScheme ;
+                skos:hasTopConcept :anatomical_profiles ,
+                                   :animal_exploitation ,
+                                   :bone_surface_modifications ,
+                                   :carnivores ,
+                                   :ecology ,
+                                   :functionality ,
+                                   :garden_hunting ,
+                                   :garden_hunting-wildlife_management ,
+                                   :herbivore ,
+                                   :hunting_foraging ,
+                                   :mammalian_carnivores ,
+                                   :osteoarcheological_remains ,
+                                   :sheparding_farming ,
+                                   :skeletal_assemblage ,
+                                   :taxonomy ;
+                skos:notation 836 ;
+                skos:prefLabel "zooarchaeology"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#14c
 <http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#14c> rdf:type owl:NamedIndividual ,
                                                                                     skos:Concept ;
@@ -12796,8 +15000,8 @@ skos:OrderedCollection rdf:type owl:Class ;
 
 skos:altLabel skos:example "Acronyms, abbreviations, spelling variants, and irregular plural/singular forms may be included among the alternative labels for a concept. Mis-spelled terms are normally included as hidden labels (see skos:hiddenLabel)."@en ;
               rdfs:comment "skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise disjoint properties."@en ;
-              rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
               skos:definition "An alternative lexical label for a resource."@en ;
+              rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
               rdfs:label "alternative label"@en ;
               rdfs:comment "The range of skos:altLabel is the class of RDF plain literals."@en .
 
@@ -12828,7 +15032,6 @@ skos:note rdfs:label "note"@en ;
           skos:scopeNote "This property may be used directly, or as a super-property for more specific note types."@en ;
           rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
           skos:definition "A general note, for any purpose."@en .
-
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
