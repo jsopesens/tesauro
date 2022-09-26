@@ -8,7 +8,6 @@
 @base <http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords> .
 
 <http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords> rdf:type owl:Ontology ;
-                                                                        owl:imports <http://www.w3.org/2004/02/skos/core> ;
                                                                         <http://purl.org/dc/terms/contributor> "Dave Beckett" ,
                                                                                                                "Nikki Rogers" ,
                                                                                                                "Participants in W3C's Semantic Web Deployment Working Group." ;
@@ -56,6 +55,8 @@ skos:example rdf:type owl:AnnotationProperty ;
 skos:prefLabel rdf:type owl:AnnotationProperty ;
                rdfs:comment "A resource has no more than one value of skos:prefLabel per language tag, and no more than one value of skos:prefLabel without language tag."@en ,
                             "The range of skos:prefLabel is the class of RDF plain literals."@en ,
+                            """skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise
+      disjoint properties."""@en ,
                             """skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise
       disjoint properties."""@en ;
                rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
@@ -133,7 +134,11 @@ skos:exactMatch rdf:type owl:ObjectProperty ;
                                    ] ;
                 owl:inverseOf skos:exactMatch ;
                 rdf:type owl:SymmetricProperty ,
-                         owl:TransitiveProperty .
+                         owl:TransitiveProperty ;
+                rdfs:comment "skos:exactMatch is disjoint with each of the properties skos:broadMatch and skos:relatedMatch."@en ;
+                rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
+                rdfs:label "has exact match"@en ;
+                skos:definition "skos:exactMatch is used to link two concepts, indicating a high degree of confidence that the concepts can be used interchangeably across a wide range of information retrieval applications. skos:exactMatch is a transitive property, and is a sub-property of skos:closeMatch."@en .
 
 
 ###  http://www.w3.org/2004/02/skos/core#hasTopConcept
@@ -185,6 +190,8 @@ skos:memberList rdf:type owl:ObjectProperty ,
                 rdfs:domain skos:OrderedCollection ;
                 rdfs:range rdf:List ;
                 rdfs:comment """For any resource, every item in the list given as the value of the
+      skos:memberList property is also a value of the skos:member property."""@en ,
+                             """For any resource, every item in the list given as the value of the
       skos:memberList property is also a value of the skos:member property."""@en ;
                 rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
                 rdfs:label "has member list"@en ;
@@ -444,19 +451,21 @@ skos:OrderedCollection rdf:type owl:Class ;
                               :west_turkana ;
         skos:topConceptOf :place ;
         skos:notation 192 ;
-        skos:prefLabel "Africa"@en ,
-                       "Àfrica"@cat ,
-                       "África"@es .
+        skos:prefLabel "africa"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#african_humid_period
 :african_humid_period rdf:type owl:NamedIndividual ,
                                skos:Concept ;
-                      skos:broader :climatology_and_climate_events ;
+                      skos:broader :climate_periods ,
+                                   :climatology_and_climate_events ;
                       skos:broaderTransitive :chronology ,
+                                             :climate_periods ,
                                              :climatology_and_climate_events ;
-                      skos:inScheme :geoarchaeology ;
+                      skos:inScheme :geoarchaeology ,
+                                    :paleoecology ;
                       skos:semanticRelation :chronology ,
+                                            :climate_periods ,
                                             :climatology_and_climate_events ;
                       skos:notation 581 ;
                       skos:prefLabel "african humid period"@en .
@@ -604,6 +613,74 @@ skos:OrderedCollection rdf:type owl:Class ;
          skos:prefLabel "andorra"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#anthraco-typology
+:anthraco-typology rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader :applications ;
+                   skos:broaderTransitive :applications ;
+                   skos:inScheme :paleoecology ;
+                   skos:semanticRelation :applications ;
+                   skos:notation 781 ;
+                   skos:prefLabel "anthraco-typology"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#anthracology
+:anthracology rdf:type owl:NamedIndividual ,
+                       skos:Concept ;
+              skos:broader :archaeobotany ;
+              skos:broaderTransitive :archaeobotany ,
+                                     :archaeoecology ,
+                                     :disciplines ;
+              skos:inScheme :paleoecology ;
+              skos:semanticRelation :archaeobotany ,
+                                    :archaeoecology ,
+                                    :disciplines ;
+              skos:notation 776 ;
+              skos:prefLabel "anthracology"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#applications
+:applications rdf:type owl:NamedIndividual ,
+                       skos:Concept ;
+              skos:inScheme :paleoecology ;
+              skos:narrower :anthraco-typology ,
+                            :archaeopalynology ,
+                            :fire_ecology ,
+                            :multi-proxy_analysis ,
+                            :multidisciplinary_study ,
+                            :non-pollen_palynomorphs ,
+                            :palaeoclimatic_approach ,
+                            :palaeopalynology ,
+                            :pollen_identification ,
+                            :pollen_taphonomy ,
+                            :pollen_washes ;
+              skos:narrowerTransitive :anthraco-typology ,
+                                      :archaeopalynology ,
+                                      :fire_ecology ,
+                                      :multi-proxy_analysis ,
+                                      :multidisciplinary_study ,
+                                      :non-pollen_palynomorphs ,
+                                      :palaeoclimatic_approach ,
+                                      :palaeopalynology ,
+                                      :pollen_identification ,
+                                      :pollen_taphonomy ,
+                                      :pollen_washes ;
+              skos:semanticRelation :anthraco-typology ,
+                                    :archaeopalynology ,
+                                    :fire_ecology ,
+                                    :multi-proxy_analysis ,
+                                    :multidisciplinary_study ,
+                                    :non-pollen_palynomorphs ,
+                                    :palaeoclimatic_approach ,
+                                    :palaeopalynology ,
+                                    :pollen_identification ,
+                                    :pollen_taphonomy ,
+                                    :pollen_washes ;
+              skos:topConceptOf :paleoecology ;
+              skos:notation 780 ;
+              skos:prefLabel "applications"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#arago
 :arago rdf:type owl:NamedIndividual ,
                 skos:Concept ;
@@ -626,6 +703,93 @@ skos:OrderedCollection rdf:type owl:Class ;
                                skos:prefLabel "archaeo-palaeontological site"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#archaeobiology
+:archaeobiology rdf:type owl:NamedIndividual ,
+                         skos:Concept ;
+                skos:broader :disciplines ;
+                skos:broaderTransitive :disciplines ;
+                skos:inScheme :paleoecology ;
+                skos:semanticRelation :disciplines ;
+                skos:notation 766 ;
+                skos:prefLabel "archaeobiology"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#archaeobotany
+:archaeobotany rdf:type owl:NamedIndividual ,
+                        skos:Concept ;
+               skos:broader :archaeoecology ;
+               skos:broaderTransitive :archaeoecology ,
+                                      :disciplines ;
+               skos:inScheme :paleoecology ;
+               skos:narrower :anthracology ,
+                             :carpology ,
+                             :palynology_or_pollen_analysis ,
+                             :sedimentary_charcoal_analysis ;
+               skos:narrowerTransitive :anthracology ,
+                                       :carpology ,
+                                       :palynology_or_pollen_analysis ,
+                                       :sedimentary_charcoal_analysis ;
+               skos:semanticRelation :anthracology ,
+                                     :archaeoecology ,
+                                     :carpology ,
+                                     :disciplines ,
+                                     :palynology_or_pollen_analysis ,
+                                     :sedimentary_charcoal_analysis ;
+               skos:notation 775 ,
+                             776 ,
+                             777 ,
+                             778 ,
+                             779 ;
+               skos:prefLabel "archaeobotany"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#archaeoecology
+:archaeoecology rdf:type owl:NamedIndividual ,
+                         skos:Concept ;
+                skos:broader :disciplines ;
+                skos:broaderTransitive :disciplines ;
+                skos:inScheme :paleoecology ;
+                skos:narrower :archaeobotany ,
+                              :palaeobotany ;
+                skos:narrowerTransitive :anthracology ,
+                                        :archaeobotany ,
+                                        :carpology ,
+                                        :palaeobotany ,
+                                        :palynology_or_pollen_analysis ,
+                                        :sedimentary_charcoal_analysis ;
+                skos:semanticRelation :anthracology ,
+                                      :archaeobotany ,
+                                      :carpology ,
+                                      :disciplines ,
+                                      :palaeobotany ,
+                                      :palynology_or_pollen_analysis ,
+                                      :sedimentary_charcoal_analysis ;
+                skos:notation 773 ;
+                skos:prefLabel "archaeoecology"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#archaeological_hearths
+:archaeological_hearths rdf:type owl:NamedIndividual ,
+                                 skos:Concept ;
+                        skos:broader :burn_and_combustion ;
+                        skos:broaderTransitive :burn_and_combustion ;
+                        skos:inScheme :paleoecology ;
+                        skos:semanticRelation :burn_and_combustion ;
+                        skos:notation 825 ;
+                        skos:prefLabel "archaeological hearths"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#archaeological_parenchyma
+:archaeological_parenchyma rdf:type owl:NamedIndividual ,
+                                    skos:Concept ;
+                           skos:broader :object_of_study ;
+                           skos:broaderTransitive :object_of_study ;
+                           skos:inScheme :paleoecology ;
+                           skos:semanticRelation :object_of_study ;
+                           skos:notation 800 ;
+                           skos:prefLabel "archaeological parenchyma"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#archaeological_site
 :archaeological_site rdf:type owl:NamedIndividual ,
                               skos:Concept ;
@@ -633,6 +797,17 @@ skos:OrderedCollection rdf:type owl:Class ;
                      skos:topConceptOf :others ;
                      skos:notation 259 ;
                      skos:prefLabel "archaeological site"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#archaeological_wood_and_charcoal
+:archaeological_wood_and_charcoal rdf:type owl:NamedIndividual ,
+                                           skos:Concept ;
+                                  skos:broader :burn_and_combustion ;
+                                  skos:broaderTransitive :burn_and_combustion ;
+                                  skos:inScheme :paleoecology ;
+                                  skos:semanticRelation :burn_and_combustion ;
+                                  skos:notation 807 ;
+                                  skos:prefLabel "archaeological wood and charcoal"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#archaeomagnetism
@@ -646,6 +821,17 @@ skos:OrderedCollection rdf:type owl:Class ;
                                         :dating_methods ;
                   skos:notation 536 ;
                   skos:prefLabel "archaeomagnetism"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#archaeopalynology
+:archaeopalynology rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader :applications ;
+                   skos:broaderTransitive :applications ;
+                   skos:inScheme :paleoecology ;
+                   skos:semanticRelation :applications ;
+                   skos:notation 783 ;
+                   skos:prefLabel "archaeopalynology"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#archaic_and_classical_periods
@@ -753,6 +939,17 @@ skos:OrderedCollection rdf:type owl:Class ;
          skos:semanticRelation :asia ;
          skos:notation 210 ;
          skos:prefLabel "armenia"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#ashes
+:ashes rdf:type owl:NamedIndividual ,
+                skos:Concept ;
+       skos:broader :burn_and_combustion ;
+       skos:broaderTransitive :burn_and_combustion ;
+       skos:inScheme :paleoecology ;
+       skos:semanticRelation :burn_and_combustion ;
+       skos:notation 808 ;
+       skos:prefLabel "ashes"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#asia
@@ -1077,9 +1274,6 @@ skos:OrderedCollection rdf:type owl:Class ;
          skos:inScheme :lithic ;
          skos:semanticRelation :lithic_technology ;
          skos:notation 428 ;
-         skos:definition "Lithic artifact that has had flakes removed from both sides of the artifact."@en ,
-                         "Artefacte lític amb lasques extretes dels dos costats de l'artefacte."@cat ,
-                         "Artefacto lítico con lascas extraídas de ambos lados del artefacto."@es ;
          skos:prefLabel "bifaces"@en .
 
 
@@ -1150,6 +1344,28 @@ skos:OrderedCollection rdf:type owl:Class ;
                                          :climatology_and_climate_events ;
                    skos:notation 550 ;
                    skos:prefLabel "bioclimatic model"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#biogeography
+:biogeography rdf:type owl:NamedIndividual ,
+                       skos:Concept ;
+              skos:broader :disciplines ;
+              skos:broaderTransitive :disciplines ;
+              skos:inScheme :paleoecology ;
+              skos:semanticRelation :disciplines ;
+              skos:notation 769 ;
+              skos:prefLabel "biogeography"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#biomass_burning
+:biomass_burning rdf:type owl:NamedIndividual ,
+                          skos:Concept ;
+                 skos:broader :burn_and_combustion ;
+                 skos:broaderTransitive :burn_and_combustion ;
+                 skos:inScheme :paleoecology ;
+                 skos:semanticRelation :burn_and_combustion ;
+                 skos:notation 809 ;
+                 skos:prefLabel "biomass burning"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#biotic_regions
@@ -1326,6 +1542,17 @@ skos:OrderedCollection rdf:type owl:Class ;
                   skos:prefLabel "bosque de riofro"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#botanical_macroremains
+:botanical_macroremains rdf:type owl:NamedIndividual ,
+                                 skos:Concept ;
+                        skos:broader :object_of_study ;
+                        skos:broaderTransitive :object_of_study ;
+                        skos:inScheme :paleoecology ;
+                        skos:semanticRelation :object_of_study ;
+                        skos:notation 793 ;
+                        skos:prefLabel "botanical macroremains"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#britain
 :britain rdf:type owl:NamedIndividual ,
                   skos:Concept ;
@@ -1374,6 +1601,87 @@ skos:OrderedCollection rdf:type owl:Class ;
                            skos:prefLabel "brunhes-matuyama boundary"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#burn_and_combustion
+:burn_and_combustion rdf:type owl:NamedIndividual ,
+                              skos:Concept ;
+                     skos:inScheme :paleoecology ;
+                     skos:narrower :archaeological_hearths ,
+                                   :archaeological_wood_and_charcoal ,
+                                   :ashes ,
+                                   :biomass_burning ,
+                                   :burning ,
+                                   :burnt_bones ,
+                                   :charcoal ,
+                                   :charcoal_analysis ,
+                                   :charcoal_taphonomy ,
+                                   :combustion_structures ,
+                                   :controlled_use_of_fire ,
+                                   :dung_burning ,
+                                   :dung_management ,
+                                   :dung_spherulites ,
+                                   :fire ,
+                                   :fire_making ,
+                                   :firewood ,
+                                   :flash-pyrolysis ,
+                                   :hearth-related_accumulations ,
+                                   :hearth-related_activities ,
+                                   :hearths ,
+                                   :microscopic_charcoal ,
+                                   :pit_hearth ,
+                                   :wood_charcoal_analysis ;
+                     skos:narrowerTransitive :archaeological_hearths ,
+                                             :archaeological_wood_and_charcoal ,
+                                             :ashes ,
+                                             :biomass_burning ,
+                                             :burning ,
+                                             :burnt_bones ,
+                                             :charcoal ,
+                                             :charcoal_analysis ,
+                                             :charcoal_taphonomy ,
+                                             :combustion_structures ,
+                                             :controlled_use_of_fire ,
+                                             :dung_burning ,
+                                             :dung_management ,
+                                             :dung_spherulites ,
+                                             :fire ,
+                                             :fire_making ,
+                                             :firewood ,
+                                             :flash-pyrolysis ,
+                                             :hearth-related_accumulations ,
+                                             :hearth-related_activities ,
+                                             :hearths ,
+                                             :microscopic_charcoal ,
+                                             :pit_hearth ,
+                                             :wood_charcoal_analysis ;
+                     skos:semanticRelation :archaeological_hearths ,
+                                           :archaeological_wood_and_charcoal ,
+                                           :ashes ,
+                                           :biomass_burning ,
+                                           :burning ,
+                                           :burnt_bones ,
+                                           :charcoal ,
+                                           :charcoal_analysis ,
+                                           :charcoal_taphonomy ,
+                                           :combustion_structures ,
+                                           :controlled_use_of_fire ,
+                                           :dung_burning ,
+                                           :dung_management ,
+                                           :dung_spherulites ,
+                                           :fire ,
+                                           :fire_making ,
+                                           :firewood ,
+                                           :flash-pyrolysis ,
+                                           :hearth-related_accumulations ,
+                                           :hearth-related_activities ,
+                                           :hearths ,
+                                           :microscopic_charcoal ,
+                                           :pit_hearth ,
+                                           :wood_charcoal_analysis ;
+                     skos:topConceptOf :paleoecology ;
+                     skos:notation 806 ;
+                     skos:prefLabel "burn and combustion"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#burned_artifacts
 :burned_artifacts rdf:type owl:NamedIndividual ,
                            skos:Concept ;
@@ -1383,6 +1691,28 @@ skos:OrderedCollection rdf:type owl:Class ;
                   skos:semanticRelation :lithic_technology ;
                   skos:notation 447 ;
                   skos:prefLabel "burned artifacts"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#burning
+:burning rdf:type owl:NamedIndividual ,
+                  skos:Concept ;
+         skos:broader :burn_and_combustion ;
+         skos:broaderTransitive :burn_and_combustion ;
+         skos:inScheme :paleoecology ;
+         skos:semanticRelation :burn_and_combustion ;
+         skos:notation 810 ;
+         skos:prefLabel "burning"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#burnt_bones
+:burnt_bones rdf:type owl:NamedIndividual ,
+                      skos:Concept ;
+             skos:broader :burn_and_combustion ;
+             skos:broaderTransitive :burn_and_combustion ;
+             skos:inScheme :paleoecology ;
+             skos:semanticRelation :burn_and_combustion ;
+             skos:notation 811 ;
+             skos:prefLabel "burnt bones"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#c_and_n_stable_isotopes
@@ -1542,6 +1872,21 @@ skos:OrderedCollection rdf:type owl:Class ;
                skos:topConceptOf :others ;
                skos:notation 283 ;
                skos:prefLabel "carnivore den"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#carpology
+:carpology rdf:type owl:NamedIndividual ,
+                    skos:Concept ;
+           skos:broader :archaeobotany ;
+           skos:broaderTransitive :archaeobotany ,
+                                  :archaeoecology ,
+                                  :disciplines ;
+           skos:inScheme :paleoecology ;
+           skos:semanticRelation :archaeobotany ,
+                                 :archaeoecology ,
+                                 :disciplines ;
+           skos:notation 779 ;
+           skos:prefLabel "carpology"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#castelluccio
@@ -1824,6 +2169,39 @@ skos:OrderedCollection rdf:type owl:Class ;
               skos:semanticRelation :historical_period ;
               skos:notation 291 ;
               skos:prefLabel "chalcolithic"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#charcoal
+:charcoal rdf:type owl:NamedIndividual ,
+                   skos:Concept ;
+          skos:broader :burn_and_combustion ;
+          skos:broaderTransitive :burn_and_combustion ;
+          skos:inScheme :paleoecology ;
+          skos:semanticRelation :burn_and_combustion ;
+          skos:notation 812 ;
+          skos:prefLabel "charcoal"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#charcoal_analysis
+:charcoal_analysis rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader :burn_and_combustion ;
+                   skos:broaderTransitive :burn_and_combustion ;
+                   skos:inScheme :paleoecology ;
+                   skos:semanticRelation :burn_and_combustion ;
+                   skos:notation 813 ;
+                   skos:prefLabel "charcoal analysis"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#charcoal_taphonomy
+:charcoal_taphonomy rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    skos:broader :burn_and_combustion ;
+                    skos:broaderTransitive :burn_and_combustion ;
+                    skos:inScheme :paleoecology ;
+                    skos:semanticRelation :burn_and_combustion ;
+                    skos:notation 814 ;
+                    skos:prefLabel "charcoal taphonomy"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#chatelperronian
@@ -2173,6 +2551,51 @@ skos:OrderedCollection rdf:type owl:Class ;
                   skos:prefLabel "climate dynamics"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#climate_periods
+:climate_periods rdf:type owl:NamedIndividual ,
+                          skos:Concept ;
+                 skos:inScheme :paleoecology ;
+                 skos:narrower :african_humid_period ,
+                               :cold_period ,
+                               :holocene_atlantic_period ,
+                               :interglacial_climate ,
+                               :last_glacial ,
+                               :last_glacial_maximum ,
+                               :late_glacial ,
+                               :late_glacial-holocene ,
+                               :late_glacial_interstadial ,
+                               :late_glacial_maximum ,
+                               :penultimate_glacial_period ,
+                               :subboreal-subatlantic ;
+                 skos:narrowerTransitive :african_humid_period ,
+                                         :cold_period ,
+                                         :holocene_atlantic_period ,
+                                         :interglacial_climate ,
+                                         :last_glacial ,
+                                         :last_glacial_maximum ,
+                                         :late_glacial ,
+                                         :late_glacial-holocene ,
+                                         :late_glacial_interstadial ,
+                                         :late_glacial_maximum ,
+                                         :penultimate_glacial_period ,
+                                         :subboreal-subatlantic ;
+                 skos:semanticRelation :african_humid_period ,
+                                       :cold_period ,
+                                       :holocene_atlantic_period ,
+                                       :interglacial_climate ,
+                                       :last_glacial ,
+                                       :last_glacial_maximum ,
+                                       :late_glacial ,
+                                       :late_glacial-holocene ,
+                                       :late_glacial_interstadial ,
+                                       :late_glacial_maximum ,
+                                       :penultimate_glacial_period ,
+                                       :subboreal-subatlantic ;
+                 skos:topConceptOf :paleoecology ;
+                 skos:notation 834 ;
+                 skos:prefLabel "climate periods"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#climatic_events
 :climatic_events rdf:type owl:NamedIndividual ,
                           skos:Concept ;
@@ -2366,11 +2789,15 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#cold_period
 :cold_period rdf:type owl:NamedIndividual ,
                       skos:Concept ;
-             skos:broader :climatology_and_climate_events ;
+             skos:broader :climate_periods ,
+                          :climatology_and_climate_events ;
              skos:broaderTransitive :chronology ,
+                                    :climate_periods ,
                                     :climatology_and_climate_events ;
-             skos:inScheme :geoarchaeology ;
+             skos:inScheme :geoarchaeology ,
+                           :paleoecology ;
              skos:semanticRelation :chronology ,
+                                   :climate_periods ,
                                    :climatology_and_climate_events ;
              skos:notation 582 ;
              skos:prefLabel "cold period"@en .
@@ -2413,6 +2840,28 @@ skos:OrderedCollection rdf:type owl:Class ;
                                                            :isotopes_and_dating ;
                                      skos:notation 500 ;
                                      skos:prefLabel "combined u-series_esr dating method"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#combustion_structures
+:combustion_structures rdf:type owl:NamedIndividual ,
+                                skos:Concept ;
+                       skos:broader :burn_and_combustion ;
+                       skos:broaderTransitive :burn_and_combustion ;
+                       skos:inScheme :paleoecology ;
+                       skos:semanticRelation :burn_and_combustion ;
+                       skos:notation 823 ;
+                       skos:prefLabel "combustion structures"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#controlled_use_of_fire
+:controlled_use_of_fire rdf:type owl:NamedIndividual ,
+                                 skos:Concept ;
+                        skos:broader :burn_and_combustion ;
+                        skos:broaderTransitive :burn_and_combustion ;
+                        skos:inScheme :paleoecology ;
+                        skos:semanticRelation :burn_and_combustion ;
+                        skos:notation 815 ;
+                        skos:prefLabel "controlled use of fire"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#copper_age
@@ -2788,6 +3237,54 @@ skos:OrderedCollection rdf:type owl:Class ;
               skos:prefLabel "dinaric alps"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#disciplines
+:disciplines rdf:type owl:NamedIndividual ,
+                      skos:Concept ;
+             skos:inScheme :paleoecology ;
+             skos:narrower :archaeobiology ,
+                           :archaeoecology ,
+                           :biogeography ,
+                           :environmental_archaeology ,
+                           :palaeobiogeography ,
+                           :palaeobiology ,
+                           :palaeoclimatology ,
+                           :palaeoecology ,
+                           :palaeogeography ;
+             skos:narrowerTransitive :anthracology ,
+                                     :archaeobiology ,
+                                     :archaeobotany ,
+                                     :archaeoecology ,
+                                     :biogeography ,
+                                     :carpology ,
+                                     :environmental_archaeology ,
+                                     :palaeobiogeography ,
+                                     :palaeobiology ,
+                                     :palaeobotany ,
+                                     :palaeoclimatology ,
+                                     :palaeoecology ,
+                                     :palaeogeography ,
+                                     :palynology_or_pollen_analysis ,
+                                     :sedimentary_charcoal_analysis ;
+             skos:semanticRelation :anthracology ,
+                                   :archaeobiology ,
+                                   :archaeobotany ,
+                                   :archaeoecology ,
+                                   :biogeography ,
+                                   :carpology ,
+                                   :environmental_archaeology ,
+                                   :palaeobiogeography ,
+                                   :palaeobiology ,
+                                   :palaeobotany ,
+                                   :palaeoclimatology ,
+                                   :palaeoecology ,
+                                   :palaeogeography ,
+                                   :palynology_or_pollen_analysis ,
+                                   :sedimentary_charcoal_analysis ;
+             skos:topConceptOf :paleoecology ;
+             skos:notation 765 ;
+             skos:prefLabel "disciplines"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#dispersal
 :dispersal rdf:type owl:NamedIndividual ,
                     skos:Concept ;
@@ -2843,6 +3340,39 @@ skos:OrderedCollection rdf:type owl:Class ;
                                          :iberian_peninsula ;
                    skos:notation 147 ;
                    skos:prefLabel "duero river basin"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#dung_burning
+:dung_burning rdf:type owl:NamedIndividual ,
+                       skos:Concept ;
+              skos:broader :burn_and_combustion ;
+              skos:broaderTransitive :burn_and_combustion ;
+              skos:inScheme :paleoecology ;
+              skos:semanticRelation :burn_and_combustion ;
+              skos:notation 816 ;
+              skos:prefLabel "dung burning"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#dung_management
+:dung_management rdf:type owl:NamedIndividual ,
+                          skos:Concept ;
+                 skos:broader :burn_and_combustion ;
+                 skos:broaderTransitive :burn_and_combustion ;
+                 skos:inScheme :paleoecology ;
+                 skos:semanticRelation :burn_and_combustion ;
+                 skos:notation 817 ;
+                 skos:prefLabel "dung management"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#dung_spherulites
+:dung_spherulites rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader :burn_and_combustion ;
+                  skos:broaderTransitive :burn_and_combustion ;
+                  skos:inScheme :paleoecology ;
+                  skos:semanticRelation :burn_and_combustion ;
+                  skos:notation 818 ;
+                  skos:prefLabel "dung spherulites"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#early-middle_pleistocene
@@ -3291,12 +3821,16 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#environmental_archaeology
 :environmental_archaeology rdf:type owl:NamedIndividual ,
                                     skos:Concept ;
-                           skos:broader :climatology_and_climate_events ;
+                           skos:broader :climatology_and_climate_events ,
+                                        :disciplines ;
                            skos:broaderTransitive :chronology ,
-                                                  :climatology_and_climate_events ;
-                           skos:inScheme :geoarchaeology ;
+                                                  :climatology_and_climate_events ,
+                                                  :disciplines ;
+                           skos:inScheme :geoarchaeology ,
+                                         :paleoecology ;
                            skos:semanticRelation :chronology ,
-                                                 :climatology_and_climate_events ;
+                                                 :climatology_and_climate_events ,
+                                                 :disciplines ;
                            skos:notation 560 ;
                            skos:prefLabel "environmental archaeology"@en .
 
@@ -3317,12 +3851,16 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#environmental_changes
 :environmental_changes rdf:type owl:NamedIndividual ,
                                 skos:Concept ;
-                       skos:broader :climatology_and_climate_events ;
+                       skos:broader :climatology_and_climate_events ,
+                                    :object_of_study ;
                        skos:broaderTransitive :chronology ,
-                                              :climatology_and_climate_events ;
-                       skos:inScheme :geoarchaeology ;
+                                              :climatology_and_climate_events ,
+                                              :object_of_study ;
+                       skos:inScheme :geoarchaeology ,
+                                     :paleoecology ;
                        skos:semanticRelation :chronology ,
-                                             :climatology_and_climate_events ;
+                                             :climatology_and_climate_events ,
+                                             :object_of_study ;
                        skos:notation 562 ;
                        skos:prefLabel "environmental changes"@en .
 
@@ -3330,12 +3868,16 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#environmental_reconstruction
 :environmental_reconstruction rdf:type owl:NamedIndividual ,
                                        skos:Concept ;
-                              skos:broader :climatology_and_climate_events ;
+                              skos:broader :climatology_and_climate_events ,
+                                           :object_of_study ;
                               skos:broaderTransitive :chronology ,
-                                                     :climatology_and_climate_events ;
-                              skos:inScheme :geoarchaeology ;
+                                                     :climatology_and_climate_events ,
+                                                     :object_of_study ;
+                              skos:inScheme :geoarchaeology ,
+                                            :paleoecology ;
                               skos:semanticRelation :chronology ,
-                                                    :climatology_and_climate_events ;
+                                                    :climatology_and_climate_events ,
+                                                    :object_of_study ;
                               skos:notation 563 ;
                               skos:prefLabel "environmental reconstruction"@en .
 
@@ -3845,6 +4387,50 @@ skos:OrderedCollection rdf:type owl:Class ;
                          skos:prefLabel "final upper pleistocene"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#fire
+:fire rdf:type owl:NamedIndividual ,
+               skos:Concept ;
+      skos:broader :burn_and_combustion ;
+      skos:broaderTransitive :burn_and_combustion ;
+      skos:inScheme :paleoecology ;
+      skos:semanticRelation :burn_and_combustion ;
+      skos:notation 819 ;
+      skos:prefLabel "fire"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#fire_ecology
+:fire_ecology rdf:type owl:NamedIndividual ,
+                       skos:Concept ;
+              skos:broader :applications ;
+              skos:broaderTransitive :applications ;
+              skos:inScheme :paleoecology ;
+              skos:semanticRelation :applications ;
+              skos:notation 782 ;
+              skos:prefLabel "fire ecology"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#fire_making
+:fire_making rdf:type owl:NamedIndividual ,
+                      skos:Concept ;
+             skos:broader :burn_and_combustion ;
+             skos:broaderTransitive :burn_and_combustion ;
+             skos:inScheme :paleoecology ;
+             skos:semanticRelation :burn_and_combustion ;
+             skos:notation 820 ;
+             skos:prefLabel "fire making"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#firewood
+:firewood rdf:type owl:NamedIndividual ,
+                   skos:Concept ;
+          skos:broader :burn_and_combustion ;
+          skos:broaderTransitive :burn_and_combustion ;
+          skos:inScheme :paleoecology ;
+          skos:semanticRelation :burn_and_combustion ;
+          skos:notation 821 ;
+          skos:prefLabel "firewood"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#first_century_ad
 :first_century_ad rdf:type owl:NamedIndividual ,
                            skos:Concept ;
@@ -3876,6 +4462,17 @@ skos:OrderedCollection rdf:type owl:Class ;
                   skos:semanticRelation :lithic_study ;
                   skos:notation 475 ;
                   skos:prefLabel "flaking sequence"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#flash-pyrolysis
+:flash-pyrolysis rdf:type owl:NamedIndividual ,
+                          skos:Concept ;
+                 skos:broader :burn_and_combustion ;
+                 skos:broaderTransitive :burn_and_combustion ;
+                 skos:inScheme :paleoecology ;
+                 skos:semanticRelation :burn_and_combustion ;
+                 skos:notation 824 ;
+                 skos:prefLabel "flash-pyrolysis"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#fluvial_environment
@@ -4714,6 +5311,39 @@ skos:OrderedCollection rdf:type owl:Class ;
           skos:prefLabel "harpoons"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#hearth-related_accumulations
+:hearth-related_accumulations rdf:type owl:NamedIndividual ,
+                                       skos:Concept ;
+                              skos:broader :burn_and_combustion ;
+                              skos:broaderTransitive :burn_and_combustion ;
+                              skos:inScheme :paleoecology ;
+                              skos:semanticRelation :burn_and_combustion ;
+                              skos:notation 826 ;
+                              skos:prefLabel "hearth-related accumulations"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#hearth-related_activities
+:hearth-related_activities rdf:type owl:NamedIndividual ,
+                                    skos:Concept ;
+                           skos:broader :burn_and_combustion ;
+                           skos:broaderTransitive :burn_and_combustion ;
+                           skos:inScheme :paleoecology ;
+                           skos:semanticRelation :burn_and_combustion ;
+                           skos:notation 827 ;
+                           skos:prefLabel "hearth-related activities"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#hearths
+:hearths rdf:type owl:NamedIndividual ,
+                  skos:Concept ;
+         skos:broader :burn_and_combustion ;
+         skos:broaderTransitive :burn_and_combustion ;
+         skos:inScheme :paleoecology ;
+         skos:semanticRelation :burn_and_combustion ;
+         skos:notation 828 ;
+         skos:prefLabel "hearths"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#heavy-duty_scraper
 :heavy-duty_scraper rdf:type owl:NamedIndividual ,
                              skos:Concept ;
@@ -4982,15 +5612,30 @@ skos:OrderedCollection rdf:type owl:Class ;
           skos:prefLabel "holocene"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#holocene_atlantic_period
+:holocene_atlantic_period rdf:type owl:NamedIndividual ,
+                                   skos:Concept ;
+                          skos:broader :climate_periods ;
+                          skos:broaderTransitive :climate_periods ;
+                          skos:inScheme :paleoecology ;
+                          skos:semanticRelation :climate_periods ;
+                          skos:notation 835 ;
+                          skos:prefLabel "holocene atlantic period"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#holocene_climatic_changes
 :holocene_climatic_changes rdf:type owl:NamedIndividual ,
                                     skos:Concept ;
-                           skos:broader :climatology_and_climate_events ;
+                           skos:broader :climatology_and_climate_events ,
+                                        :object_of_study ;
                            skos:broaderTransitive :chronology ,
-                                                  :climatology_and_climate_events ;
-                           skos:inScheme :geoarchaeology ;
+                                                  :climatology_and_climate_events ,
+                                                  :object_of_study ;
+                           skos:inScheme :geoarchaeology ,
+                                         :paleoecology ;
                            skos:semanticRelation :chronology ,
-                                                 :climatology_and_climate_events ;
+                                                 :climatology_and_climate_events ,
+                                                 :object_of_study ;
                            skos:notation 566 ;
                            skos:prefLabel "holocene climatic changes"@en .
 
@@ -5056,7 +5701,6 @@ skos:OrderedCollection rdf:type owl:Class ;
               skos:inScheme :paleoanthropology ;
               skos:semanticRelation :human_evolution ;
               skos:notation 720 ;
-              skos:hiddenLabel "Pithecanthropus erectus"@en ;
               skos:prefLabel "homo erectus"@en .
 
 
@@ -5093,6 +5737,17 @@ skos:OrderedCollection rdf:type owl:Class ;
                  skos:semanticRelation :lithic_technology ;
                  skos:notation 406 ;
                  skos:prefLabel "human bone tool"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#human_disturbance
+:human_disturbance rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader :land_use_human_impact ;
+                   skos:broaderTransitive :land_use_human_impact ;
+                   skos:inScheme :paleoecology ;
+                   skos:semanticRelation :land_use_human_impact ;
+                   skos:notation 831 ;
+                   skos:prefLabel "human disturbance"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#human_evolution
@@ -5548,11 +6203,15 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#interglacial_climate
 :interglacial_climate rdf:type owl:NamedIndividual ,
                                skos:Concept ;
-                      skos:broader :climatology_and_climate_events ;
+                      skos:broader :climate_periods ,
+                                   :climatology_and_climate_events ;
                       skos:broaderTransitive :chronology ,
+                                             :climate_periods ,
                                              :climatology_and_climate_events ;
-                      skos:inScheme :geoarchaeology ;
+                      skos:inScheme :geoarchaeology ,
+                                    :paleoecology ;
                       skos:semanticRelation :chronology ,
+                                            :climate_periods ,
                                             :climatology_and_climate_events ;
                       skos:notation 567 ;
                       skos:prefLabel "interglacial climate"@en .
@@ -5658,7 +6317,6 @@ skos:OrderedCollection rdf:type owl:Class ;
           skos:semanticRelation :chronology ,
                                 :isotopes_and_dating ;
           skos:notation 502 ;
-          skos:exactMatch "https://vocabularis.crai.ub.edu/en/thub/concept/thub:981058505359306706" ;
           skos:prefLabel "isotopes"@en .
 
 
@@ -6155,6 +6813,35 @@ skos:OrderedCollection rdf:type owl:Class ;
                skos:prefLabel "lake banyoles"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#land_use_human_impact
+:land_use_human_impact rdf:type owl:NamedIndividual ,
+                                skos:Concept ;
+                       skos:inScheme :paleoecology ;
+                       skos:narrower :human_disturbance ,
+                                     :land_use_patterns ,
+                                     :neolithic_land-use ;
+                       skos:narrowerTransitive :human_disturbance ,
+                                               :land_use_patterns ,
+                                               :neolithic_land-use ;
+                       skos:semanticRelation :human_disturbance ,
+                                             :land_use_patterns ,
+                                             :neolithic_land-use ;
+                       skos:topConceptOf :paleoecology ;
+                       skos:notation 830 ;
+                       skos:prefLabel "land use/human impact"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#land_use_patterns
+:land_use_patterns rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader :land_use_human_impact ;
+                   skos:broaderTransitive :land_use_human_impact ;
+                   skos:inScheme :paleoecology ;
+                   skos:semanticRelation :land_use_human_impact ;
+                   skos:notation 832 ;
+                   skos:prefLabel "land use patterns"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#large-sized_toolkits
 :large-sized_toolkits rdf:type owl:NamedIndividual ,
                                skos:Concept ;
@@ -6202,11 +6889,15 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#last_glacial
 :last_glacial rdf:type owl:NamedIndividual ,
                        skos:Concept ;
-              skos:broader :climatology_and_climate_events ;
+              skos:broader :climate_periods ,
+                           :climatology_and_climate_events ;
               skos:broaderTransitive :chronology ,
+                                     :climate_periods ,
                                      :climatology_and_climate_events ;
-              skos:inScheme :geoarchaeology ;
+              skos:inScheme :geoarchaeology ,
+                            :paleoecology ;
               skos:semanticRelation :chronology ,
+                                    :climate_periods ,
                                     :climatology_and_climate_events ;
               skos:notation 589 ;
               skos:prefLabel "last glacial"@en .
@@ -6215,11 +6906,15 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#last_glacial_maximum
 :last_glacial_maximum rdf:type owl:NamedIndividual ,
                                skos:Concept ;
-                      skos:broader :climatology_and_climate_events ;
+                      skos:broader :climate_periods ,
+                                   :climatology_and_climate_events ;
                       skos:broaderTransitive :chronology ,
+                                             :climate_periods ,
                                              :climatology_and_climate_events ;
-                      skos:inScheme :geoarchaeology ;
+                      skos:inScheme :geoarchaeology ,
+                                    :paleoecology ;
                       skos:semanticRelation :chronology ,
+                                            :climate_periods ,
                                             :climatology_and_climate_events ;
                       skos:notation 590 ;
                       skos:prefLabel "last glacial maximum"@en .
@@ -6317,11 +7012,15 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#late_glacial
 :late_glacial rdf:type owl:NamedIndividual ,
                        skos:Concept ;
-              skos:broader :climatology_and_climate_events ;
+              skos:broader :climate_periods ,
+                           :climatology_and_climate_events ;
               skos:broaderTransitive :chronology ,
+                                     :climate_periods ,
                                      :climatology_and_climate_events ;
-              skos:inScheme :geoarchaeology ;
+              skos:inScheme :geoarchaeology ,
+                            :paleoecology ;
               skos:semanticRelation :chronology ,
+                                    :climate_periods ,
                                     :climatology_and_climate_events ;
               skos:notation 583 ;
               skos:prefLabel "late glacial"@en .
@@ -6330,11 +7029,15 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#late_glacial-holocene
 :late_glacial-holocene rdf:type owl:NamedIndividual ,
                                 skos:Concept ;
-                       skos:broader :climatology_and_climate_events ;
+                       skos:broader :climate_periods ,
+                                    :climatology_and_climate_events ;
                        skos:broaderTransitive :chronology ,
+                                              :climate_periods ,
                                               :climatology_and_climate_events ;
-                       skos:inScheme :geoarchaeology ;
+                       skos:inScheme :geoarchaeology ,
+                                     :paleoecology ;
                        skos:semanticRelation :chronology ,
+                                             :climate_periods ,
                                              :climatology_and_climate_events ;
                        skos:notation 586 ;
                        skos:prefLabel "late glacial-holocene"@en .
@@ -6343,11 +7046,15 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#late_glacial_interstadial
 :late_glacial_interstadial rdf:type owl:NamedIndividual ,
                                     skos:Concept ;
-                           skos:broader :climatology_and_climate_events ;
+                           skos:broader :climate_periods ,
+                                        :climatology_and_climate_events ;
                            skos:broaderTransitive :chronology ,
+                                                  :climate_periods ,
                                                   :climatology_and_climate_events ;
-                           skos:inScheme :geoarchaeology ;
+                           skos:inScheme :geoarchaeology ,
+                                         :paleoecology ;
                            skos:semanticRelation :chronology ,
+                                                 :climate_periods ,
                                                  :climatology_and_climate_events ;
                            skos:notation 584 ;
                            skos:prefLabel "late glacial interstadial"@en .
@@ -6356,11 +7063,15 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#late_glacial_maximum
 :late_glacial_maximum rdf:type owl:NamedIndividual ,
                                skos:Concept ;
-                      skos:broader :climatology_and_climate_events ;
+                      skos:broader :climate_periods ,
+                                   :climatology_and_climate_events ;
                       skos:broaderTransitive :chronology ,
+                                             :climate_periods ,
                                              :climatology_and_climate_events ;
-                      skos:inScheme :geoarchaeology ;
+                      skos:inScheme :geoarchaeology ,
+                                    :paleoecology ;
                       skos:semanticRelation :chronology ,
+                                            :climate_periods ,
                                             :climatology_and_climate_events ;
                       skos:notation 585 ;
                       skos:prefLabel "late glacial maximum"@en .
@@ -7437,6 +8148,20 @@ skos:OrderedCollection rdf:type owl:Class ;
             skos:prefLabel "microliths"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#microscopic_charcoal
+:microscopic_charcoal rdf:type owl:NamedIndividual ,
+                               skos:Concept ;
+                      skos:broader :burn_and_combustion ,
+                                   :object_of_study ;
+                      skos:broaderTransitive :burn_and_combustion ,
+                                             :object_of_study ;
+                      skos:inScheme :paleoecology ;
+                      skos:semanticRelation :burn_and_combustion ,
+                                            :object_of_study ;
+                      skos:notation 794 ;
+                      skos:prefLabel "microscopic charcoal"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#middle-early_late_pleistocene
 :middle-early_late_pleistocene rdf:type owl:NamedIndividual ,
                                         skos:Concept ;
@@ -7861,6 +8586,28 @@ skos:OrderedCollection rdf:type owl:Class ;
          skos:prefLabel "morocco"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#multi-proxy_analysis
+:multi-proxy_analysis rdf:type owl:NamedIndividual ,
+                               skos:Concept ;
+                      skos:broader :applications ;
+                      skos:broaderTransitive :applications ;
+                      skos:inScheme :paleoecology ;
+                      skos:semanticRelation :applications ;
+                      skos:notation 789 ;
+                      skos:prefLabel "multi-proxy analysis"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#multidisciplinary_study
+:multidisciplinary_study rdf:type owl:NamedIndividual ,
+                                  skos:Concept ;
+                         skos:broader :applications ;
+                         skos:broaderTransitive :applications ;
+                         skos:inScheme :paleoecology ;
+                         skos:semanticRelation :applications ;
+                         skos:notation 790 ;
+                         skos:prefLabel "multidisciplinary study"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#multilevel_caves
 :multilevel_caves rdf:type owl:NamedIndividual ,
                            skos:Concept ;
@@ -8150,6 +8897,17 @@ skos:OrderedCollection rdf:type owl:Class ;
                            skos:prefLabel "neolithic-medieval period"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#neolithic_land-use
+:neolithic_land-use rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    skos:broader :land_use_human_impact ;
+                    skos:broaderTransitive :land_use_human_impact ;
+                    skos:inScheme :paleoecology ;
+                    skos:semanticRelation :land_use_human_impact ;
+                    skos:notation 833 ;
+                    skos:prefLabel "neolithic land-use"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#neotropics
 :neotropics rdf:type owl:NamedIndividual ,
                      skos:Concept ;
@@ -8212,6 +8970,17 @@ skos:OrderedCollection rdf:type owl:Class ;
                                              :raw_materials ;
                        skos:notation 684 ;
                        skos:prefLabel "non-condensable gases"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#non-pollen_palynomorphs
+:non-pollen_palynomorphs rdf:type owl:NamedIndividual ,
+                                  skos:Concept ;
+                         skos:broader :applications ;
+                         skos:broaderTransitive :applications ;
+                         skos:inScheme :paleoecology ;
+                         skos:semanticRelation :applications ;
+                         skos:notation 786 ;
+                         skos:prefLabel "non-pollen palynomorphs"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#north_africa
@@ -8335,6 +9104,84 @@ skos:OrderedCollection rdf:type owl:Class ;
         skos:semanticRelation :america ;
         skos:notation 251 ;
         skos:prefLabel "oaxaca"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#object_of_study
+:object_of_study rdf:type owl:NamedIndividual ,
+                          skos:Concept ;
+                 skos:inScheme :paleoecology ;
+                 skos:narrower :archaeological_parenchyma ,
+                               :botanical_macroremains ,
+                               :environmental_changes ,
+                               :environmental_reconstruction ,
+                               :holocene_climatic_changes ,
+                               :microscopic_charcoal ,
+                               :palaeoclimate ,
+                               :palaeoenvironment ,
+                               :palaeoenvironment_reconstruction ,
+                               :palaeoenvironmental_evolution ,
+                               :palaeovegetation ,
+                               :paleoclimatic_reconstruction ,
+                               :paleotemperatures ,
+                               :past_vegetation ,
+                               :plant_communities ,
+                               :precipitation ,
+                               :rapid_climate_changes ,
+                               :root_canals ,
+                               :seasonal_climate ,
+                               :spores ,
+                               :vegetal_formation ,
+                               :vegetation ,
+                               :vegetation_dynamics ;
+                 skos:narrowerTransitive :archaeological_parenchyma ,
+                                         :botanical_macroremains ,
+                                         :environmental_changes ,
+                                         :environmental_reconstruction ,
+                                         :holocene_climatic_changes ,
+                                         :microscopic_charcoal ,
+                                         :palaeoclimate ,
+                                         :palaeoenvironment ,
+                                         :palaeoenvironment_reconstruction ,
+                                         :palaeoenvironmental_evolution ,
+                                         :palaeovegetation ,
+                                         :paleoclimatic_reconstruction ,
+                                         :paleotemperatures ,
+                                         :past_vegetation ,
+                                         :plant_communities ,
+                                         :precipitation ,
+                                         :rapid_climate_changes ,
+                                         :root_canals ,
+                                         :seasonal_climate ,
+                                         :spores ,
+                                         :vegetal_formation ,
+                                         :vegetation ,
+                                         :vegetation_dynamics ;
+                 skos:semanticRelation :archaeological_parenchyma ,
+                                       :botanical_macroremains ,
+                                       :environmental_changes ,
+                                       :environmental_reconstruction ,
+                                       :holocene_climatic_changes ,
+                                       :microscopic_charcoal ,
+                                       :palaeoclimate ,
+                                       :palaeoenvironment ,
+                                       :palaeoenvironment_reconstruction ,
+                                       :palaeoenvironmental_evolution ,
+                                       :palaeovegetation ,
+                                       :paleoclimatic_reconstruction ,
+                                       :paleotemperatures ,
+                                       :past_vegetation ,
+                                       :plant_communities ,
+                                       :precipitation ,
+                                       :rapid_climate_changes ,
+                                       :root_canals ,
+                                       :seasonal_climate ,
+                                       :spores ,
+                                       :vegetal_formation ,
+                                       :vegetation ,
+                                       :vegetation_dynamics ;
+                 skos:topConceptOf :paleoecology ;
+                 skos:notation 792 ;
+                 skos:prefLabel "object of study"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#obsidian
@@ -8565,15 +9412,98 @@ skos:OrderedCollection rdf:type owl:Class ;
                         skos:prefLabel "oxygen stable isotopes"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#palaeobiogeography
+:palaeobiogeography rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    skos:broader :disciplines ;
+                    skos:broaderTransitive :disciplines ;
+                    skos:inScheme :paleoecology ;
+                    skos:semanticRelation :disciplines ;
+                    skos:notation 772 ;
+                    skos:prefLabel "palaeobiogeography"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#palaeobiology
+:palaeobiology rdf:type owl:NamedIndividual ,
+                        skos:Concept ;
+               skos:broader :disciplines ;
+               skos:broaderTransitive :disciplines ;
+               skos:inScheme :paleoecology ;
+               skos:semanticRelation :disciplines ;
+               skos:notation 768 ;
+               skos:prefLabel "palaeobiology"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#palaeobotany
+:palaeobotany rdf:type owl:NamedIndividual ,
+                       skos:Concept ;
+              skos:broader :archaeoecology ;
+              skos:broaderTransitive :archaeoecology ,
+                                     :disciplines ;
+              skos:inScheme :paleoecology ;
+              skos:semanticRelation :archaeoecology ,
+                                    :disciplines ;
+              skos:notation 774 ;
+              skos:prefLabel "palaeobotany"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#palaeoclimate
+:palaeoclimate rdf:type owl:NamedIndividual ,
+                        skos:Concept ;
+               skos:broader :object_of_study ;
+               skos:broaderTransitive :object_of_study ;
+               skos:inScheme :paleoecology ;
+               skos:semanticRelation :object_of_study ;
+               skos:notation 804 ;
+               skos:prefLabel "palaeoclimate"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#palaeoclimatic_approach
+:palaeoclimatic_approach rdf:type owl:NamedIndividual ,
+                                  skos:Concept ;
+                         skos:broader :applications ;
+                         skos:broaderTransitive :applications ;
+                         skos:inScheme :paleoecology ;
+                         skos:semanticRelation :applications ;
+                         skos:notation 791 ;
+                         skos:prefLabel "palaeoclimatic approach"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#palaeoclimatology
+:palaeoclimatology rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader :disciplines ;
+                   skos:broaderTransitive :disciplines ;
+                   skos:inScheme :paleoecology ;
+                   skos:semanticRelation :disciplines ;
+                   skos:notation 771 ;
+                   skos:prefLabel "palaeoclimatology"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#palaeoecology
+:palaeoecology rdf:type owl:NamedIndividual ,
+                        skos:Concept ;
+               skos:broader :disciplines ;
+               skos:broaderTransitive :disciplines ;
+               skos:inScheme :paleoecology ;
+               skos:semanticRelation :disciplines ;
+               skos:notation 767 ;
+               skos:prefLabel "palaeoecology"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#palaeoenvironment
 :palaeoenvironment rdf:type owl:NamedIndividual ,
                             skos:Concept ;
-                   skos:broader :climatology_and_climate_events ;
+                   skos:broader :climatology_and_climate_events ,
+                                :object_of_study ;
                    skos:broaderTransitive :chronology ,
-                                          :climatology_and_climate_events ;
-                   skos:inScheme :geoarchaeology ;
+                                          :climatology_and_climate_events ,
+                                          :object_of_study ;
+                   skos:inScheme :geoarchaeology ,
+                                 :paleoecology ;
                    skos:semanticRelation :chronology ,
-                                         :climatology_and_climate_events ;
+                                         :climatology_and_climate_events ,
+                                         :object_of_study ;
                    skos:notation 573 ;
                    skos:prefLabel "palaeoenvironment"@en .
 
@@ -8581,12 +9511,16 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#palaeoenvironment_reconstruction
 :palaeoenvironment_reconstruction rdf:type owl:NamedIndividual ,
                                            skos:Concept ;
-                                  skos:broader :climatology_and_climate_events ;
+                                  skos:broader :climatology_and_climate_events ,
+                                               :object_of_study ;
                                   skos:broaderTransitive :chronology ,
-                                                         :climatology_and_climate_events ;
-                                  skos:inScheme :geoarchaeology ;
+                                                         :climatology_and_climate_events ,
+                                                         :object_of_study ;
+                                  skos:inScheme :geoarchaeology ,
+                                                :paleoecology ;
                                   skos:semanticRelation :chronology ,
-                                                        :climatology_and_climate_events ;
+                                                        :climatology_and_climate_events ,
+                                                        :object_of_study ;
                                   skos:notation 574 ;
                                   skos:prefLabel "palaeoenvironment reconstruction"@en .
 
@@ -8594,14 +9528,29 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#palaeoenvironmental_evolution
 :palaeoenvironmental_evolution rdf:type owl:NamedIndividual ,
                                         skos:Concept ;
-                               skos:broader :climatology_and_climate_events ;
+                               skos:broader :climatology_and_climate_events ,
+                                            :object_of_study ;
                                skos:broaderTransitive :chronology ,
-                                                      :climatology_and_climate_events ;
-                               skos:inScheme :geoarchaeology ;
+                                                      :climatology_and_climate_events ,
+                                                      :object_of_study ;
+                               skos:inScheme :geoarchaeology ,
+                                             :paleoecology ;
                                skos:semanticRelation :chronology ,
-                                                     :climatology_and_climate_events ;
+                                                     :climatology_and_climate_events ,
+                                                     :object_of_study ;
                                skos:notation 575 ;
                                skos:prefLabel "palaeoenvironmental evolution"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#palaeogeography
+:palaeogeography rdf:type owl:NamedIndividual ,
+                          skos:Concept ;
+                 skos:broader :disciplines ;
+                 skos:broaderTransitive :disciplines ;
+                 skos:inScheme :paleoecology ;
+                 skos:semanticRelation :disciplines ;
+                 skos:notation 770 ;
+                 skos:prefLabel "palaeogeography"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#palaeokarst_filling
@@ -8648,6 +9597,28 @@ skos:OrderedCollection rdf:type owl:Class ;
                        skos:prefLabel "palaeontological site"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#palaeopalynology
+:palaeopalynology rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader :applications ;
+                  skos:broaderTransitive :applications ;
+                  skos:inScheme :paleoecology ;
+                  skos:semanticRelation :applications ;
+                  skos:notation 784 ;
+                  skos:prefLabel "palaeopalynology"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#palaeovegetation
+:palaeovegetation rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader :object_of_study ;
+                  skos:broaderTransitive :object_of_study ;
+                  skos:inScheme :paleoecology ;
+                  skos:semanticRelation :object_of_study ;
+                  skos:notation 795 ;
+                  skos:prefLabel "palaeovegetation"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#paleoanthropological_sites
 :paleoanthropological_sites rdf:type owl:NamedIndividual ,
                                      skos:Concept ;
@@ -8678,8 +9649,31 @@ skos:OrderedCollection rdf:type owl:Class ;
                                       :paleoanthropological_sites ,
                                       :phylogeny ;
                    skos:notation 697 ;
-                   skos:altLabel "palaeoanthropology"@en ;
                    skos:prefLabel "paleoanthropology"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#paleoclimatic_reconstruction
+:paleoclimatic_reconstruction rdf:type owl:NamedIndividual ,
+                                       skos:Concept ;
+                              skos:broader :object_of_study ;
+                              skos:broaderTransitive :object_of_study ;
+                              skos:inScheme :paleoecology ;
+                              skos:semanticRelation :object_of_study ;
+                              skos:notation 805 ;
+                              skos:prefLabel "paleoclimatic reconstruction"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#paleoecology
+:paleoecology rdf:type owl:NamedIndividual ,
+                       skos:ConceptScheme ;
+              skos:hasTopConcept :applications ,
+                                 :burn_and_combustion ,
+                                 :climate_periods ,
+                                 :disciplines ,
+                                 :land_use_human_impact ,
+                                 :object_of_study ;
+              skos:notation 764 ;
+              skos:prefLabel "paleoecology"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#paleomagnetism
@@ -8711,14 +9705,33 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#paleotemperatures
 :paleotemperatures rdf:type owl:NamedIndividual ,
                             skos:Concept ;
-                   skos:broader :climatology_and_climate_events ;
+                   skos:broader :climatology_and_climate_events ,
+                                :object_of_study ;
                    skos:broaderTransitive :chronology ,
-                                          :climatology_and_climate_events ;
-                   skos:inScheme :geoarchaeology ;
+                                          :climatology_and_climate_events ,
+                                          :object_of_study ;
+                   skos:inScheme :geoarchaeology ,
+                                 :paleoecology ;
                    skos:semanticRelation :chronology ,
-                                         :climatology_and_climate_events ;
+                                         :climatology_and_climate_events ,
+                                         :object_of_study ;
                    skos:notation 576 ;
                    skos:prefLabel "paleotemperatures"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#palynology_or_pollen_analysis
+:palynology_or_pollen_analysis rdf:type owl:NamedIndividual ,
+                                        skos:Concept ;
+                               skos:broader :archaeobotany ;
+                               skos:broaderTransitive :archaeobotany ,
+                                                      :archaeoecology ,
+                                                      :disciplines ;
+                               skos:inScheme :paleoecology ;
+                               skos:semanticRelation :archaeobotany ,
+                                                     :archaeoecology ,
+                                                     :disciplines ;
+                               skos:notation 778 ;
+                               skos:prefLabel "palynology or pollen analysis"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#pampean_region
@@ -8767,6 +9780,17 @@ skos:OrderedCollection rdf:type owl:Class ;
                 skos:prefLabel "particle shape"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#past_vegetation
+:past_vegetation rdf:type owl:NamedIndividual ,
+                          skos:Concept ;
+                 skos:broader :object_of_study ;
+                 skos:broaderTransitive :object_of_study ;
+                 skos:inScheme :paleoecology ;
+                 skos:semanticRelation :object_of_study ;
+                 skos:notation 796 ;
+                 skos:prefLabel "past vegetation"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#payre
 :payre rdf:type owl:NamedIndividual ,
                 skos:Concept ;
@@ -8781,11 +9805,15 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#penultimate_glacial_period
 :penultimate_glacial_period rdf:type owl:NamedIndividual ,
                                      skos:Concept ;
-                            skos:broader :climatology_and_climate_events ;
+                            skos:broader :climate_periods ,
+                                         :climatology_and_climate_events ;
                             skos:broaderTransitive :chronology ,
+                                                   :climate_periods ,
                                                    :climatology_and_climate_events ;
-                            skos:inScheme :geoarchaeology ;
+                            skos:inScheme :geoarchaeology ,
+                                          :paleoecology ;
                             skos:semanticRelation :chronology ,
+                                                  :climate_periods ,
                                                   :climatology_and_climate_events ;
                             skos:notation 587 ;
                             skos:prefLabel "penultimate glacial period"@en .
@@ -8926,6 +9954,17 @@ skos:OrderedCollection rdf:type owl:Class ;
                skos:prefLabel "pirro nord 13"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#pit_hearth
+:pit_hearth rdf:type owl:NamedIndividual ,
+                     skos:Concept ;
+            skos:broader :burn_and_combustion ;
+            skos:broaderTransitive :burn_and_combustion ;
+            skos:inScheme :paleoecology ;
+            skos:semanticRelation :burn_and_combustion ;
+            skos:notation 829 ;
+            skos:prefLabel "pit hearth"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#place
 :place rdf:type owl:NamedIndividual ,
                 skos:ConceptScheme ;
@@ -8937,6 +9976,17 @@ skos:OrderedCollection rdf:type owl:Class ;
                           :site ;
        skos:notation 1 ;
        skos:prefLabel "place"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#plant_communities
+:plant_communities rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader :object_of_study ;
+                   skos:broaderTransitive :object_of_study ;
+                   skos:inScheme :paleoecology ;
+                   skos:semanticRelation :object_of_study ;
+                   skos:notation 797 ;
+                   skos:prefLabel "plant communities"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#pleistocene
@@ -9001,6 +10051,39 @@ skos:OrderedCollection rdf:type owl:Class ;
           skos:semanticRelation :geological_period ;
           skos:notation 370 ;
           skos:prefLabel "pliocene"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#pollen_identification
+:pollen_identification rdf:type owl:NamedIndividual ,
+                                skos:Concept ;
+                       skos:broader :applications ;
+                       skos:broaderTransitive :applications ;
+                       skos:inScheme :paleoecology ;
+                       skos:semanticRelation :applications ;
+                       skos:notation 787 ;
+                       skos:prefLabel "pollen identification"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#pollen_taphonomy
+:pollen_taphonomy rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader :applications ;
+                  skos:broaderTransitive :applications ;
+                  skos:inScheme :paleoecology ;
+                  skos:semanticRelation :applications ;
+                  skos:notation 785 ;
+                  skos:prefLabel "pollen taphonomy"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#pollen_washes
+:pollen_washes rdf:type owl:NamedIndividual ,
+                        skos:Concept ;
+               skos:broader :applications ;
+               skos:broaderTransitive :applications ;
+               skos:inScheme :paleoecology ;
+               skos:semanticRelation :applications ;
+               skos:notation 788 ;
+               skos:prefLabel "pollen washes"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#porphyry
@@ -9096,12 +10179,16 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#precipitation
 :precipitation rdf:type owl:NamedIndividual ,
                         skos:Concept ;
-               skos:broader :climatology_and_climate_events ;
+               skos:broader :climatology_and_climate_events ,
+                            :object_of_study ;
                skos:broaderTransitive :chronology ,
-                                      :climatology_and_climate_events ;
-               skos:inScheme :geoarchaeology ;
+                                      :climatology_and_climate_events ,
+                                      :object_of_study ;
+               skos:inScheme :geoarchaeology ,
+                             :paleoecology ;
                skos:semanticRelation :chronology ,
-                                     :climatology_and_climate_events ;
+                                     :climatology_and_climate_events ,
+                                     :object_of_study ;
                skos:notation 577 ;
                skos:prefLabel "precipitation"@en .
 
@@ -9293,12 +10380,16 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#rapid_climate_changes
 :rapid_climate_changes rdf:type owl:NamedIndividual ,
                                 skos:Concept ;
-                       skos:broader :climatology_and_climate_events ;
+                       skos:broader :climatology_and_climate_events ,
+                                    :object_of_study ;
                        skos:broaderTransitive :chronology ,
-                                              :climatology_and_climate_events ;
-                       skos:inScheme :geoarchaeology ;
+                                              :climatology_and_climate_events ,
+                                              :object_of_study ;
+                       skos:inScheme :geoarchaeology ,
+                                     :paleoecology ;
                        skos:semanticRelation :chronology ,
-                                             :climatology_and_climate_events ;
+                                             :climatology_and_climate_events ,
+                                             :object_of_study ;
                        skos:notation 578 ;
                        skos:prefLabel "rapid climate changes"@en .
 
@@ -9619,6 +10710,17 @@ skos:OrderedCollection rdf:type owl:Class ;
               skos:prefLabel "roman period"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#root_canals
+:root_canals rdf:type owl:NamedIndividual ,
+                      skos:Concept ;
+             skos:broader :object_of_study ;
+             skos:broaderTransitive :object_of_study ;
+             skos:inScheme :paleoecology ;
+             skos:semanticRelation :object_of_study ;
+             skos:notation 799 ;
+             skos:prefLabel "root canals"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#sabana_de_bogota
 :sabana_de_bogota rdf:type owl:NamedIndividual ,
                            skos:Concept ;
@@ -9718,14 +10820,33 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#seasonal_climate
 :seasonal_climate rdf:type owl:NamedIndividual ,
                            skos:Concept ;
-                  skos:broader :climatology_and_climate_events ;
+                  skos:broader :climatology_and_climate_events ,
+                               :object_of_study ;
                   skos:broaderTransitive :chronology ,
-                                         :climatology_and_climate_events ;
-                  skos:inScheme :geoarchaeology ;
+                                         :climatology_and_climate_events ,
+                                         :object_of_study ;
+                  skos:inScheme :geoarchaeology ,
+                                :paleoecology ;
                   skos:semanticRelation :chronology ,
-                                        :climatology_and_climate_events ;
+                                        :climatology_and_climate_events ,
+                                        :object_of_study ;
                   skos:notation 580 ;
                   skos:prefLabel "seasonal climate"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#sedimentary_charcoal_analysis
+:sedimentary_charcoal_analysis rdf:type owl:NamedIndividual ,
+                                        skos:Concept ;
+                               skos:broader :archaeobotany ;
+                               skos:broaderTransitive :archaeobotany ,
+                                                      :archaeoecology ,
+                                                      :disciplines ;
+                               skos:inScheme :paleoecology ;
+                               skos:semanticRelation :archaeobotany ,
+                                                     :archaeoecology ,
+                                                     :disciplines ;
+                               skos:notation 777 ;
+                               skos:prefLabel "sedimentary charcoal analysis"@en .
 
 
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#sedimentary_facies
@@ -10568,6 +11689,17 @@ skos:OrderedCollection rdf:type owl:Class ;
                skos:prefLabel "speleogenesis"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#spores
+:spores rdf:type owl:NamedIndividual ,
+                 skos:Concept ;
+        skos:broader :object_of_study ;
+        skos:broaderTransitive :object_of_study ;
+        skos:inScheme :paleoecology ;
+        skos:semanticRelation :object_of_study ;
+        skos:notation 798 ;
+        skos:prefLabel "spores"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#spy_1
 :spy_1 rdf:type owl:NamedIndividual ,
                 skos:Concept ;
@@ -10777,11 +11909,15 @@ skos:OrderedCollection rdf:type owl:Class ;
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#subboreal-subatlantic
 :subboreal-subatlantic rdf:type owl:NamedIndividual ,
                                 skos:Concept ;
-                       skos:broader :climatology_and_climate_events ;
+                       skos:broader :climate_periods ,
+                                    :climatology_and_climate_events ;
                        skos:broaderTransitive :chronology ,
+                                              :climate_periods ,
                                               :climatology_and_climate_events ;
-                       skos:inScheme :geoarchaeology ;
+                       skos:inScheme :geoarchaeology ,
+                                     :paleoecology ;
                        skos:semanticRelation :chronology ,
+                                             :climate_periods ,
                                              :climatology_and_climate_events ;
                        skos:notation 588 ;
                        skos:prefLabel "subboreal-subatlantic"@en .
@@ -11350,6 +12486,39 @@ skos:OrderedCollection rdf:type owl:Class ;
                skos:prefLabel "vanguard cave"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#vegetal_formation
+:vegetal_formation rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader :object_of_study ;
+                   skos:broaderTransitive :object_of_study ;
+                   skos:inScheme :paleoecology ;
+                   skos:semanticRelation :object_of_study ;
+                   skos:notation 801 ;
+                   skos:prefLabel "vegetal formation"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#vegetation
+:vegetation rdf:type owl:NamedIndividual ,
+                     skos:Concept ;
+            skos:broader :object_of_study ;
+            skos:broaderTransitive :object_of_study ;
+            skos:inScheme :paleoecology ;
+            skos:semanticRelation :object_of_study ;
+            skos:notation 802 ;
+            skos:prefLabel "vegetation"@en .
+
+
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#vegetation_dynamics
+:vegetation_dynamics rdf:type owl:NamedIndividual ,
+                              skos:Concept ;
+                     skos:broader :object_of_study ;
+                     skos:broaderTransitive :object_of_study ;
+                     skos:inScheme :paleoecology ;
+                     skos:semanticRelation :object_of_study ;
+                     skos:notation 803 ;
+                     skos:prefLabel "vegetation dynamics"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#venta_micena
 :venta_micena rdf:type owl:NamedIndividual ,
                        skos:Concept ;
@@ -11527,6 +12696,17 @@ skos:OrderedCollection rdf:type owl:Class ;
                 skos:prefLabel "wood artifacts"@en .
 
 
+###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#wood_charcoal_analysis
+:wood_charcoal_analysis rdf:type owl:NamedIndividual ,
+                                 skos:Concept ;
+                        skos:broader :burn_and_combustion ;
+                        skos:broaderTransitive :burn_and_combustion ;
+                        skos:inScheme :paleoecology ;
+                        skos:semanticRelation :burn_and_combustion ;
+                        skos:notation 822 ;
+                        skos:prefLabel "wood charcoal analysis"@en .
+
+
 ###  http://www.semanticweb.org/jsopesens/ontologies/2022/5/IphesKeywords#yehud
 :yehud rdf:type owl:NamedIndividual ,
                 skos:Concept ;
@@ -11614,10 +12794,40 @@ skos:OrderedCollection rdf:type owl:Class ;
 #    Annotations
 #################################################################
 
-skos:exactMatch rdfs:label "has exact match"@en ;
-                rdfs:comment "skos:exactMatch is disjoint with each of the properties skos:broadMatch and skos:relatedMatch."@en ;
-                rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
-                skos:definition "skos:exactMatch is used to link two concepts, indicating a high degree of confidence that the concepts can be used interchangeably across a wide range of information retrieval applications. skos:exactMatch is a transitive property, and is a sub-property of skos:closeMatch."@en .
+skos:altLabel skos:example "Acronyms, abbreviations, spelling variants, and irregular plural/singular forms may be included among the alternative labels for a concept. Mis-spelled terms are normally included as hidden labels (see skos:hiddenLabel)."@en ;
+              rdfs:comment "skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise disjoint properties."@en ;
+              rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
+              skos:definition "An alternative lexical label for a resource."@en ;
+              rdfs:label "alternative label"@en ;
+              rdfs:comment "The range of skos:altLabel is the class of RDF plain literals."@en .
+
+
+skos:changeNote rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
+                skos:definition "A note about a modification to a concept."@en ;
+                rdfs:label "change note"@en .
+
+
+skos:editorialNote rdfs:label "editorial note"@en ;
+                   rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
+                   skos:definition "A note for an editor, translator or maintainer of the vocabulary."@en .
+
+
+skos:hiddenLabel skos:definition "A lexical label for a resource that should be hidden when generating visual displays of the resource, but should still be accessible to free text search operations."@en ;
+                 rdfs:comment "The range of skos:hiddenLabel is the class of RDF plain literals."@en ;
+                 rdfs:label "hidden label"@en ;
+                 rdfs:comment "skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise disjoint properties."@en ;
+                 rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> .
+
+
+skos:historyNote skos:definition "A note about the past state/use/meaning of a concept."@en ;
+                 rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
+                 rdfs:label "history note"@en .
+
+
+skos:note rdfs:label "note"@en ;
+          skos:scopeNote "This property may be used directly, or as a super-property for more specific note types."@en ;
+          rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
+          skos:definition "A general note, for any purpose."@en .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
